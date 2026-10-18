@@ -1,0 +1,19 @@
+erDiagram
+  USERS ||--o{ ASSETS : owns
+  USERS ||--o{ SESSIONS : authenticates
+  ASSETS ||--o{ VULNERABILITIES : has
+  USERS ||--o{ NOTIFICATIONS : receives
+  USERS ||--o{ PLAYBOOKS : creates
+  PLAYBOOKS ||--o{ ACTIONS : contains
+  USERS o|--o{ ACTIONS : assigned
+  USERS ||--o{ ACTION_HISTORY : performs
+  USERS o|--o{ AUDIT_LOGS : generates
+  USERS { int id PK string username UK string password_hash string role string account_status }
+  ASSETS { int id PK string name int owner_id FK }
+  SESSIONS { string token_hash PK int user_id FK float expires_at }
+  VULNERABILITIES { int id PK int asset_id FK string title string description string cve_identifier float cvss_score string severity string discovery_source string status datetime created_at datetime resolution_date }
+  NOTIFICATIONS { int id PK int user_id FK string title string message string notification_type string severity string status datetime created_at datetime read_date }
+  PLAYBOOKS { int id PK string name string description string incident_category string severity int created_by FK datetime created_at }
+  ACTIONS { int id PK int playbook_id FK string description int step_number string status int assigned_user_id FK datetime completion_date }
+  ACTION_HISTORY { int id PK int action_id int playbook_id int actor_id FK string old_status string new_status int assigned_user_id FK datetime recorded_at }
+  AUDIT_LOGS { int id PK int user_id FK string action string description string severity string related_service datetime created_at }

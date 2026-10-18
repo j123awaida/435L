@@ -1,0 +1,217 @@
+{
+  "assets": [
+    {
+      "id": 1,
+      "name": "Lab server",
+      "owner_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Lab workstation",
+      "owner_id": 1
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": 2,
+      "title": "Workstation review",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-23456",
+      "cvss_score": 5.5,
+      "severity": "Medium",
+      "asset_id": 2,
+      "discovery_source": "Lab scanner",
+      "status": "Open",
+      "created_at": "2026-10-18T09:42:29.702997+00:00",
+      "resolution_date": null
+    }
+  ],
+  "notifications": [
+    {
+      "id": 2,
+      "user_id": 2,
+      "title": "Incident assigned",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Incident Assignment",
+      "severity": "High",
+      "status": "Unread",
+      "created_at": "2026-10-18T09:42:29.759859+00:00",
+      "read_date": null
+    }
+  ],
+  "playbooks": [
+    {
+      "id": 2,
+      "name": "Phishing investigation",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Phishing",
+      "severity": "Medium",
+      "created_by": 1,
+      "created_at": "2026-10-18T09:42:29.811892+00:00"
+    }
+  ],
+  "actions": [],
+  "action_history": [
+    {
+      "id": 1,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": null,
+      "new_status": "Pending",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.819986+00:00"
+    },
+    {
+      "id": 2,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": null,
+      "new_status": "Pending",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.822257+00:00"
+    },
+    {
+      "id": 3,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "Pending",
+      "new_status": "In Progress",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.828528+00:00"
+    },
+    {
+      "id": 4,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "In Progress",
+      "new_status": "Completed",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.830590+00:00"
+    },
+    {
+      "id": 5,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "Pending",
+      "new_status": "In Progress",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.832546+00:00"
+    },
+    {
+      "id": 6,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "In Progress",
+      "new_status": "Completed",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-18T09:42:29.834608+00:00"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Identity",
+      "created_at": "2026-10-18T09:42:29.087871+00:00"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Identity",
+      "created_at": "2026-10-18T09:42:29.234917+00:00"
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Identity",
+      "created_at": "2026-10-18T09:42:29.380025+00:00"
+    },
+    {
+      "id": 4,
+      "user_id": 4,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Identity",
+      "created_at": "2026-10-18T09:42:29.524820+00:00"
+    },
+    {
+      "id": 5,
+      "user_id": null,
+      "action": "Login failed",
+      "description": "Invalid credentials or inactive account",
+      "severity": "Warning",
+      "related_service": "Identity",
+      "created_at": "2026-10-18T09:42:29.668069+00:00"
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Joseph-Awaida/vulnerabilities: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-18T09:42:29.725011+00:00"
+    },
+    {
+      "id": 7,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/vulnerabilities/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-18T09:42:29.737499+00:00"
+    },
+    {
+      "id": 8,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Joseph-Awaida/notifications/1: Access to another user\u2019s notifications is forbidden",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-18T09:42:29.766748+00:00"
+    },
+    {
+      "id": 9,
+      "user_id": 4,
+      "action": "Permission denied",
+      "description": "PUT /Joseph-Awaida/notifications/1/read: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-18T09:42:29.776762+00:00"
+    },
+    {
+      "id": 10,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/notifications/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-18T09:42:29.782877+00:00"
+    },
+    {
+      "id": 11,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/playbooks/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-18T09:42:29.838081+00:00"
+    }
+  ]
+}

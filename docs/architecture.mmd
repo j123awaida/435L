@@ -1,0 +1,11 @@
+flowchart LR
+  Client[Postman / API clients] --> Identity[Identity adapter :8000]
+  Client --> V[Service 7 :8007]
+  Client --> N[Service 8 :8008]
+  Client --> P[Service 9 :8009]
+  Identity --> DB[(Shared SQLite)]
+  V --> DB
+  N --> DB
+  P --> DB
+  Team[Team services 1-6: integration pending] -. agreed HTTP contracts .-> V
+  Team -. notification creation HTTP API .-> N

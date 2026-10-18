@@ -1,0 +1,1197 @@
+{
+  "captured_at": "2026-10-18T09:42:29.841271+00:00",
+  "source": "Real HTTP calls to local Uvicorn processes; not Postman screenshots",
+  "results": [
+    {
+      "name": "Login admin",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/Joseph-Awaida/auth/login",
+      "request_body": {
+        "username": "admin",
+        "password": "[REDACTED]"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 3600,
+        "user_id": 1,
+        "role": "admin"
+      }
+    },
+    {
+      "name": "Login analyst",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/Joseph-Awaida/auth/login",
+      "request_body": {
+        "username": "analyst",
+        "password": "[REDACTED]"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 3600,
+        "user_id": 2,
+        "role": "analyst"
+      }
+    },
+    {
+      "name": "Login employee",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/Joseph-Awaida/auth/login",
+      "request_body": {
+        "username": "employee",
+        "password": "[REDACTED]"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 3600,
+        "user_id": 3,
+        "role": "employee"
+      }
+    },
+    {
+      "name": "Login auditor",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/Joseph-Awaida/auth/login",
+      "request_body": {
+        "username": "auditor",
+        "password": "[REDACTED]"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "access_token": "[REDACTED]",
+        "token_type": "bearer",
+        "expires_in": 3600,
+        "user_id": 4,
+        "role": "auditor"
+      }
+    },
+    {
+      "name": "Reject incorrect password",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/Joseph-Awaida/auth/login",
+      "request_body": {
+        "username": "admin",
+        "password": "[REDACTED]"
+      },
+      "expected_status": 401,
+      "actual_status": 401,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Invalid credentials or inactive account"
+      }
+    },
+    {
+      "name": "Create critical vulnerability",
+      "method": "POST",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "Open",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": null
+      }
+    },
+    {
+      "name": "Create second vulnerability",
+      "method": "POST",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": {
+        "title": "Workstation review",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-23456",
+        "cvss_score": 5.5,
+        "severity": "Medium",
+        "asset_id": 2,
+        "discovery_source": "Lab scanner"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "title": "Workstation review",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-23456",
+        "cvss_score": 5.5,
+        "severity": "Medium",
+        "asset_id": 2,
+        "discovery_source": "Lab scanner",
+        "status": "Open",
+        "created_at": "2026-10-18T09:42:29.702997+00:00",
+        "resolution_date": null
+      }
+    },
+    {
+      "name": "Retrieve vulnerabilities",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "resolution_date": null
+        },
+        {
+          "id": 2,
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        }
+      ]
+    },
+    {
+      "name": "Retrieve vulnerability",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "Open",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": null
+      }
+    },
+    {
+      "name": "Missing vulnerability",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/99999999",
+      "request_body": null,
+      "expected_status": 404,
+      "actual_status": 404,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Vulnerabilitie not found"
+      }
+    },
+    {
+      "name": "Search severity=Critical",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?severity=Critical",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "resolution_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search asset_id=2",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?asset_id=2",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 2,
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search cve_identifier=CVE-2026-12345",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?cve_identifier=CVE-2026-12345",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "resolution_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search status=Open",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?status=Open",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "resolution_date": null
+        },
+        {
+          "id": 2,
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "status": "Open",
+          "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        }
+      ]
+    },
+    {
+      "name": "Reject CVSS above ten",
+      "method": "POST",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 11,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner"
+      },
+      "expected_status": 422,
+      "actual_status": 422,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Invalid request",
+        "errors": [
+          {
+            "field": "body.cvss_score",
+            "message": "Input should be less than or equal to 10"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reject missing title",
+      "method": "POST",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": {
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner"
+      },
+      "expected_status": 422,
+      "actual_status": 422,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Invalid request",
+        "errors": [
+          {
+            "field": "body.title",
+            "message": "Field required"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reject employee access",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Role does not permit this operation"
+      }
+    },
+    {
+      "name": "Reject missing token",
+      "method": "GET",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities",
+      "request_body": null,
+      "expected_status": 401,
+      "actual_status": 401,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Bearer token required"
+      }
+    },
+    {
+      "name": "Reject lifecycle skip",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": {
+        "status": "Closed"
+      },
+      "expected_status": 409,
+      "actual_status": 409,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Vulnerability must advance one lifecycle step at a time"
+      }
+    },
+    {
+      "name": "Advance vulnerability to Under Investigation",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": {
+        "status": "Under Investigation"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "Under Investigation",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": null
+      }
+    },
+    {
+      "name": "Advance vulnerability to In Progress",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": {
+        "status": "In Progress"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "In Progress",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": null
+      }
+    },
+    {
+      "name": "Advance vulnerability to Resolved",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": {
+        "status": "Resolved"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "Resolved",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": "2026-10-18T09:42:29.733856+00:00"
+      }
+    },
+    {
+      "name": "Advance vulnerability to Closed",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": {
+        "status": "Closed"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "status": "Closed",
+        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "resolution_date": "2026-10-18T09:42:29.733856+00:00"
+      }
+    },
+    {
+      "name": "Reject analyst deletion",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Role does not permit this operation"
+      }
+    },
+    {
+      "name": "Delete vulnerability",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "message": "Vulnerability deleted"
+      }
+    },
+    {
+      "name": "Create employee alert",
+      "method": "POST",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications",
+      "request_body": {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "status": "Unread",
+        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "read_date": null
+      }
+    },
+    {
+      "name": "Create analyst alert",
+      "method": "POST",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications",
+      "request_body": {
+        "user_id": 2,
+        "title": "Incident assigned",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Incident Assignment",
+        "severity": "High"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "user_id": 2,
+        "title": "Incident assigned",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Incident Assignment",
+        "severity": "High",
+        "status": "Unread",
+        "created_at": "2026-10-18T09:42:29.759859+00:00",
+        "read_date": null
+      }
+    },
+    {
+      "name": "Retrieve own notifications",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/user/3",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "read_date": null
+        }
+      ]
+    },
+    {
+      "name": "Retrieve empty notifications",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/user/4",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": []
+    },
+    {
+      "name": "Retrieve specific notification",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "status": "Unread",
+        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "read_date": null
+      }
+    },
+    {
+      "name": "Reject another user notification",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Access to another user\u2019s notifications is forbidden"
+      }
+    },
+    {
+      "name": "Missing notification",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/99999999",
+      "request_body": null,
+      "expected_status": 404,
+      "actual_status": 404,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Notification not found"
+      }
+    },
+    {
+      "name": "Search user_id=3",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/search?user_id=3",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "read_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search notification_type=Security%20Alert",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/search?notification_type=Security%20Alert",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "read_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search severity=High",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/search?severity=High",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "read_date": null
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.759859+00:00",
+          "read_date": null
+        }
+      ]
+    },
+    {
+      "name": "Search status=Unread",
+      "method": "GET",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/search?status=Unread",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "read_date": null
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "status": "Unread",
+          "created_at": "2026-10-18T09:42:29.759859+00:00",
+          "read_date": null
+        }
+      ]
+    },
+    {
+      "name": "Reject auditor marking read",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Role does not permit this operation"
+      }
+    },
+    {
+      "name": "Mark own notification read",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "status": "Read",
+        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "read_date": "2026-10-18T09:42:29.779083+00:00"
+      }
+    },
+    {
+      "name": "Repeat mark read",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "status": "Read",
+        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "read_date": "2026-10-18T09:42:29.779083+00:00"
+      }
+    },
+    {
+      "name": "Reject employee deletion",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Role does not permit this operation"
+      }
+    },
+    {
+      "name": "Delete notification",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "message": "Notification deleted"
+      }
+    },
+    {
+      "name": "Create playbook",
+      "method": "POST",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks",
+      "request_body": {
+        "name": "Malware containment",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Malware",
+        "severity": "High"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "name": "Malware containment",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Malware",
+        "severity": "High",
+        "created_by": 1,
+        "created_at": "2026-10-18T09:42:29.809099+00:00"
+      }
+    },
+    {
+      "name": "Create second playbook",
+      "method": "POST",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks",
+      "request_body": {
+        "name": "Phishing investigation",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Phishing",
+        "severity": "Medium"
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "name": "Phishing investigation",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Phishing",
+        "severity": "Medium",
+        "created_by": 1,
+        "created_at": "2026-10-18T09:42:29.811892+00:00"
+      }
+    },
+    {
+      "name": "List playbooks",
+      "method": "GET",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": [
+        {
+          "id": 1,
+          "name": "Malware containment",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Malware",
+          "severity": "High",
+          "created_by": 1,
+          "created_at": "2026-10-18T09:42:29.809099+00:00"
+        },
+        {
+          "id": 2,
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "created_by": 1,
+          "created_at": "2026-10-18T09:42:29.811892+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Retrieve playbook",
+      "method": "GET",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "name": "Malware containment",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Malware",
+        "severity": "High",
+        "created_by": 1,
+        "created_at": "2026-10-18T09:42:29.809099+00:00",
+        "actions": []
+      }
+    },
+    {
+      "name": "Missing playbook",
+      "method": "GET",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/99999999",
+      "request_body": null,
+      "expected_status": 404,
+      "actual_status": 404,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Playbook not found"
+      }
+    },
+    {
+      "name": "Add response step 1",
+      "method": "POST",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "request_body": {
+        "description": "Isolate asset",
+        "step_number": 1,
+        "assigned_user_id": 2
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "playbook_id": 1,
+        "description": "Isolate asset",
+        "step_number": 1,
+        "status": "Pending",
+        "assigned_user_id": 2,
+        "completion_date": null
+      }
+    },
+    {
+      "name": "Add response step 2",
+      "method": "POST",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "request_body": {
+        "description": "Investigate artifacts",
+        "step_number": 2,
+        "assigned_user_id": 2
+      },
+      "expected_status": 201,
+      "actual_status": 201,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "playbook_id": 1,
+        "description": "Investigate artifacts",
+        "step_number": 2,
+        "status": "Pending",
+        "assigned_user_id": 2,
+        "completion_date": null
+      }
+    },
+    {
+      "name": "Reject duplicate step",
+      "method": "POST",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "request_body": {
+        "description": "Duplicate",
+        "step_number": 1
+      },
+      "expected_status": 409,
+      "actual_status": 409,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Database constraint conflict"
+      }
+    },
+    {
+      "name": "Reject out of order action",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/actions/2/status",
+      "request_body": {
+        "status": "In Progress"
+      },
+      "expected_status": 409,
+      "actual_status": 409,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Complete earlier response steps first"
+      }
+    },
+    {
+      "name": "Step 1 In Progress",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/actions/1/status",
+      "request_body": {
+        "status": "In Progress"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "playbook_id": 1,
+        "description": "Isolate asset",
+        "step_number": 1,
+        "status": "In Progress",
+        "assigned_user_id": 2,
+        "completion_date": null
+      }
+    },
+    {
+      "name": "Step 1 Completed",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/actions/1/status",
+      "request_body": {
+        "status": "Completed"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "playbook_id": 1,
+        "description": "Isolate asset",
+        "step_number": 1,
+        "status": "Completed",
+        "assigned_user_id": 2,
+        "completion_date": "2026-10-18T09:42:29.830466+00:00"
+      }
+    },
+    {
+      "name": "Step 2 In Progress",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/actions/2/status",
+      "request_body": {
+        "status": "In Progress"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "playbook_id": 1,
+        "description": "Investigate artifacts",
+        "step_number": 2,
+        "status": "In Progress",
+        "assigned_user_id": 2,
+        "completion_date": null
+      }
+    },
+    {
+      "name": "Step 2 Completed",
+      "method": "PUT",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/actions/2/status",
+      "request_body": {
+        "status": "Completed"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 2,
+        "playbook_id": 1,
+        "description": "Investigate artifacts",
+        "step_number": 2,
+        "status": "Completed",
+        "assigned_user_id": 2,
+        "completion_date": "2026-10-18T09:42:29.834447+00:00"
+      }
+    },
+    {
+      "name": "Retrieve completed workflow",
+      "method": "GET",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "id": 1,
+        "name": "Malware containment",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Malware",
+        "severity": "High",
+        "created_by": 1,
+        "created_at": "2026-10-18T09:42:29.809099+00:00",
+        "actions": [
+          {
+            "id": 1,
+            "playbook_id": 1,
+            "description": "Isolate asset",
+            "step_number": 1,
+            "status": "Completed",
+            "assigned_user_id": 2,
+            "completion_date": "2026-10-18T09:42:29.830466+00:00"
+          },
+          {
+            "id": 2,
+            "playbook_id": 1,
+            "description": "Investigate artifacts",
+            "step_number": 2,
+            "status": "Completed",
+            "assigned_user_id": 2,
+            "completion_date": "2026-10-18T09:42:29.834447+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reject analyst deleting playbook",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "request_body": null,
+      "expected_status": 403,
+      "actual_status": 403,
+      "passed": true,
+      "response": {
+        "status": "error",
+        "message": "Role does not permit this operation"
+      }
+    },
+    {
+      "name": "Delete playbook",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "request_body": null,
+      "expected_status": 200,
+      "actual_status": 200,
+      "passed": true,
+      "response": {
+        "message": "Playbook and actions deleted; execution history preserved"
+      }
+    }
+  ]
+}
