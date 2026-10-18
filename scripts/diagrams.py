@@ -40,9 +40,10 @@ def generate():
       'n':((620,340,890,470),'Service 8 :8008',['Notifications + read tracking']),
       'p':((915,340,1185,470),'Service 9 :8009',['Playbooks + ordered actions']),
       'db':((340,600,880,770),'Shared SQLite database',['Owned service tables + reference identities/assets','Local audit records; retained action history']),
-      'team':((340,875,880,1010),'Team integration boundaries',['Services 1, 2, 5: agreed HTTP contracts pending','Upstream events call notification HTTP API'])}
-    edges=[('client',k,'HTTP') for k in ('auth','v','n','p')]+[(k,'db','') for k in ('auth','v','n','p')]+[('db','team','')]
-    diagram('docs/architecture.png','Service architecture',boxes,edges,(1220,1050))
+      'worker':((340,820,880,945),'Notification delivery worker',['Retries queued vulnerability alerts through HTTP','Idempotency receipts prevent duplicate notifications']),
+      'team':((340,1020,880,1160),'Team integration boundaries',['Services 1, 2, 5: agreed HTTP contracts pending','Upstream events call notification HTTP API'])}
+    edges=[('client',k,'HTTP') for k in ('auth','v','n','p')]+[(k,'db','') for k in ('auth','v','n','p')]+[('db','worker',''),('worker','n','HTTP'),('worker','team','')]
+    diagram('docs/architecture.png','Service architecture',boxes,edges,(1220,1200))
     boxes={
       'users':((460,120,790,350),'users (reference)',['PK id | UNIQUE username','full_name, password_hash','role, account_status']),
       'assets':((40,440,350,620),'assets (reference)',['PK id | FK owner_id -> users','name']),
@@ -52,9 +53,11 @@ def generate():
       'p':((900,440,1250,700),'playbooks',['PK id | FK created_by -> users','name, description, category','severity, created_at']),
       'a':((900,820,1250,1110),'actions',['PK id | FK playbook_id','FK assigned_user_id -> users','description, step_number','status, completion_date','UNIQUE(playbook_id, step_number)']),
       'h':((460,1220,830,1500),'action_history (retained)',['PK id | FK actor_id -> users','FK assigned_user_id -> users','action_id, playbook_id: retained IDs','old_status, new_status, recorded_at']),
+      'outbox':((40,1620,550,1820),'notification_outbox',['PK event_id | JSON payload','status, attempts, last_error, timestamps']),
+      'receipts':((700,1620,1210,1820),'notification_receipts',['PK event_id | payload_hash','original response_json; duplicate protection']),
       'audit':((40,1240,390,1480),'audit_logs (local adapter)',['PK id | FK user_id -> users','action, description, severity','related_service, created_at'])}
     edges=[('users','assets','1:N'),('users','sessions','1:N'),('assets','v','1:N'),('users','n','1:N'),('users','p','1:N'),('p','a','1:N'),('a','h','IDs retained'),('users','audit','1:N')]
-    diagram('docs/schema.png','Relational schema and integration references',boxes,edges,(1290,1550))
+    diagram('docs/schema.png','Relational schema and integration references',boxes,edges,(1290,1870))
 
 if __name__=='__main__':
     generate()

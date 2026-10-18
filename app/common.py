@@ -19,6 +19,13 @@ def create_app(title):
         initialize()
         yield
     app = FastAPI(title=title, version='1.0.0', lifespan=lifespan)
+    @app.middleware('http')
+    async def record_modifications(request, call_next):
+        response = await call_next(request)
+        actor = getattr(request.state, 'user_id', None)
+        if actor is not None and request.method in ('POST', 'PUT', 'PATCH', 'DELETE') and 200 <= response.status_code < 300:
+            audit(actor, 'Data modification', f'{request.method} {request.url.path}', title)
+        return response
     @app.exception_handler(HTTPException)
     async def http_error(request, exc):
         return JSONResponse(status_code=exc.status_code, content={'status':'error','message':exc.detail}, headers=exc.headers)

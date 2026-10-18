@@ -27,7 +27,7 @@ def audit(user_id, action, description, service, severity='Information'):
         db.execute('INSERT INTO audit_logs(user_id,action,description,severity,related_service,created_at) VALUES(?,?,?,?,?,?)',
                    (user_id, action, description, severity, service, now()))
 
-def identity(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)):
+def identity(request: Request, credentials: HTTPAuthorizationCredentials | None = Depends(bearer)):
     if not credentials:
         raise HTTPException(401, 'Bearer token required', headers={'WWW-Authenticate': 'Bearer'})
     digest = hashlib.sha256(credentials.credentials.encode()).hexdigest()
@@ -35,6 +35,7 @@ def identity(credentials: HTTPAuthorizationCredentials | None = Depends(bearer))
         user = db.execute('SELECT u.* FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=? AND s.expires_at>?', (digest, time.time())).fetchone()
     if not user or user['account_status'] != 'Active':
         raise HTTPException(401, 'Invalid, expired token or inactive account', headers={'WWW-Authenticate': 'Bearer'})
+    request.state.user_id = user['id']
     return dict(user)
 
 def allowed(*roles):

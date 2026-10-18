@@ -16,13 +16,24 @@ def capture():
     def substitute(value):
         return re.sub(r'\{\{([^}]+)\}\}',lambda m:str(variables[m[1]]),value)
     results=[]
+    transitions=[]
+    def snapshot(table):
+        with connect() as db:
+            return [dict(x) for x in db.execute('SELECT * FROM '+table+' ORDER BY id')]
+
     with httpx.Client(timeout=15) as client:
         for folder in collection['item']:
             for item in folder['item']:
                 req=item['request']; url=substitute(req['url'])
                 headers={h['key']:substitute(h['value']) for h in req['header']}
                 body=json.loads(substitute(req['body']['raw'])) if 'body' in req else None
+                table = next((table for resource,table in [('vulnerabilities','vulnerabilities'),('notifications','notifications'),('playbooks','playbooks'),('actions','actions')] if '/'+resource in url), None)
+                if '/actions' in url:
+                    table = 'actions'
+                before = snapshot(table) if table and req['method'] in ('POST','PUT','DELETE') else None
                 response=client.request(req['method'],url,headers=headers,json=body)
+                if before is not None:
+                    transitions.append({'operation':item['name'],'table':table,'http_status':response.status_code,'before':before,'after':snapshot(table)})
                 data=response.json()
                 script='\n'.join(item['event'][0]['script']['exec'])
                 expected=int(re.search(r'to.have.status\((\d+)\)',script)[1])
@@ -34,8 +45,17 @@ def capture():
     ROOT.mkdir(exist_ok=True)
     ROOT.joinpath('http-execution.json').write_text(json.dumps({'captured_at':datetime.now(timezone.utc).isoformat(),'source':'Real HTTP calls to local Uvicorn processes; not Postman screenshots','results':results},indent=2))
     with connect() as db:
-        snapshot={table:[dict(x) for x in db.execute('SELECT * FROM '+table)] for table in ('assets','vulnerabilities','notifications','playbooks','actions','action_history','audit_logs')}
+        snapshot={table:[dict(x) for x in db.execute('SELECT * FROM '+table)] for table in ('assets','vulnerabilities','notifications','playbooks','actions','action_history','audit_logs','notification_outbox','notification_receipts')}
     ROOT.joinpath('database-records.json').write_text(json.dumps(snapshot,indent=2))
+    ROOT.joinpath('database-transitions.json').write_text(json.dumps(transitions,indent=2))
+    with connect() as db:
+        schema = []
+        for row in db.execute("SELECT name,sql FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"):
+            schema.append({'table':row['name'],'create_sql':row['sql'],
+                           'columns':[dict(x) for x in db.execute('PRAGMA table_info('+row['name']+')')],
+                           'foreign_keys':[dict(x) for x in db.execute('PRAGMA foreign_key_list('+row['name']+')')]})
+    ROOT.joinpath('database-schema.json').write_text(json.dumps(schema,indent=2))
+
     failures=[r['name'] for r in results if not r['passed']]
     ROOT.joinpath('SUMMARY.md').write_text('# Actual local execution (Joseph Awaida)\n\n'+f'{len(results)-len(failures)}/{len(results)} HTTP status checks passed.\n\nExecuted against four real local server processes. Request/response and database records are attached as JSON. Passwords and tokens were redacted. These are API execution records, not Postman screenshots.\n')
     print(f'{len(results)-len(failures)}/{len(results)} real HTTP requests passed.')

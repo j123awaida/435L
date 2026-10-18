@@ -48,3 +48,13 @@ CREATE TRIGGER IF NOT EXISTS history_no_update BEFORE UPDATE ON action_history B
 CREATE TRIGGER IF NOT EXISTS history_no_delete BEFORE DELETE ON action_history BEGIN SELECT RAISE(ABORT,'Action history is immutable'); END;
 CREATE INDEX IF NOT EXISTS vulnerability_filters ON vulnerabilities(asset_id,severity,status);
 CREATE INDEX IF NOT EXISTS notification_filters ON notifications(user_id,status);
+
+-- Transactional handoff from Service 7 to Service 8. No credentials are persisted.
+CREATE TABLE IF NOT EXISTS notification_outbox (
+ event_id TEXT PRIMARY KEY, payload_json TEXT NOT NULL,
+ status TEXT NOT NULL DEFAULT 'Pending' CHECK(status IN ('Pending','Delivered')),
+ attempts INTEGER NOT NULL DEFAULT 0, last_error TEXT, created_at TEXT NOT NULL, delivered_at TEXT
+);
+CREATE TABLE IF NOT EXISTS notification_receipts (
+ event_id TEXT PRIMARY KEY, payload_hash TEXT NOT NULL, response_json TEXT NOT NULL
+);

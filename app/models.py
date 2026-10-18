@@ -56,3 +56,43 @@ class ActionCreate(StrictModel):
 class ActionUpdate(StrictModel):
     status: Literal['Pending','In Progress','Completed']
     assigned_user_id: int | None = Field(default=None, gt=0)
+
+class VulnerabilityRecord(VulnerabilityCreate):
+    id: int
+    status: VStatus
+    created_at: str
+    resolution_date: str | None
+
+class NotificationRecord(NotificationCreate):
+    id: int
+    status: Literal['Unread','Read']
+    created_at: str
+    read_date: str | None
+
+class PlaybookRecord(PlaybookCreate):
+    id: int
+    created_by: int
+    created_at: str
+
+class ActionRecord(ActionCreate):
+    id: int
+    playbook_id: int
+    status: Literal['Pending','In Progress','Completed']
+    completion_date: str | None
+
+class ActionHistory(StrictModel):
+    id: int
+    action_id: int
+    playbook_id: int
+    actor_id: int
+    old_status: Literal['Pending','In Progress','Completed'] | None
+    new_status: Literal['Pending','In Progress','Completed']
+    assigned_user_id: int | None
+    recorded_at: str
+
+class PlaybookDetail(PlaybookRecord):
+    actions: list[ActionRecord]
+    execution_history: list[ActionHistory]
+
+class Message(StrictModel):
+    message: str

@@ -31,12 +31,21 @@ def add(name,port,method,path,body=None,role='admin',expect=200,save=None,descri
     if body is not None:
         req['body']={'mode':'raw','raw':json.dumps(body,indent=2),'options':{'raw':{'language':'json'}}}
     tests=[f'pm.test("HTTP {expect}", function () {{ pm.response.to.have.status({expect}); }});']
+    if expect >= 400:
+        tests.append('pm.test("Consistent error envelope", function () { const body = pm.response.json(); pm.expect(body.status).to.eql("error"); pm.expect(body.message).to.be.a("string"); });')
+    elif expect == 201:
+        tests.append('pm.test("Persisted record identifier", function () { pm.expect(pm.response.json().id).to.be.a("number"); });')
+    if body and body.get('status') in ('Resolved','Completed'):
+        key = 'resolution_date' if '/vulnerabilities/' in path else 'completion_date'
+        tests.append(f'pm.test("Server recorded completion timestamp", function () {{ pm.expect(pm.response.json().{key}).to.be.a("string"); }});')
+
     if save:
         variable,key=save
         tests.append(f'if (pm.response.code === {expect}) pm.environment.set("{variable}", pm.response.json().{key});')
     folder['item'].append({'name':name,'request':req,'event':[{'listen':'test','script':{'type':'text/javascript','exec':tests}}]})
 
 def generate():
+    items.clear()
     group('01 Authentication')
     for role in ('admin','analyst','employee','auditor'):
         add('Login '+role,8000,'POST','/auth/login',{'username':role,'password':'{{'+role+'_password}}'},None,save=(role+'_token','access_token'))
@@ -109,7 +118,20 @@ def generate():
                     ref=op['requestBody']['content']['application/json']['schema'].get('$ref','')
                     schema=spec['components']['schemas'].get(ref.split('/')[-1],{})
                     text += ['JSON body: `'+', '.join(schema.get('properties',{}))+'`. Required: `'+', '.join(schema.get('required',[]))+'`.','']
+                if op.get('description'):
+                    text += [op['description'], '']
                 text += ['Success: '+', '.join(code for code in op['responses'] if code.startswith('2'))+'. See Postman requests for runnable examples.','']
+                for code, response in op['responses'].items():
+                    if not code.startswith('2'):
+                        continue
+                    schema = response.get('content', {}).get('application/json', {}).get('schema', {})
+                    array = schema.get('type') == 'array'
+                    ref = schema.get('items', {}).get('$ref', '') if array else schema.get('$ref', '')
+                    name = ref.rsplit('/',1)[-1]
+                    fields = spec.get('components', {}).get('schemas', {}).get(name, {}).get('properties', {})
+                    if fields:
+                        text += ['Response: ' + ('array of ' if array else '') + name + ' objects with fields `' + ', '.join(fields) + '`.','']
+
     Path('docs/API.md').write_text('\n'.join(text))
     doc=Document()
     doc.add_heading('Security Incident Detection and Response Management System',0)
@@ -125,7 +147,7 @@ def generate():
             doc.add_heading(line[3:],1)
         elif line.startswith('### '):
             doc.add_heading(line[4:],2)
-        elif line:
+        elif line and not line.startswith('!['):
             doc.add_paragraph(line)
     evidence_file = Path('evidence/http-execution.json')
     if evidence_file.exists():
@@ -146,7 +168,43 @@ def generate():
             doc.add_paragraph(json.dumps(record['response'],indent=2))
         if Path('evidence/newman-output.txt').exists():
             doc.add_heading('Postman Newman validation',2)
-            doc.add_paragraph('The actual Postman collection was executed with Newman: 57 requests and 57 assertions passed, zero failures. Full terminal output: evidence/newman-output.txt.')
+            summary_path = Path('evidence/validation-summary.json')
+            if summary_path.exists():
+                summary = json.loads(summary_path.read_text())
+                n = summary['newman']; p = summary['pytest']
+                doc.add_paragraph(f"Actual Newman validation: {n['requests']['total']} requests, {n['assertions']['total']} assertions, {n['assertions']['failed']} failed assertions. Pytest: {p['tests']} tests, {p['failures']} failures, {p['errors']} errors. Full output: evidence/.")
+
+    transitions_path = Path('evidence/database-transitions.json')
+    if transitions_path.exists():
+        doc.add_heading('Actual before/after database records (Joseph Awaida)',1)
+        doc.add_paragraph('Queried immediately before and after the named operation. These records supplement required database screenshots.')
+        records = json.loads(transitions_path.read_text())
+        for name in ['Advance vulnerability to Resolved','Mark own notification read','Step 1 Completed']:
+            record = next(r for r in records if r['operation'] == name)
+            doc.add_heading(name,2)
+            columns = ['id','status'] + (['read_date'] if record['table']=='notifications' else ['completion_date'] if record['table']=='actions' else ['resolution_date'])
+            for phase in ['before','after']:
+                doc.add_paragraph(phase.capitalize() + ' — ' + record['table'])
+                table = doc.add_table(rows=1, cols=len(columns))
+                table.style = 'Light Shading Accent 1'
+                for cell,value in zip(table.rows[0].cells, columns):
+                    cell.text = value
+                for row in record[phase]:
+                    for cell,col in zip(table.add_row().cells, columns):
+                        cell.text = str(row.get(col))
+    integration_path = Path('evidence/http-integration.json')
+    if integration_path.exists():
+        integration = json.loads(integration_path.read_text())
+        doc.add_heading('Actual Service 7 to Service 8 HTTP verification (Joseph Awaida)',1)
+        doc.add_paragraph('A vulnerability creation queued a real owner alert; HTTP delivery succeeded. Repeating the same event returned the same notification identifier: ' + str(integration['duplicate_notification_id']) + '. No duplicate alert was created.')
+    doc.add_heading('API reference (Joseph Awaida)',1)
+    for line in Path('docs/API.md').read_text().splitlines():
+        if line.startswith('### '):
+            doc.add_heading(line[4:],3)
+        elif line.startswith('## '):
+            doc.add_heading(line[3:],2)
+        elif line and not line.startswith('# '):
+            doc.add_paragraph(line)
     doc.add_heading('Design diagrams (Joseph Awaida)',1)
     for name, caption in [('architecture','Service architecture: local processes and team integration boundaries.'),('schema','Database design: reference entities and owned service tables.')]:
         image = Path('docs') / (name + '.png')
