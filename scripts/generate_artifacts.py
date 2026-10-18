@@ -211,6 +211,18 @@ def generate():
         if image.exists():
             doc.add_picture(str(image), width=Inches(6))
             doc.add_paragraph(caption)
+    for kind, title in [('postman','Genuine Postman screenshots (Joseph Awaida)'),('browser','Genuine database and GitHub screenshots (Joseph Awaida)')]:
+        manifest = Path('evidence/screenshots') / (kind + '-manifest.json')
+        if manifest.exists():
+            doc.add_page_break()
+            doc.add_heading(title,1)
+            doc.add_paragraph('Captured from the running application without image editing. Captions identify the student, operation and purpose. Authentication responses use the Headers view to protect bearer tokens; private password bodies are omitted.')
+            for record in json.loads(manifest.read_text()):
+                path = Path(record['file'])
+                if path.exists():
+                    doc.add_picture(str(path), width=Inches(6.2))
+                    doc.paragraphs[-1].paragraph_format.keep_with_next = True
+                    doc.add_paragraph(record['caption'])
     doc.save('docs/Joseph-Awaida-Sprint-I-Report.docx')
     print(f'Generated {sum(len(f["item"]) for f in items)} Postman requests, OpenAPI exports, API reference, and DOCX report.')
 

@@ -4,234 +4,261 @@ Joseph Awaida — Services 7, 8, 9
 
 ❏ 01 Authentication
 ↳ Login admin
-  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 276B, 165ms]
+  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 276B, 157ms]
   ✓  HTTP 200
 
 ↳ Login analyst
-  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 278B, 204ms]
+  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 278B, 133ms]
   ✓  HTTP 200
 
 ↳ Login employee
-  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 279B, 160ms]
+  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 279B, 132ms]
   ✓  HTTP 200
 
 ↳ Login auditor
-  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 278B, 156ms]
+  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [200 OK, 278B, 133ms]
   ✓  HTTP 200
 
 ↳ Reject incorrect password
-  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [401 Unauthorized, 205B, 162ms]
+  POST http://127.0.0.1:8000/Joseph-Awaida/auth/login [401 Unauthorized, 205B, 131ms]
   ✓  HTTP 401
+  ✓  Consistent error envelope
 
 ❏ 02 Vulnerability management
 ↳ Create critical vulnerability
-  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [201 Created, 448B, 11ms]
+  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [201 Created, 449B, 8ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Create second vulnerability
-  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [201 Created, 442B, 3ms]
+  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [201 Created, 443B, 5ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Retrieve vulnerabilities
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [200 OK, 1.07kB, 3ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [200 OK, 3.61kB, 3ms]
   ✓  HTTP 200
 
 ↳ Retrieve vulnerability
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 443B, 4ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 444B, 3ms]
   ✓  HTTP 200
 
 ↳ Missing vulnerability
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/99999999 [404 Not Found, 187B, 2ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/99999999 [404 Not Found, 187B, 3ms]
   ✓  HTTP 404
+  ✓  Consistent error envelope
 
 ↳ Search severity=Critical
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?severity=Critical [200 OK, 445B, 3ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?severity=Critical [200 OK, 446B, 4ms]
   ✓  HTTP 200
 
 ↳ Search asset_id=2
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?asset_id=2 [200 OK, 751B, 3ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?asset_id=2 [200 OK, 2.32kB, 3ms]
   ✓  HTTP 200
 
 ↳ Search cve_identifier=CVE-2026-12345
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?cve_identifier=CVE-2026-12345 [200 OK, 445B, 3ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?cve_identifier=CVE-2026-12345 [200 OK, 446B, 6ms]
   ✓  HTTP 200
 
 ↳ Search status=Open
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?status=Open [200 OK, 1.07kB, 5ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/search?status=Open [200 OK, 3.61kB, 4ms]
   ✓  HTTP 200
 
 ↳ Reject CVSS above ten
-  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [422 Unprocessable Content, 283B, 3ms]
+  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [422 Unprocessable Content, 283B, 4ms]
   ✓  HTTP 422
+  ✓  Consistent error envelope
 
 ↳ Reject missing title
-  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [422 Unprocessable Content, 252B, 2ms]
+  POST http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [422 Unprocessable Content, 252B, 3ms]
   ✓  HTTP 422
+  ✓  Consistent error envelope
 
 ↳ Reject employee access
-  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [403 Forbidden, 198B, 4ms]
+  GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [403 Forbidden, 198B, 3ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Reject missing token
   GET http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities [401 Unauthorized, 213B, 2ms]
   ✓  HTTP 401
+  ✓  Consistent error envelope
 
 ↳ Reject lifecycle skip
-  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [409 Conflict, 217B, 3ms]
+  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [409 Conflict, 217B, 3ms]
   ✓  HTTP 409
+  ✓  Consistent error envelope
 
 ↳ Advance vulnerability to Under Investigation
-  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 458B, 3ms]
+  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 459B, 4ms]
   ✓  HTTP 200
 
 ↳ Advance vulnerability to In Progress
-  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 450B, 3ms]
+  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 451B, 5ms]
   ✓  HTTP 200
 
 ↳ Advance vulnerability to Resolved
-  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 477B, 3ms]
+  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 478B, 4ms]
   ✓  HTTP 200
+  ✓  Server recorded completion timestamp
 
 ↳ Advance vulnerability to Closed
-  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 475B, 4ms]
+  PUT http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 476B, 4ms]
   ✓  HTTP 200
 
 ↳ Reject analyst deletion
-  DELETE http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [403 Forbidden, 198B, 3ms]
+  DELETE http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [403 Forbidden, 198B, 3ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Delete vulnerability
-  DELETE http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/3 [200 OK, 160B, 3ms]
+  DELETE http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/16 [200 OK, 160B, 4ms]
   ✓  HTTP 200
 
 ❏ 03 Notifications
 ↳ Create employee alert
-  POST http://127.0.0.1:8008/Joseph-Awaida/notifications [201 Created, 366B, 12ms]
+  POST http://127.0.0.1:8008/Joseph-Awaida/notifications [201 Created, 367B, 9ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Create analyst alert
-  POST http://127.0.0.1:8008/Joseph-Awaida/notifications [201 Created, 374B, 3ms]
+  POST http://127.0.0.1:8008/Joseph-Awaida/notifications [201 Created, 375B, 5ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Retrieve own notifications
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/user/3 [200 OK, 363B, 3ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/user/3 [200 OK, 364B, 3ms]
   ✓  HTTP 200
 
 ↳ Retrieve empty notifications
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/user/4 [200 OK, 126B, 2ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/user/4 [200 OK, 126B, 3ms]
   ✓  HTTP 200
 
 ↳ Retrieve specific notification
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/3 [200 OK, 361B, 2ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/24 [200 OK, 362B, 3ms]
   ✓  HTTP 200
 
 ↳ Reject another user notification
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/3 [403 Forbidden, 216B, 4ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/24 [403 Forbidden, 216B, 4ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Missing notification
   GET http://127.0.0.1:8008/Joseph-Awaida/notifications/99999999 [404 Not Found, 185B, 2ms]
   ✓  HTTP 404
+  ✓  Consistent error envelope
 
 ↳ Search user_id=3
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?user_id=3 [200 OK, 363B, 3ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?user_id=3 [200 OK, 364B, 3ms]
   ✓  HTTP 200
 
 ↳ Search notification_type=Security%20Alert
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?notification_type=Security%20Alert [200 OK, 363B, 2ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?notification_type=Security%20Alert [200 OK, 364B, 3ms]
   ✓  HTTP 200
 
 ↳ Search severity=High
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?severity=High [200 OK, 851B, 2ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?severity=High [200 OK, 2.98kB, 3ms]
   ✓  HTTP 200
 
 ↳ Search status=Unread
-  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?status=Unread [200 OK, 851B, 2ms]
+  GET http://127.0.0.1:8008/Joseph-Awaida/notifications/search?status=Unread [200 OK, 5.35kB, 3ms]
   ✓  HTTP 200
 
 ↳ Reject auditor marking read
-  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/3/read [403 Forbidden, 198B, 4ms]
+  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/24/read [403 Forbidden, 198B, 4ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Mark own notification read
-  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/3/read [200 OK, 389B, 3ms]
+  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/24/read [200 OK, 390B, 4ms]
   ✓  HTTP 200
 
 ↳ Repeat mark read
-  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/3/read [200 OK, 389B, 3ms]
+  PUT http://127.0.0.1:8008/Joseph-Awaida/notifications/24/read [200 OK, 390B, 4ms]
   ✓  HTTP 200
 
 ↳ Reject employee deletion
-  DELETE http://127.0.0.1:8008/Joseph-Awaida/notifications/3 [403 Forbidden, 198B, 3ms]
+  DELETE http://127.0.0.1:8008/Joseph-Awaida/notifications/24 [403 Forbidden, 198B, 3ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Delete notification
-  DELETE http://127.0.0.1:8008/Joseph-Awaida/notifications/3 [200 OK, 159B, 3ms]
+  DELETE http://127.0.0.1:8008/Joseph-Awaida/notifications/24 [200 OK, 159B, 27ms]
   ✓  HTTP 200
 
 ❏ 04 Playbooks and ordered actions
 ↳ Create playbook
-  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks [201 Created, 350B, 7ms]
+  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks [201 Created, 351B, 7ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Create second playbook
-  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks [201 Created, 356B, 5ms]
+  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks [201 Created, 357B, 4ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ List playbooks
-  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks [200 OK, 799B, 3ms]
+  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks [200 OK, 1.93kB, 3ms]
   ✓  HTTP 200
 
 ↳ Retrieve playbook
-  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/3 [200 OK, 358B, 3ms]
+  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/13 [200 OK, 382B, 3ms]
   ✓  HTTP 200
 
 ↳ Missing playbook
-  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/99999999 [404 Not Found, 181B, 3ms]
+  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/99999999 [404 Not Found, 181B, 2ms]
   ✓  HTTP 404
+  ✓  Consistent error envelope
 
 ↳ Add response step 1
-  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/3/actions [201 Created, 264B, 3ms]
+  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/13/actions [201 Created, 265B, 5ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Add response step 2
-  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/3/actions [201 Created, 272B, 4ms]
+  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/13/actions [201 Created, 273B, 4ms]
   ✓  HTTP 201
+  ✓  Persisted record identifier
 
 ↳ Reject duplicate step
-  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/3/actions [409 Conflict, 190B, 3ms]
+  POST http://127.0.0.1:8009/Joseph-Awaida/playbooks/13/actions [409 Conflict, 190B, 4ms]
   ✓  HTTP 409
+  ✓  Consistent error envelope
 
 ↳ Reject out of order action
-  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [409 Conflict, 199B, 2ms]
+  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [409 Conflict, 199B, 3ms]
   ✓  HTTP 409
+  ✓  Consistent error envelope
 
 ↳ Step 1 In Progress
-  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/1/status [200 OK, 263B, 3ms]
+  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/1/status [200 OK, 264B, 5ms]
   ✓  HTTP 200
 
 ↳ Step 1 Completed
-  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/1/status [200 OK, 291B, 3ms]
+  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/1/status [200 OK, 292B, 4ms]
   ✓  HTTP 200
+  ✓  Server recorded completion timestamp
 
 ↳ Step 2 In Progress
-  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [200 OK, 271B, 3ms]
+  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [200 OK, 272B, 4ms]
   ✓  HTTP 200
 
 ↳ Step 2 Completed
-  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [200 OK, 299B, 3ms]
+  PUT http://127.0.0.1:8009/Joseph-Awaida/actions/2/status [200 OK, 300B, 4ms]
   ✓  HTTP 200
+  ✓  Server recorded completion timestamp
 
 ↳ Retrieve completed workflow
-  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/3 [200 OK, 697B, 3ms]
+  GET http://127.0.0.1:8009/Joseph-Awaida/playbooks/13 [200 OK, 1.75kB, 2ms]
   ✓  HTTP 200
 
 ↳ Reject analyst deleting playbook
-  DELETE http://127.0.0.1:8009/Joseph-Awaida/playbooks/3 [403 Forbidden, 198B, 3ms]
+  DELETE http://127.0.0.1:8009/Joseph-Awaida/playbooks/13 [403 Forbidden, 198B, 3ms]
   ✓  HTTP 403
+  ✓  Consistent error envelope
 
 ↳ Delete playbook
-  DELETE http://127.0.0.1:8009/Joseph-Awaida/playbooks/3 [200 OK, 196B, 3ms]
+  DELETE http://127.0.0.1:8009/Joseph-Awaida/playbooks/13 [200 OK, 196B, 4ms]
   ✓  HTTP 200
 
 ┌─────────────────────────┬───────────────────┬──────────────────┐
@@ -245,11 +272,11 @@ Joseph Awaida — Services 7, 8, 9
 ├─────────────────────────┼───────────────────┼──────────────────┤
 │      prerequest-scripts │                 0 │                0 │
 ├─────────────────────────┼───────────────────┼──────────────────┤
-│              assertions │                57 │                0 │
+│              assertions │                84 │                0 │
 ├─────────────────────────┴───────────────────┴──────────────────┤
-│ total run duration: 1619ms                                     │
+│ total run duration: 1499ms                                     │
 ├────────────────────────────────────────────────────────────────┤
-│ total data received: 13.56kB (approx)                          │
+│ total data received: 29.08kB (approx)                          │
 ├────────────────────────────────────────────────────────────────┤
-│ average response time: 17ms [min: 2ms, max: 204ms, s.d.: 47ms] │
+│ average response time: 15ms [min: 2ms, max: 157ms, s.d.: 37ms] │
 └────────────────────────────────────────────────────────────────┘

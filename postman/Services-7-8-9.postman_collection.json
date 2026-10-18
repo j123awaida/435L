@@ -176,7 +176,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });"
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -220,6 +221,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });",
                   "if (pm.response.code === 201) pm.environment.set(\"vulnerability_id\", pm.response.json().id);"
                 ]
               }
@@ -258,7 +260,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });"
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });"
                 ]
               }
             }
@@ -345,7 +348,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });"
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -499,7 +503,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 422\", function () { pm.response.to.have.status(422); });"
+                  "pm.test(\"HTTP 422\", function () { pm.response.to.have.status(422); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -537,7 +542,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 422\", function () { pm.response.to.have.status(422); });"
+                  "pm.test(\"HTTP 422\", function () { pm.response.to.have.status(422); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -566,7 +572,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -591,7 +598,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });"
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -629,7 +637,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });"
+                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -743,7 +752,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });"
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Server recorded completion timestamp\", function () { pm.expect(pm.response.json().resolution_date).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -810,7 +820,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -883,6 +894,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });",
                   "if (pm.response.code === 201) pm.environment.set(\"notification_id\", pm.response.json().id);"
                 ]
               }
@@ -921,7 +933,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });"
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });"
                 ]
               }
             }
@@ -1037,7 +1050,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1066,7 +1080,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });"
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1211,7 +1226,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1298,7 +1314,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1371,6 +1388,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });",
                   "if (pm.response.code === 201) pm.environment.set(\"playbook_id\", pm.response.json().id);"
                 ]
               }
@@ -1409,7 +1427,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });"
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });"
                 ]
               }
             }
@@ -1496,7 +1515,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });"
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1535,6 +1555,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });",
                   "if (pm.response.code === 201) pm.environment.set(\"action1_id\", pm.response.json().id);"
                 ]
               }
@@ -1574,6 +1595,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "pm.test(\"Persisted record identifier\", function () { pm.expect(pm.response.json().id).to.be.a(\"number\"); });",
                   "if (pm.response.code === 201) pm.environment.set(\"action2_id\", pm.response.json().id);"
                 ]
               }
@@ -1612,7 +1634,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });"
+                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1650,7 +1673,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });"
+                  "pm.test(\"HTTP 409\", function () { pm.response.to.have.status(409); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1726,7 +1750,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });"
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Server recorded completion timestamp\", function () { pm.expect(pm.response.json().completion_date).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1802,7 +1827,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });"
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Server recorded completion timestamp\", function () { pm.expect(pm.response.json().completion_date).to.be.a(\"string\"); });"
                 ]
               }
             }
@@ -1860,7 +1886,8 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });"
+                  "pm.test(\"HTTP 403\", function () { pm.response.to.have.status(403); });",
+                  "pm.test(\"Consistent error envelope\", function () { const body = pm.response.json(); pm.expect(body.status).to.eql(\"error\"); pm.expect(body.message).to.be.a(\"string\"); });"
                 ]
               }
             }

@@ -1,0 +1,838 @@
+[
+  {
+    "file": "evidence/screenshots/postman-01-login-admin-response.png",
+    "caption": "Joseph Awaida — Login admin: actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:30.701Z",
+    "operation": "Login admin",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-01-login-admin-request.png",
+    "caption": "Joseph Awaida — Login admin: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:31.336Z",
+    "operation": "Login admin",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-02-login-analyst-response.png",
+    "caption": "Joseph Awaida — Login analyst: actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:32.202Z",
+    "operation": "Login analyst",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-02-login-analyst-request.png",
+    "caption": "Joseph Awaida — Login analyst: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:32.738Z",
+    "operation": "Login analyst",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-03-login-employee-response.png",
+    "caption": "Joseph Awaida — Login employee: actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:33.595Z",
+    "operation": "Login employee",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-03-login-employee-request.png",
+    "caption": "Joseph Awaida — Login employee: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:34.142Z",
+    "operation": "Login employee",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-04-login-auditor-response.png",
+    "caption": "Joseph Awaida — Login auditor: actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:34.974Z",
+    "operation": "Login auditor",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-04-login-auditor-request.png",
+    "caption": "Joseph Awaida — Login auditor: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:35.504Z",
+    "operation": "Login auditor",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-05-reject-incorrect-password-response.png",
+    "caption": "Joseph Awaida — Reject incorrect password: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:36.337Z",
+    "operation": "Reject incorrect password",
+    "view": "Response",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-05-reject-incorrect-password-request.png",
+    "caption": "Joseph Awaida — Reject incorrect password: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:36.878Z",
+    "operation": "Reject incorrect password",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/screenshots/postman-06-create-critical-vulnerability-response.png",
+    "caption": "Joseph Awaida — Create critical vulnerability: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:37.686Z",
+    "operation": "Create critical vulnerability",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-06-create-critical-vulnerability-request.png",
+    "caption": "Joseph Awaida — Create critical vulnerability: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:38.209Z",
+    "operation": "Create critical vulnerability",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-07-create-second-vulnerability-response.png",
+    "caption": "Joseph Awaida — Create second vulnerability: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:39.030Z",
+    "operation": "Create second vulnerability",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-07-create-second-vulnerability-request.png",
+    "caption": "Joseph Awaida — Create second vulnerability: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:39.579Z",
+    "operation": "Create second vulnerability",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-08-retrieve-vulnerabilities-response.png",
+    "caption": "Joseph Awaida — Retrieve vulnerabilities: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:40.438Z",
+    "operation": "Retrieve vulnerabilities",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-09-retrieve-vulnerability-response.png",
+    "caption": "Joseph Awaida — Retrieve vulnerability: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:41.279Z",
+    "operation": "Retrieve vulnerability",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-10-missing-vulnerability-response.png",
+    "caption": "Joseph Awaida — Missing vulnerability: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:42.079Z",
+    "operation": "Missing vulnerability",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-11-search-severity-critical-response.png",
+    "caption": "Joseph Awaida — Search severity=Critical: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:42.980Z",
+    "operation": "Search severity=Critical",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-12-search-asset-id-2-response.png",
+    "caption": "Joseph Awaida — Search asset_id=2: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:43.887Z",
+    "operation": "Search asset_id=2",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-13-search-cve-identifier-cve-2026-12345-response.png",
+    "caption": "Joseph Awaida — Search cve_identifier=CVE-2026-12345: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:44.751Z",
+    "operation": "Search cve_identifier=CVE-2026-12345",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-14-search-status-open-response.png",
+    "caption": "Joseph Awaida — Search status=Open: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:45.648Z",
+    "operation": "Search status=Open",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-15-reject-cvss-above-ten-response.png",
+    "caption": "Joseph Awaida — Reject CVSS above ten: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:46.513Z",
+    "operation": "Reject CVSS above ten",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-15-reject-cvss-above-ten-request.png",
+    "caption": "Joseph Awaida — Reject CVSS above ten: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:47.035Z",
+    "operation": "Reject CVSS above ten",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-16-reject-missing-title-response.png",
+    "caption": "Joseph Awaida — Reject missing title: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:48.002Z",
+    "operation": "Reject missing title",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-16-reject-missing-title-request.png",
+    "caption": "Joseph Awaida — Reject missing title: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:48.541Z",
+    "operation": "Reject missing title",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-17-reject-employee-access-response.png",
+    "caption": "Joseph Awaida — Reject employee access: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:49.522Z",
+    "operation": "Reject employee access",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-18-reject-missing-token-response.png",
+    "caption": "Joseph Awaida — Reject missing token: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:50.450Z",
+    "operation": "Reject missing token",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-19-reject-lifecycle-skip-response.png",
+    "caption": "Joseph Awaida — Reject lifecycle skip: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:51.360Z",
+    "operation": "Reject lifecycle skip",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-19-reject-lifecycle-skip-request.png",
+    "caption": "Joseph Awaida — Reject lifecycle skip: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:51.911Z",
+    "operation": "Reject lifecycle skip",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-20-advance-vulnerability-to-under-investigation-response.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Under Investigation: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:52.854Z",
+    "operation": "Advance vulnerability to Under Investigation",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-20-advance-vulnerability-to-under-investigation-request.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Under Investigation: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:53.358Z",
+    "operation": "Advance vulnerability to Under Investigation",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-21-advance-vulnerability-to-in-progress-response.png",
+    "caption": "Joseph Awaida — Advance vulnerability to In Progress: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:54.284Z",
+    "operation": "Advance vulnerability to In Progress",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-21-advance-vulnerability-to-in-progress-request.png",
+    "caption": "Joseph Awaida — Advance vulnerability to In Progress: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:54.805Z",
+    "operation": "Advance vulnerability to In Progress",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-22-advance-vulnerability-to-resolved-response.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Resolved: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:55.826Z",
+    "operation": "Advance vulnerability to Resolved",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-22-advance-vulnerability-to-resolved-request.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Resolved: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:56.345Z",
+    "operation": "Advance vulnerability to Resolved",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-23-advance-vulnerability-to-closed-response.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Closed: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:57.333Z",
+    "operation": "Advance vulnerability to Closed",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-23-advance-vulnerability-to-closed-request.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Closed: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:57.856Z",
+    "operation": "Advance vulnerability to Closed",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-24-reject-analyst-deletion-response.png",
+    "caption": "Joseph Awaida — Reject analyst deletion: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:58.824Z",
+    "operation": "Reject analyst deletion",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-25-delete-vulnerability-response.png",
+    "caption": "Joseph Awaida — Delete vulnerability: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:04:59.844Z",
+    "operation": "Delete vulnerability",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/screenshots/postman-26-create-employee-alert-response.png",
+    "caption": "Joseph Awaida — Create employee alert: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:00.832Z",
+    "operation": "Create employee alert",
+    "view": "Response",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-26-create-employee-alert-request.png",
+    "caption": "Joseph Awaida — Create employee alert: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:01.341Z",
+    "operation": "Create employee alert",
+    "view": "Request",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-27-create-analyst-alert-response.png",
+    "caption": "Joseph Awaida — Create analyst alert: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:02.413Z",
+    "operation": "Create analyst alert",
+    "view": "Response",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-27-create-analyst-alert-request.png",
+    "caption": "Joseph Awaida — Create analyst alert: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:02.960Z",
+    "operation": "Create analyst alert",
+    "view": "Request",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-28-retrieve-own-notifications-response.png",
+    "caption": "Joseph Awaida — Retrieve own notifications: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:04.035Z",
+    "operation": "Retrieve own notifications",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-29-retrieve-empty-notifications-response.png",
+    "caption": "Joseph Awaida — Retrieve empty notifications: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:05.110Z",
+    "operation": "Retrieve empty notifications",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-30-retrieve-specific-notification-response.png",
+    "caption": "Joseph Awaida — Retrieve specific notification: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:06.180Z",
+    "operation": "Retrieve specific notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-31-reject-another-user-notification-response.png",
+    "caption": "Joseph Awaida — Reject another user notification: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:07.317Z",
+    "operation": "Reject another user notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-32-missing-notification-response.png",
+    "caption": "Joseph Awaida — Missing notification: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:08.410Z",
+    "operation": "Missing notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-33-search-user-id-3-response.png",
+    "caption": "Joseph Awaida — Search user_id=3: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:09.518Z",
+    "operation": "Search user_id=3",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-34-search-notification-type-security-20alert-response.png",
+    "caption": "Joseph Awaida — Search notification_type=Security%20Alert: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:10.608Z",
+    "operation": "Search notification_type=Security%20Alert",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-35-search-severity-high-response.png",
+    "caption": "Joseph Awaida — Search severity=High: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:11.719Z",
+    "operation": "Search severity=High",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-36-search-status-unread-response.png",
+    "caption": "Joseph Awaida — Search status=Unread: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:12.893Z",
+    "operation": "Search status=Unread",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-37-reject-auditor-marking-read-response.png",
+    "caption": "Joseph Awaida — Reject auditor marking read: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:14.072Z",
+    "operation": "Reject auditor marking read",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-38-mark-own-notification-read-response.png",
+    "caption": "Joseph Awaida — Mark own notification read: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:15.260Z",
+    "operation": "Mark own notification read",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-39-repeat-mark-read-response.png",
+    "caption": "Joseph Awaida — Repeat mark read: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:16.460Z",
+    "operation": "Repeat mark read",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-40-reject-employee-deletion-response.png",
+    "caption": "Joseph Awaida — Reject employee deletion: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:17.633Z",
+    "operation": "Reject employee deletion",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-41-delete-notification-response.png",
+    "caption": "Joseph Awaida — Delete notification: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:18.797Z",
+    "operation": "Delete notification",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/screenshots/postman-42-create-playbook-response.png",
+    "caption": "Joseph Awaida — Create playbook: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:20.184Z",
+    "operation": "Create playbook",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-42-create-playbook-request.png",
+    "caption": "Joseph Awaida — Create playbook: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:20.730Z",
+    "operation": "Create playbook",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-43-create-second-playbook-response.png",
+    "caption": "Joseph Awaida — Create second playbook: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:21.955Z",
+    "operation": "Create second playbook",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-43-create-second-playbook-request.png",
+    "caption": "Joseph Awaida — Create second playbook: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:22.510Z",
+    "operation": "Create second playbook",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-44-list-playbooks-response.png",
+    "caption": "Joseph Awaida — List playbooks: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:23.762Z",
+    "operation": "List playbooks",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-45-retrieve-playbook-response.png",
+    "caption": "Joseph Awaida — Retrieve playbook: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:24.980Z",
+    "operation": "Retrieve playbook",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-46-missing-playbook-response.png",
+    "caption": "Joseph Awaida — Missing playbook: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:26.273Z",
+    "operation": "Missing playbook",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-47-add-response-step-1-response.png",
+    "caption": "Joseph Awaida — Add response step 1: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:27.579Z",
+    "operation": "Add response step 1",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-47-add-response-step-1-request.png",
+    "caption": "Joseph Awaida — Add response step 1: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:28.108Z",
+    "operation": "Add response step 1",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-48-add-response-step-2-response.png",
+    "caption": "Joseph Awaida — Add response step 2: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:29.443Z",
+    "operation": "Add response step 2",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-48-add-response-step-2-request.png",
+    "caption": "Joseph Awaida — Add response step 2: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:29.973Z",
+    "operation": "Add response step 2",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-49-reject-duplicate-step-response.png",
+    "caption": "Joseph Awaida — Reject duplicate step: actual POST result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:31.349Z",
+    "operation": "Reject duplicate step",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-49-reject-duplicate-step-request.png",
+    "caption": "Joseph Awaida — Reject duplicate step: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:31.895Z",
+    "operation": "Reject duplicate step",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-50-reject-out-of-order-action-response.png",
+    "caption": "Joseph Awaida — Reject out of order action: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:33.264Z",
+    "operation": "Reject out of order action",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-50-reject-out-of-order-action-request.png",
+    "caption": "Joseph Awaida — Reject out of order action: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:33.791Z",
+    "operation": "Reject out of order action",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-51-step-1-in-progress-response.png",
+    "caption": "Joseph Awaida — Step 1 In Progress: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:35.139Z",
+    "operation": "Step 1 In Progress",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-51-step-1-in-progress-request.png",
+    "caption": "Joseph Awaida — Step 1 In Progress: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:35.638Z",
+    "operation": "Step 1 In Progress",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-52-step-1-completed-response.png",
+    "caption": "Joseph Awaida — Step 1 Completed: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:37.108Z",
+    "operation": "Step 1 Completed",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-52-step-1-completed-request.png",
+    "caption": "Joseph Awaida — Step 1 Completed: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:37.605Z",
+    "operation": "Step 1 Completed",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-53-step-2-in-progress-response.png",
+    "caption": "Joseph Awaida — Step 2 In Progress: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:38.956Z",
+    "operation": "Step 2 In Progress",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-53-step-2-in-progress-request.png",
+    "caption": "Joseph Awaida — Step 2 In Progress: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:39.455Z",
+    "operation": "Step 2 In Progress",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-54-step-2-completed-response.png",
+    "caption": "Joseph Awaida — Step 2 Completed: actual PUT result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:40.789Z",
+    "operation": "Step 2 Completed",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-54-step-2-completed-request.png",
+    "caption": "Joseph Awaida — Step 2 Completed: actual request body shown in the Postman runner.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:41.294Z",
+    "operation": "Step 2 Completed",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-55-retrieve-completed-workflow-response.png",
+    "caption": "Joseph Awaida — Retrieve completed workflow: actual GET result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:42.668Z",
+    "operation": "Retrieve completed workflow",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-56-reject-analyst-deleting-playbook-response.png",
+    "caption": "Joseph Awaida — Reject analyst deleting playbook: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:44.113Z",
+    "operation": "Reject analyst deleting playbook",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-57-delete-playbook-response.png",
+    "caption": "Joseph Awaida — Delete playbook: actual DELETE result and HTTP status.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:45.557Z",
+    "operation": "Delete playbook",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/screenshots/postman-run-summary.png",
+    "caption": "Joseph Awaida — Postman desktop run: 84 assertions passed, zero errors.",
+    "source": "Actual Postman desktop runner, unedited",
+    "captured_at": "2026-10-18T10:05:45.915Z"
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "file": "evidence/screenshots/database-tables.png",
+    "url": "http://127.0.0.1:8010/",
+    "caption": "Joseph Awaida \u2014 Database tables: the implemented local relational schema.",
+    "captured_at": "2026-10-18T10:02:18.360221+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/vulnerabilities-structure.png",
+    "url": "http://127.0.0.1:8010/vulnerabilities/",
+    "caption": "Joseph Awaida \u2014 vulnerabilities structure: actual fields, keys and constraints.",
+    "captured_at": "2026-10-18T10:02:19.929269+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/notifications-structure.png",
+    "url": "http://127.0.0.1:8010/notifications/",
+    "caption": "Joseph Awaida \u2014 notifications structure: actual fields, keys and constraints.",
+    "captured_at": "2026-10-18T10:02:21.267175+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/playbooks-structure.png",
+    "url": "http://127.0.0.1:8010/playbooks/",
+    "caption": "Joseph Awaida \u2014 playbooks structure: actual fields, keys and constraints.",
+    "captured_at": "2026-10-18T10:02:22.431016+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/actions-structure.png",
+    "url": "http://127.0.0.1:8010/actions/",
+    "caption": "Joseph Awaida \u2014 actions structure: actual fields, keys and constraints.",
+    "captured_at": "2026-10-18T10:02:23.102228+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/action_history-structure.png",
+    "url": "http://127.0.0.1:8010/action_history/",
+    "caption": "Joseph Awaida \u2014 action_history structure: actual fields, keys and constraints.",
+    "captured_at": "2026-10-18T10:02:24.547656+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/vulnerability-before.png",
+    "url": "http://127.0.0.1:8010/vulnerabilities/row/WzIwXQ==/",
+    "caption": "Joseph Awaida \u2014 Vulnerability before update: Open with no resolution date.",
+    "captured_at": "2026-10-18T10:02:26.459728+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/vulnerability-after.png",
+    "url": "http://127.0.0.1:8010/vulnerabilities/row/WzIwXQ==/",
+    "caption": "Joseph Awaida \u2014 Vulnerability after valid lifecycle progression: Resolved with server-recorded resolution date.",
+    "captured_at": "2026-10-18T10:02:27.845960+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/notification-before.png",
+    "url": "http://127.0.0.1:8010/notifications/row/WzMzXQ==/",
+    "caption": "Joseph Awaida \u2014 Notification before read: Unread with no read date.",
+    "captured_at": "2026-10-18T10:02:29.127508+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/notification-after.png",
+    "url": "http://127.0.0.1:8010/notifications/row/WzMzXQ==/",
+    "caption": "Joseph Awaida \u2014 Notification after mark-read: Read with its original read timestamp.",
+    "captured_at": "2026-10-18T10:02:30.489968+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/playbook-record.png",
+    "url": "http://127.0.0.1:8010/playbooks/row/WzE3XQ==/",
+    "caption": "Joseph Awaida \u2014 Stored playbook: category, severity, creator and creation timestamp.",
+    "captured_at": "2026-10-18T10:02:31.273251+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/action-before.png",
+    "url": "http://127.0.0.1:8010/actions/row/WzFd/",
+    "caption": "Joseph Awaida \u2014 Response action before execution: Pending and assigned to analyst 2.",
+    "captured_at": "2026-10-18T10:02:32.432765+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/action-after.png",
+    "url": "http://127.0.0.1:8010/actions/row/WzFd/",
+    "caption": "Joseph Awaida \u2014 Response action after ordered execution: Completed with server completion time.",
+    "captured_at": "2026-10-18T10:02:33.165120+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/action-history-record.png",
+    "url": "http://127.0.0.1:8010/action_history/row/WzU0XQ==/",
+    "caption": "Joseph Awaida \u2014 Execution history: an actual immutable response-action transition and its actor.",
+    "captured_at": "2026-10-18T10:02:34.440154+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/vulnerabilities-records.png",
+    "url": "http://127.0.0.1:8010/vulnerabilities/content/",
+    "caption": "Joseph Awaida \u2014 vulnerabilities records: actual stored rows from the implementation.",
+    "captured_at": "2026-10-18T10:02:35.169564+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/notifications-records.png",
+    "url": "http://127.0.0.1:8010/notifications/content/",
+    "caption": "Joseph Awaida \u2014 notifications records: actual stored rows from the implementation.",
+    "captured_at": "2026-10-18T10:02:36.381059+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/playbooks-records.png",
+    "url": "http://127.0.0.1:8010/playbooks/content/",
+    "caption": "Joseph Awaida \u2014 playbooks records: actual stored rows from the implementation.",
+    "captured_at": "2026-10-18T10:02:37.194464+00:00",
+    "source": "Actual browser rendering, unedited"
+  },
+  {
+    "file": "evidence/screenshots/github-history.png",
+    "url": "https://github.com/j123awaida/435L/commits/main/",
+    "caption": "Joseph Awaida \u2014 GitHub commit history: genuine contributions in the supplied repository.",
+    "captured_at": "2026-10-18T10:02:46.896082+00:00",
+    "source": "Actual browser rendering, unedited"
+  }
+]

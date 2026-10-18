@@ -4,7 +4,9 @@ flowchart LR
   Client --> N[Service 8 :8008]
   Client --> P[Service 9 :8009]
   Identity --> DB[(Shared SQLite)]
-  V --> DB
+  V -->|transactional alert enqueue| DB
+  DB --> Worker[Notification retry worker]
+  Worker -->|authenticated HTTP + idempotency key| N
   N --> DB
   P --> DB
   Team[Team services 1-6: integration pending] -. agreed HTTP contracts .-> V

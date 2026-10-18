@@ -29,14 +29,21 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "All Records",
+        "summary": "List response playbooks",
+        "description": "Administrators, analysts and auditors list available playbooks.",
         "operationId": "all_records_Joseph_Awaida_playbooks_get",
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PlaybookRecord"
+                  },
+                  "type": "array",
+                  "title": "Response All Records Joseph Awaida Playbooks Get"
+                }
               }
             }
           }
@@ -51,7 +58,8 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "Create",
+        "summary": "Create response playbook",
+        "description": "Administrator creates a playbook organized by incident category and severity.",
         "operationId": "create_Joseph_Awaida_playbooks_post",
         "requestBody": {
           "content": {
@@ -68,7 +76,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/PlaybookRecord"
+                }
               }
             }
           },
@@ -95,7 +105,8 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "Retrieve",
+        "summary": "Retrieve response playbook",
+        "description": "Returns playbook metadata, ordered actions and append-only execution history.",
         "operationId": "retrieve_Joseph_Awaida_playbooks__id__get",
         "security": [
           {
@@ -118,7 +129,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/PlaybookDetail"
+                }
               }
             }
           },
@@ -138,7 +151,8 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "Delete",
+        "summary": "Delete response playbook",
+        "description": "Administrator deletes playbook and current actions; immutable execution history survives.",
         "operationId": "delete_Joseph_Awaida_playbooks__id__delete",
         "security": [
           {
@@ -161,7 +175,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
               }
             }
           },
@@ -183,7 +199,8 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "Add Action",
+        "summary": "Add response action",
+        "description": "Administrator or analyst adds a unique positive step; new steps cannot precede already started actions.",
         "operationId": "add_action_Joseph_Awaida_playbooks__id__actions_post",
         "security": [
           {
@@ -216,7 +233,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ActionRecord"
+                }
               }
             }
           },
@@ -238,7 +257,8 @@
         "tags": [
           "Playbooks and actions"
         ],
-        "summary": "Update Action",
+        "summary": "Update response action status",
+        "description": "Administrator or analyst advances Pending to In Progress to Completed. Requires an active qualified assignee and completed earlier steps. Completion time is server-generated.",
         "operationId": "update_action_Joseph_Awaida_actions__id__status_put",
         "security": [
           {
@@ -271,7 +291,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ActionRecord"
+                }
               }
             }
           },
@@ -325,6 +347,145 @@
         ],
         "title": "ActionCreate"
       },
+      "ActionHistory": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "action_id": {
+            "type": "integer",
+            "title": "Action Id"
+          },
+          "playbook_id": {
+            "type": "integer",
+            "title": "Playbook Id"
+          },
+          "actor_id": {
+            "type": "integer",
+            "title": "Actor Id"
+          },
+          "old_status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Pending",
+                  "In Progress",
+                  "Completed"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Old Status"
+          },
+          "new_status": {
+            "type": "string",
+            "enum": [
+              "Pending",
+              "In Progress",
+              "Completed"
+            ],
+            "title": "New Status"
+          },
+          "assigned_user_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned User Id"
+          },
+          "recorded_at": {
+            "type": "string",
+            "title": "Recorded At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "action_id",
+          "playbook_id",
+          "actor_id",
+          "old_status",
+          "new_status",
+          "assigned_user_id",
+          "recorded_at"
+        ],
+        "title": "ActionHistory"
+      },
+      "ActionRecord": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "step_number": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Step Number"
+          },
+          "assigned_user_id": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned User Id"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "playbook_id": {
+            "type": "integer",
+            "title": "Playbook Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Pending",
+              "In Progress",
+              "Completed"
+            ],
+            "title": "Status"
+          },
+          "completion_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completion Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "description",
+          "step_number",
+          "id",
+          "playbook_id",
+          "status",
+          "completion_date"
+        ],
+        "title": "ActionRecord"
+      },
       "ActionUpdate": {
         "properties": {
           "status": {
@@ -369,6 +530,20 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "Message": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "Message"
+      },
       "PlaybookCreate": {
         "properties": {
           "name": {
@@ -409,6 +584,134 @@
           "severity"
         ],
         "title": "PlaybookCreate"
+      },
+      "PlaybookDetail": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "incident_category": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Incident Category"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "title": "Severity"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "created_by": {
+            "type": "integer",
+            "title": "Created By"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "actions": {
+            "items": {
+              "$ref": "#/components/schemas/ActionRecord"
+            },
+            "type": "array",
+            "title": "Actions"
+          },
+          "execution_history": {
+            "items": {
+              "$ref": "#/components/schemas/ActionHistory"
+            },
+            "type": "array",
+            "title": "Execution History"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "incident_category",
+          "severity",
+          "id",
+          "created_by",
+          "created_at",
+          "actions",
+          "execution_history"
+        ],
+        "title": "PlaybookDetail"
+      },
+      "PlaybookRecord": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "incident_category": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Incident Category"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "title": "Severity"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "created_by": {
+            "type": "integer",
+            "title": "Created By"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "incident_category",
+          "severity",
+          "id",
+          "created_by",
+          "created_at"
+        ],
+        "title": "PlaybookRecord"
       },
       "ValidationError": {
         "properties": {

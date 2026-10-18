@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-18T09:42:29.841271+00:00",
+  "captured_at": "2026-10-18T09:55:24.815382+00:00",
   "source": "Real HTTP calls to local Uvicorn processes; not Postman screenshots",
   "results": [
     {
@@ -111,7 +111,6 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -119,8 +118,9 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "Open",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
         "resolution_date": null
       }
     },
@@ -141,7 +141,6 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 2,
         "title": "Workstation review",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-23456",
@@ -149,8 +148,9 @@
         "severity": "Medium",
         "asset_id": 2,
         "discovery_source": "Lab scanner",
+        "id": 14,
         "status": "Open",
-        "created_at": "2026-10-18T09:42:29.702997+00:00",
+        "created_at": "2026-10-18T09:55:24.674610+00:00",
         "resolution_date": null
       }
     },
@@ -164,20 +164,6 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
-          "title": "Exposed remote service",
-          "description": "Scanner detected an exposed service requiring review.",
-          "cve_identifier": "CVE-2026-12345",
-          "cvss_score": 9.1,
-          "severity": "Critical",
-          "asset_id": 1,
-          "discovery_source": "Lab scanner",
-          "status": "Open",
-          "created_at": "2026-10-18T09:42:29.700366+00:00",
-          "resolution_date": null
-        },
-        {
-          "id": 2,
           "title": "Workstation review",
           "description": "Scanner detected an exposed service requiring review.",
           "cve_identifier": "CVE-2026-23456",
@@ -185,8 +171,113 @@
           "severity": "Medium",
           "asset_id": 2,
           "discovery_source": "Lab scanner",
+          "id": 2,
           "status": "Open",
           "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 4,
+          "status": "Open",
+          "created_at": "2026-10-18T09:43:26.553382+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 6,
+          "status": "Open",
+          "created_at": "2026-10-18T09:52:51.302050+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "HTTP integration verification",
+          "description": "Verify actual Service 7 to Service 8 communication.",
+          "cve_identifier": "CVE-2026-34567",
+          "cvss_score": 8.5,
+          "severity": "High",
+          "asset_id": 1,
+          "discovery_source": "Local verification",
+          "id": 7,
+          "status": "Open",
+          "created_at": "2026-10-18T09:52:51.919067+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 9,
+          "status": "Open",
+          "created_at": "2026-10-18T09:53:48.507396+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "HTTP integration verification",
+          "description": "Verify actual Service 7 to Service 8 communication.",
+          "cve_identifier": "CVE-2026-34567",
+          "cvss_score": 8.5,
+          "severity": "High",
+          "asset_id": 1,
+          "discovery_source": "Local verification",
+          "id": 10,
+          "status": "Open",
+          "created_at": "2026-10-18T09:53:49.085060+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 12,
+          "status": "Open",
+          "created_at": "2026-10-18T09:54:14.339233+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "id": 13,
+          "status": "Open",
+          "created_at": "2026-10-18T09:55:24.670665+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 14,
+          "status": "Open",
+          "created_at": "2026-10-18T09:55:24.674610+00:00",
           "resolution_date": null
         }
       ]
@@ -194,13 +285,12 @@
     {
       "name": "Retrieve vulnerability",
       "method": "GET",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -208,8 +298,9 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "Open",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
         "resolution_date": null
       }
     },
@@ -236,7 +327,6 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
           "title": "Exposed remote service",
           "description": "Scanner detected an exposed service requiring review.",
           "cve_identifier": "CVE-2026-12345",
@@ -244,8 +334,9 @@
           "severity": "Critical",
           "asset_id": 1,
           "discovery_source": "Lab scanner",
+          "id": 13,
           "status": "Open",
-          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "created_at": "2026-10-18T09:55:24.670665+00:00",
           "resolution_date": null
         }
       ]
@@ -260,7 +351,6 @@
       "passed": true,
       "response": [
         {
-          "id": 2,
           "title": "Workstation review",
           "description": "Scanner detected an exposed service requiring review.",
           "cve_identifier": "CVE-2026-23456",
@@ -268,8 +358,74 @@
           "severity": "Medium",
           "asset_id": 2,
           "discovery_source": "Lab scanner",
+          "id": 2,
           "status": "Open",
           "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 4,
+          "status": "Open",
+          "created_at": "2026-10-18T09:43:26.553382+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 6,
+          "status": "Open",
+          "created_at": "2026-10-18T09:52:51.302050+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 9,
+          "status": "Open",
+          "created_at": "2026-10-18T09:53:48.507396+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 12,
+          "status": "Open",
+          "created_at": "2026-10-18T09:54:14.339233+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 14,
+          "status": "Open",
+          "created_at": "2026-10-18T09:55:24.674610+00:00",
           "resolution_date": null
         }
       ]
@@ -284,7 +440,6 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
           "title": "Exposed remote service",
           "description": "Scanner detected an exposed service requiring review.",
           "cve_identifier": "CVE-2026-12345",
@@ -292,8 +447,9 @@
           "severity": "Critical",
           "asset_id": 1,
           "discovery_source": "Lab scanner",
+          "id": 13,
           "status": "Open",
-          "created_at": "2026-10-18T09:42:29.700366+00:00",
+          "created_at": "2026-10-18T09:55:24.670665+00:00",
           "resolution_date": null
         }
       ]
@@ -308,20 +464,6 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
-          "title": "Exposed remote service",
-          "description": "Scanner detected an exposed service requiring review.",
-          "cve_identifier": "CVE-2026-12345",
-          "cvss_score": 9.1,
-          "severity": "Critical",
-          "asset_id": 1,
-          "discovery_source": "Lab scanner",
-          "status": "Open",
-          "created_at": "2026-10-18T09:42:29.700366+00:00",
-          "resolution_date": null
-        },
-        {
-          "id": 2,
           "title": "Workstation review",
           "description": "Scanner detected an exposed service requiring review.",
           "cve_identifier": "CVE-2026-23456",
@@ -329,8 +471,113 @@
           "severity": "Medium",
           "asset_id": 2,
           "discovery_source": "Lab scanner",
+          "id": 2,
           "status": "Open",
           "created_at": "2026-10-18T09:42:29.702997+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 4,
+          "status": "Open",
+          "created_at": "2026-10-18T09:43:26.553382+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 6,
+          "status": "Open",
+          "created_at": "2026-10-18T09:52:51.302050+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "HTTP integration verification",
+          "description": "Verify actual Service 7 to Service 8 communication.",
+          "cve_identifier": "CVE-2026-34567",
+          "cvss_score": 8.5,
+          "severity": "High",
+          "asset_id": 1,
+          "discovery_source": "Local verification",
+          "id": 7,
+          "status": "Open",
+          "created_at": "2026-10-18T09:52:51.919067+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 9,
+          "status": "Open",
+          "created_at": "2026-10-18T09:53:48.507396+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "HTTP integration verification",
+          "description": "Verify actual Service 7 to Service 8 communication.",
+          "cve_identifier": "CVE-2026-34567",
+          "cvss_score": 8.5,
+          "severity": "High",
+          "asset_id": 1,
+          "discovery_source": "Local verification",
+          "id": 10,
+          "status": "Open",
+          "created_at": "2026-10-18T09:53:49.085060+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 12,
+          "status": "Open",
+          "created_at": "2026-10-18T09:54:14.339233+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Exposed remote service",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-12345",
+          "cvss_score": 9.1,
+          "severity": "Critical",
+          "asset_id": 1,
+          "discovery_source": "Lab scanner",
+          "id": 13,
+          "status": "Open",
+          "created_at": "2026-10-18T09:55:24.670665+00:00",
+          "resolution_date": null
+        },
+        {
+          "title": "Workstation review",
+          "description": "Scanner detected an exposed service requiring review.",
+          "cve_identifier": "CVE-2026-23456",
+          "cvss_score": 5.5,
+          "severity": "Medium",
+          "asset_id": 2,
+          "discovery_source": "Lab scanner",
+          "id": 14,
+          "status": "Open",
+          "created_at": "2026-10-18T09:55:24.674610+00:00",
           "resolution_date": null
         }
       ]
@@ -417,7 +664,7 @@
     {
       "name": "Reject lifecycle skip",
       "method": "PUT",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": {
         "status": "Closed"
       },
@@ -432,7 +679,7 @@
     {
       "name": "Advance vulnerability to Under Investigation",
       "method": "PUT",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": {
         "status": "Under Investigation"
       },
@@ -440,7 +687,6 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -448,15 +694,16 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "Under Investigation",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
         "resolution_date": null
       }
     },
     {
       "name": "Advance vulnerability to In Progress",
       "method": "PUT",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": {
         "status": "In Progress"
       },
@@ -464,7 +711,6 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -472,15 +718,16 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "In Progress",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
         "resolution_date": null
       }
     },
     {
       "name": "Advance vulnerability to Resolved",
       "method": "PUT",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": {
         "status": "Resolved"
       },
@@ -488,7 +735,6 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -496,15 +742,16 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "Resolved",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
-        "resolution_date": "2026-10-18T09:42:29.733856+00:00"
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
+        "resolution_date": "2026-10-18T09:55:24.709124+00:00"
       }
     },
     {
       "name": "Advance vulnerability to Closed",
       "method": "PUT",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": {
         "status": "Closed"
       },
@@ -512,7 +759,6 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "title": "Exposed remote service",
         "description": "Scanner detected an exposed service requiring review.",
         "cve_identifier": "CVE-2026-12345",
@@ -520,15 +766,16 @@
         "severity": "Critical",
         "asset_id": 1,
         "discovery_source": "Lab scanner",
+        "id": 13,
         "status": "Closed",
-        "created_at": "2026-10-18T09:42:29.700366+00:00",
-        "resolution_date": "2026-10-18T09:42:29.733856+00:00"
+        "created_at": "2026-10-18T09:55:24.670665+00:00",
+        "resolution_date": "2026-10-18T09:55:24.709124+00:00"
       }
     },
     {
       "name": "Reject analyst deletion",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": null,
       "expected_status": 403,
       "actual_status": 403,
@@ -541,7 +788,7 @@
     {
       "name": "Delete vulnerability",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/1",
+      "url": "http://127.0.0.1:8007/Joseph-Awaida/vulnerabilities/13",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
@@ -565,14 +812,14 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 1,
         "user_id": 3,
         "title": "Security alert",
         "message": "Review the reported suspicious message.",
         "notification_type": "Security Alert",
         "severity": "High",
+        "id": 19,
         "status": "Unread",
-        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "created_at": "2026-10-18T09:55:24.724712+00:00",
         "read_date": null
       }
     },
@@ -591,14 +838,14 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 2,
         "user_id": 2,
         "title": "Incident assigned",
         "message": "Review the reported suspicious message.",
         "notification_type": "Incident Assignment",
         "severity": "High",
+        "id": 20,
         "status": "Unread",
-        "created_at": "2026-10-18T09:42:29.759859+00:00",
+        "created_at": "2026-10-18T09:55:24.729588+00:00",
         "read_date": null
       }
     },
@@ -612,14 +859,14 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
           "user_id": 3,
           "title": "Security alert",
           "message": "Review the reported suspicious message.",
           "notification_type": "Security Alert",
           "severity": "High",
+          "id": 19,
           "status": "Unread",
-          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "created_at": "2026-10-18T09:55:24.724712+00:00",
           "read_date": null
         }
       ]
@@ -637,27 +884,27 @@
     {
       "name": "Retrieve specific notification",
       "method": "GET",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "user_id": 3,
         "title": "Security alert",
         "message": "Review the reported suspicious message.",
         "notification_type": "Security Alert",
         "severity": "High",
+        "id": 19,
         "status": "Unread",
-        "created_at": "2026-10-18T09:42:29.757173+00:00",
+        "created_at": "2026-10-18T09:55:24.724712+00:00",
         "read_date": null
       }
     },
     {
       "name": "Reject another user notification",
       "method": "GET",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19",
       "request_body": null,
       "expected_status": 403,
       "actual_status": 403,
@@ -690,14 +937,14 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
           "user_id": 3,
           "title": "Security alert",
           "message": "Review the reported suspicious message.",
           "notification_type": "Security Alert",
           "severity": "High",
+          "id": 19,
           "status": "Unread",
-          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "created_at": "2026-10-18T09:55:24.724712+00:00",
           "read_date": null
         }
       ]
@@ -712,14 +959,14 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
           "user_id": 3,
           "title": "Security alert",
           "message": "Review the reported suspicious message.",
           "notification_type": "Security Alert",
           "severity": "High",
+          "id": 19,
           "status": "Unread",
-          "created_at": "2026-10-18T09:42:29.757173+00:00",
+          "created_at": "2026-10-18T09:55:24.724712+00:00",
           "read_date": null
         }
       ]
@@ -734,25 +981,102 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
-          "user_id": 3,
-          "title": "Security alert",
-          "message": "Review the reported suspicious message.",
-          "notification_type": "Security Alert",
-          "severity": "High",
-          "status": "Unread",
-          "created_at": "2026-10-18T09:42:29.757173+00:00",
-          "read_date": null
-        },
-        {
-          "id": 2,
           "user_id": 2,
           "title": "Incident assigned",
           "message": "Review the reported suspicious message.",
           "notification_type": "Incident Assignment",
           "severity": "High",
+          "id": 2,
           "status": "Unread",
           "created_at": "2026-10-18T09:42:29.759859+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 4,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:43:26.824573+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 6,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.404018+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: HTTP integration verification",
+          "message": "CVE-2026-34567 affects asset 1; severity High, CVSS 8.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "High",
+          "id": 9,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.949372+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 11,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:48.585691+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: HTTP integration verification",
+          "message": "CVE-2026-34567 affects asset 1; severity High, CVSS 8.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "High",
+          "id": 14,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:49.111853+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 16,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:54:14.622995+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "id": 19,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:55:24.724712+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 20,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:55:24.729588+00:00",
           "read_date": null
         }
       ]
@@ -767,25 +1091,168 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
-          "user_id": 3,
-          "title": "Security alert",
-          "message": "Review the reported suspicious message.",
-          "notification_type": "Security Alert",
-          "severity": "High",
-          "status": "Unread",
-          "created_at": "2026-10-18T09:42:29.757173+00:00",
-          "read_date": null
-        },
-        {
-          "id": 2,
           "user_id": 2,
           "title": "Incident assigned",
           "message": "Review the reported suspicious message.",
           "notification_type": "Incident Assignment",
           "severity": "High",
+          "id": 2,
           "status": "Unread",
           "created_at": "2026-10-18T09:42:29.759859+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 4,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:43:26.824573+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 6,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.404018+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Exposed remote service",
+          "message": "CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Critical",
+          "id": 7,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.937790+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Workstation review",
+          "message": "CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Medium",
+          "id": 8,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.942088+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: HTTP integration verification",
+          "message": "CVE-2026-34567 affects asset 1; severity High, CVSS 8.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "High",
+          "id": 9,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:52:51.949372+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 11,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:48.585691+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Exposed remote service",
+          "message": "CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Critical",
+          "id": 12,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:49.103281+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Workstation review",
+          "message": "CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Medium",
+          "id": 13,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:49.107730+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: HTTP integration verification",
+          "message": "CVE-2026-34567 affects asset 1; severity High, CVSS 8.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "High",
+          "id": 14,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:53:49.111853+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 16,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:54:14.622995+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Exposed remote service",
+          "message": "CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Critical",
+          "id": 17,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:54:17.256211+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 1,
+          "title": "Vulnerability discovered: Workstation review",
+          "message": "CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.",
+          "notification_type": "Vulnerability Alert",
+          "severity": "Medium",
+          "id": 18,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:54:17.267847+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 3,
+          "title": "Security alert",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Security Alert",
+          "severity": "High",
+          "id": 19,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:55:24.724712+00:00",
+          "read_date": null
+        },
+        {
+          "user_id": 2,
+          "title": "Incident assigned",
+          "message": "Review the reported suspicious message.",
+          "notification_type": "Incident Assignment",
+          "severity": "High",
+          "id": 20,
+          "status": "Unread",
+          "created_at": "2026-10-18T09:55:24.729588+00:00",
           "read_date": null
         }
       ]
@@ -793,7 +1260,7 @@
     {
       "name": "Reject auditor marking read",
       "method": "PUT",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19/read",
       "request_body": null,
       "expected_status": 403,
       "actual_status": 403,
@@ -806,47 +1273,47 @@
     {
       "name": "Mark own notification read",
       "method": "PUT",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19/read",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "user_id": 3,
         "title": "Security alert",
         "message": "Review the reported suspicious message.",
         "notification_type": "Security Alert",
         "severity": "High",
+        "id": 19,
         "status": "Read",
-        "created_at": "2026-10-18T09:42:29.757173+00:00",
-        "read_date": "2026-10-18T09:42:29.779083+00:00"
+        "created_at": "2026-10-18T09:55:24.724712+00:00",
+        "read_date": "2026-10-18T09:55:24.753966+00:00"
       }
     },
     {
       "name": "Repeat mark read",
       "method": "PUT",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1/read",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19/read",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "user_id": 3,
         "title": "Security alert",
         "message": "Review the reported suspicious message.",
         "notification_type": "Security Alert",
         "severity": "High",
+        "id": 19,
         "status": "Read",
-        "created_at": "2026-10-18T09:42:29.757173+00:00",
-        "read_date": "2026-10-18T09:42:29.779083+00:00"
+        "created_at": "2026-10-18T09:55:24.724712+00:00",
+        "read_date": "2026-10-18T09:55:24.753966+00:00"
       }
     },
     {
       "name": "Reject employee deletion",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19",
       "request_body": null,
       "expected_status": 403,
       "actual_status": 403,
@@ -859,7 +1326,7 @@
     {
       "name": "Delete notification",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/1",
+      "url": "http://127.0.0.1:8008/Joseph-Awaida/notifications/19",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
@@ -882,13 +1349,13 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 1,
         "name": "Malware containment",
         "description": "Isolate and investigate a suspected malware infection.",
         "incident_category": "Malware",
         "severity": "High",
+        "id": 11,
         "created_by": 1,
-        "created_at": "2026-10-18T09:42:29.809099+00:00"
+        "created_at": "2026-10-18T09:55:24.768582+00:00"
       }
     },
     {
@@ -905,13 +1372,13 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 2,
         "name": "Phishing investigation",
         "description": "Isolate and investigate a suspected malware infection.",
         "incident_category": "Phishing",
         "severity": "Medium",
+        "id": 12,
         "created_by": 1,
-        "created_at": "2026-10-18T09:42:29.811892+00:00"
+        "created_at": "2026-10-18T09:55:24.772470+00:00"
       }
     },
     {
@@ -924,42 +1391,88 @@
       "passed": true,
       "response": [
         {
-          "id": 1,
-          "name": "Malware containment",
-          "description": "Isolate and investigate a suspected malware infection.",
-          "incident_category": "Malware",
-          "severity": "High",
-          "created_by": 1,
-          "created_at": "2026-10-18T09:42:29.809099+00:00"
-        },
-        {
-          "id": 2,
           "name": "Phishing investigation",
           "description": "Isolate and investigate a suspected malware infection.",
           "incident_category": "Phishing",
           "severity": "Medium",
+          "id": 2,
           "created_by": 1,
           "created_at": "2026-10-18T09:42:29.811892+00:00"
+        },
+        {
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "id": 4,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:43:27.042220+00:00"
+        },
+        {
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "id": 6,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:52:51.468223+00:00"
+        },
+        {
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "id": 8,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:53:48.652371+00:00"
+        },
+        {
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "id": 10,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:54:14.851373+00:00"
+        },
+        {
+          "name": "Malware containment",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Malware",
+          "severity": "High",
+          "id": 11,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:55:24.768582+00:00"
+        },
+        {
+          "name": "Phishing investigation",
+          "description": "Isolate and investigate a suspected malware infection.",
+          "incident_category": "Phishing",
+          "severity": "Medium",
+          "id": 12,
+          "created_by": 1,
+          "created_at": "2026-10-18T09:55:24.772470+00:00"
         }
       ]
     },
     {
       "name": "Retrieve playbook",
       "method": "GET",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "name": "Malware containment",
         "description": "Isolate and investigate a suspected malware infection.",
         "incident_category": "Malware",
         "severity": "High",
+        "id": 11,
         "created_by": 1,
-        "created_at": "2026-10-18T09:42:29.809099+00:00",
-        "actions": []
+        "created_at": "2026-10-18T09:55:24.768582+00:00",
+        "actions": [],
+        "execution_history": []
       }
     },
     {
@@ -978,7 +1491,7 @@
     {
       "name": "Add response step 1",
       "method": "POST",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11/actions",
       "request_body": {
         "description": "Isolate asset",
         "step_number": 1,
@@ -988,19 +1501,19 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 1,
-        "playbook_id": 1,
         "description": "Isolate asset",
         "step_number": 1,
-        "status": "Pending",
         "assigned_user_id": 2,
+        "id": 1,
+        "playbook_id": 11,
+        "status": "Pending",
         "completion_date": null
       }
     },
     {
       "name": "Add response step 2",
       "method": "POST",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11/actions",
       "request_body": {
         "description": "Investigate artifacts",
         "step_number": 2,
@@ -1010,19 +1523,19 @@
       "actual_status": 201,
       "passed": true,
       "response": {
-        "id": 2,
-        "playbook_id": 1,
         "description": "Investigate artifacts",
         "step_number": 2,
-        "status": "Pending",
         "assigned_user_id": 2,
+        "id": 2,
+        "playbook_id": 11,
+        "status": "Pending",
         "completion_date": null
       }
     },
     {
       "name": "Reject duplicate step",
       "method": "POST",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1/actions",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11/actions",
       "request_body": {
         "description": "Duplicate",
         "step_number": 1
@@ -1061,12 +1574,12 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
-        "playbook_id": 1,
         "description": "Isolate asset",
         "step_number": 1,
-        "status": "In Progress",
         "assigned_user_id": 2,
+        "id": 1,
+        "playbook_id": 11,
+        "status": "In Progress",
         "completion_date": null
       }
     },
@@ -1081,13 +1594,13 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
-        "playbook_id": 1,
         "description": "Isolate asset",
         "step_number": 1,
-        "status": "Completed",
         "assigned_user_id": 2,
-        "completion_date": "2026-10-18T09:42:29.830466+00:00"
+        "id": 1,
+        "playbook_id": 11,
+        "status": "Completed",
+        "completion_date": "2026-10-18T09:55:24.797926+00:00"
       }
     },
     {
@@ -1101,12 +1614,12 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 2,
-        "playbook_id": 1,
         "description": "Investigate artifacts",
         "step_number": 2,
-        "status": "In Progress",
         "assigned_user_id": 2,
+        "id": 2,
+        "playbook_id": 11,
+        "status": "In Progress",
         "completion_date": null
       }
     },
@@ -1121,49 +1634,111 @@
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 2,
-        "playbook_id": 1,
         "description": "Investigate artifacts",
         "step_number": 2,
-        "status": "Completed",
         "assigned_user_id": 2,
-        "completion_date": "2026-10-18T09:42:29.834447+00:00"
+        "id": 2,
+        "playbook_id": 11,
+        "status": "Completed",
+        "completion_date": "2026-10-18T09:55:24.805144+00:00"
       }
     },
     {
       "name": "Retrieve completed workflow",
       "method": "GET",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,
       "passed": true,
       "response": {
-        "id": 1,
         "name": "Malware containment",
         "description": "Isolate and investigate a suspected malware infection.",
         "incident_category": "Malware",
         "severity": "High",
+        "id": 11,
         "created_by": 1,
-        "created_at": "2026-10-18T09:42:29.809099+00:00",
+        "created_at": "2026-10-18T09:55:24.768582+00:00",
         "actions": [
           {
-            "id": 1,
-            "playbook_id": 1,
             "description": "Isolate asset",
             "step_number": 1,
-            "status": "Completed",
             "assigned_user_id": 2,
-            "completion_date": "2026-10-18T09:42:29.830466+00:00"
+            "id": 1,
+            "playbook_id": 11,
+            "status": "Completed",
+            "completion_date": "2026-10-18T09:55:24.797926+00:00"
           },
           {
-            "id": 2,
-            "playbook_id": 1,
             "description": "Investigate artifacts",
             "step_number": 2,
-            "status": "Completed",
             "assigned_user_id": 2,
-            "completion_date": "2026-10-18T09:42:29.834447+00:00"
+            "id": 2,
+            "playbook_id": 11,
+            "status": "Completed",
+            "completion_date": "2026-10-18T09:55:24.805144+00:00"
+          }
+        ],
+        "execution_history": [
+          {
+            "id": 31,
+            "action_id": 1,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": null,
+            "new_status": "Pending",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.782169+00:00"
+          },
+          {
+            "id": 32,
+            "action_id": 2,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": null,
+            "new_status": "Pending",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.785758+00:00"
+          },
+          {
+            "id": 33,
+            "action_id": 1,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": "Pending",
+            "new_status": "In Progress",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.794424+00:00"
+          },
+          {
+            "id": 34,
+            "action_id": 1,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": "In Progress",
+            "new_status": "Completed",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.798280+00:00"
+          },
+          {
+            "id": 35,
+            "action_id": 2,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": "Pending",
+            "new_status": "In Progress",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.801797+00:00"
+          },
+          {
+            "id": 36,
+            "action_id": 2,
+            "playbook_id": 11,
+            "actor_id": 2,
+            "old_status": "In Progress",
+            "new_status": "Completed",
+            "assigned_user_id": 2,
+            "recorded_at": "2026-10-18T09:55:24.805316+00:00"
           }
         ]
       }
@@ -1171,7 +1746,7 @@
     {
       "name": "Reject analyst deleting playbook",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11",
       "request_body": null,
       "expected_status": 403,
       "actual_status": 403,
@@ -1184,7 +1759,7 @@
     {
       "name": "Delete playbook",
       "method": "DELETE",
-      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/1",
+      "url": "http://127.0.0.1:8009/Joseph-Awaida/playbooks/11",
       "request_body": null,
       "expected_status": 200,
       "actual_status": 200,

@@ -8,7 +8,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Image, LongTable, Preformatted
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Image, LongTable, Preformatted, KeepTogether
 from reportlab.platypus.tableofcontents import TableOfContents
 
 STYLES=getSampleStyleSheet()
@@ -102,6 +102,16 @@ def build():
             story.append(paragraph(line[3:],'Heading2'))
         elif line and not line.startswith('# '):
             story.append(paragraph(line,'SmallText'))
+    for kind, title in [('postman','Genuine Postman screenshots (Joseph Awaida)'),('browser','Genuine database and GitHub screenshots (Joseph Awaida)')]:
+        manifest = Path('evidence/screenshots') / (kind+'-manifest.json')
+        if manifest.exists():
+            story += [PageBreak(),paragraph(title,'Heading1'),paragraph('Unedited captures from actual running applications. Captions identify the student, operation and purpose. Token-bearing authentication responses use the Headers view; private password bodies are omitted.')]
+            for record in json.loads(manifest.read_text()):
+                image = Image(record['file'])
+                ratio = min(WIDTH/image.imageWidth, 320/image.imageHeight)
+                image.drawWidth = image.imageWidth*ratio
+                image.drawHeight = image.imageHeight*ratio
+                story.append(KeepTogether([image,paragraph(record['caption'],'SmallText'),Spacer(1,8)]))
     story += [PageBreak(),paragraph('Submission status and remaining evidence (Joseph Awaida)','Heading1')]
     for line in Path('docs/SUBMISSION-CHECKLIST.md').read_text().splitlines():
         if line and not line.startswith('#'):

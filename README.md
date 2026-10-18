@@ -31,7 +31,7 @@ Every API route starts with `/Joseph-Awaida`. Each service exposes `/Joseph-Awai
 .venv/bin/python -m scripts.capture_evidence
 ```
 
-Verified locally: 9 automated tests passed; 57 HTTP scenarios passed; the actual Postman collection passed all 57 requests/assertions in Newman. See `evidence/newman-output.txt`.
+See `evidence/validation-summary.json` and `evidence/SUMMARY.md` for actual test and Postman Newman results. `evidence/http-integration.json` records real Service 7 → Service 8 alert delivery and duplicate protection.
 
 Start the servers before capturing evidence. The capture script executes real HTTP calls against the local processes and saves sanitized responses, a database snapshot, and the live OpenAPI specifications in `evidence/`. It deliberately retains demo records for inspection. Re-running it creates additional records. Automated HTTP evidence does not replace the required Postman screenshots.
 
@@ -39,7 +39,7 @@ Import `postman/Services-7-8-9.postman_collection.json` and its environment into
 
 ## Integration with teammates
 
-The identity adapter, minimal users/assets reference tables, and local audit table are integration scaffolding for Services 1, 2, and 5; they are not complete implementations of teammates' services. All four processes currently use the same SQLite file (configurable through `DATABASE_PATH`), so ownership and foreign keys are enforced locally. They expose independent HTTP APIs. Replace the scaffolding with the team's identity verification, asset lookup, and audit API adapters when those contracts are supplied. Audit permission denials currently persist locally; forwarding to Service 5 remains a team integration task. Upstream services can create alerts through the administrator-authenticated Service 8 HTTP endpoint. No automatic incident/threat event producer is included in this contribution.
+The identity adapter, minimal users/assets reference tables, and local audit table are integration scaffolding for Services 1, 2, and 5; they are not complete implementations of teammates' services. All four processes currently use the same SQLite file (configurable through `DATABASE_PATH`), so ownership and foreign keys are enforced locally. They expose independent HTTP APIs. Replace the scaffolding with the team's identity verification, asset lookup, and audit API adapters when those contracts are supplied. Audit permission denials currently persist locally; forwarding to Service 5 remains a team integration task. Upstream services can create alerts through the administrator-authenticated Service 8 HTTP endpoint. Service 7 automatically queues alerts for asset owners, and a worker delivers them to Service 8 over HTTP with retry and idempotency protection. No automatic incident/threat event producer is included in this contribution.
 
 ## Rules and design
 
@@ -60,3 +60,27 @@ npx --yes newman run postman/Services-7-8-9.postman_collection.json -e data/newm
 ```
 
 Use `requirements-lock.txt` instead of `requirements.txt` to reproduce the exact tested Python dependency versions.
+
+## Final contribution artifacts
+
+- `docs/Joseph-Awaida-Sprint-I-Report.docx`: editable contribution report.
+- `docs/Joseph-Awaida-Sprint-I-Report.pdf`: paginated report with table of contents and execution/database appendix.
+- `docs/TEAM-INTEGRATION.md`: notification contract and teammate interfaces.
+- `docs/DEMONSTRATION.md`: walkthrough and genuine screenshot instructions.
+- `scripts/package_submission.py`: package committed public files, excluding private credentials.
+
+The local runner also starts a retry worker. Automatic vulnerability alerts are delivered to the affected asset owner; check their notifications and `notification_outbox` delivery status. `Idempotency-Key` on notification creation prevents duplicate delivery.
+
+To reproduce the whole contribution package (requires Python dependencies and Node/npm):
+
+```sh
+.venv/bin/python -m scripts.reproduce_submission
+```
+
+This command uses existing local servers when all four are running, otherwise starts its own processes. It executes actual tests/requests, rebuilds reports and packages public files. It creates additional demonstration records. It does not capture desktop screenshots, submit to Moodle, or publish Git changes.
+
+## Genuine screenshot evidence
+
+The report appendices embed unedited Postman desktop runner captures, real read-only database views and GitHub commit history. Metadata and individual PNGs are in `evidence/screenshots/`. Authentication response bodies containing tokens and private resolved password bodies are omitted from public screenshots.
+
+Optional reproduction tools: install `requirements-evidence.txt`, run `.venv/bin/sqlite_web -r -x -p 8010 data/security.sqlite3`, then `.venv/bin/python -m scripts.capture_browser_evidence`. For Postman, launch the desktop app with `ELECTRON_RUN_AS_NODE` removed, run the imported collection in the authorized environment, and execute `node scripts/capture_postman_evidence.mjs <local-debug-port>`. The scripts capture real running applications, not generated facsimiles.
