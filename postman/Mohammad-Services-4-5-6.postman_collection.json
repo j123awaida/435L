@@ -1,0 +1,2097 @@
+{
+  "info": {
+    "name": "Mohammad Nasrallah \u2014 Services 4, 5, 6 (Sprint I)",
+    "description": "Security Incident Detection and Response Management System \u2014 Threat Intelligence (Service 4, port 8004), Security Audit Logging (Service 5, port 8005) and Security Reports (Service 6, port 8006), implemented by Mohammad Nasrallah. Every business route is prefixed with /Mohammad-Nasrallah.\n\nRun the folders in order: authentication first, then Service 4, Service 5 and Service 6. Authentication uses Hassan Nasrallah's Service 1 on port 8000. Fill the four role passwords in the environment before running, and do not include tokens or passwords in submitted screenshots.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "0. Authentication (Mohammad Nasrallah)",
+      "item": [
+        {
+          "name": "Login as admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/users/login",
+            "description": "Authenticate the admin account against Hassan Nasrallah's Service 1 and store the bearer token for later requests. Never include the token response in submitted evidence.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"{{admin_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"admin_token\", \"Bearer \" + body.access_token);",
+                  "pm.collectionVariables.set(\"admin_id\", body.user_id);",
+                  "pm.test(\"role is admin\", () => pm.expect(body.role).to.eql(\"admin\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login as analyst",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/users/login",
+            "description": "Authenticate the analyst account against Hassan Nasrallah's Service 1 and store the bearer token for later requests. Never include the token response in submitted evidence.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"analyst\",\n  \"password\": \"{{analyst_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"analyst_token\", \"Bearer \" + body.access_token);",
+                  "pm.collectionVariables.set(\"analyst_id\", body.user_id);",
+                  "pm.test(\"role is analyst\", () => pm.expect(body.role).to.eql(\"analyst\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login as employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/users/login",
+            "description": "Authenticate the employee account against Hassan Nasrallah's Service 1 and store the bearer token for later requests. Never include the token response in submitted evidence.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"employee\",\n  \"password\": \"{{employee_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"employee_token\", \"Bearer \" + body.access_token);",
+                  "pm.collectionVariables.set(\"employee_id\", body.user_id);",
+                  "pm.test(\"role is employee\", () => pm.expect(body.role).to.eql(\"employee\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login as auditor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/users/login",
+            "description": "Authenticate the auditor account against Hassan Nasrallah's Service 1 and store the bearer token for later requests. Never include the token response in submitted evidence.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"auditor\",\n  \"password\": \"{{auditor_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"auditor_token\", \"Bearer \" + body.access_token);",
+                  "pm.collectionVariables.set(\"auditor_id\", body.user_id);",
+                  "pm.test(\"role is auditor\", () => pm.expect(body.role).to.eql(\"auditor\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login with an incorrect password (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/users/login",
+            "description": "Demonstrates failed authentication. The attempt is recorded as a \"Login failed\" audit record, which the activity report then counts.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"WrongPassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Obtain bearer tokens for all four roles. Run this folder first."
+    },
+    {
+      "name": "1. Service 4 \u2014 Threat Intelligence (Mohammad Nasrallah)",
+      "item": [
+        {
+          "name": "Add threat indicator \u2014 IP address indicator",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Adds a critical malicious IP indicator. The value is validated as an IP address and stored canonically.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"IP Address\",\n  \"threat_value\": \"198.51.100.24\",\n  \"description\": \"Command-and-control host observed in outbound beaconing\",\n  \"severity\": \"Critical\",\n  \"source\": \"Internal detection\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"threat_id_0\", body.id);",
+                  "pm.test(\"stored fields returned\", () => pm.expect(body).to.have.property(\"created_at\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add threat indicator \u2014 Domain indicator",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Adds a high-severity suspicious domain. Domain format is validated and lowercased.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"Domain\",\n  \"threat_value\": \"malicious-update.test\",\n  \"description\": \"Phishing domain impersonating the update portal\",\n  \"severity\": \"High\",\n  \"source\": \"Threat feed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"threat_id_1\", body.id);",
+                  "pm.test(\"stored fields returned\", () => pm.expect(body).to.have.property(\"created_at\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add threat indicator \u2014 File hash indicator",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Adds a medium-severity malware hash. The digest length identifies MD5, SHA-1, SHA-256 or SHA-512.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"File Hash\",\n  \"threat_value\": \"d41d8cd98f00b204e9800998ecf8427e\",\n  \"description\": \"Dropper sample recovered from an email attachment\",\n  \"severity\": \"Medium\",\n  \"source\": \"Malware analysis\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"threat_id_2\", body.id);",
+                  "pm.test(\"stored fields returned\", () => pm.expect(body).to.have.property(\"created_at\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add duplicate indicator (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "The same threat type and value cannot be stored twice. A database uniqueness constraint rejects the duplicate, so concurrent requests cannot both succeed.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"IP Address\",\n  \"threat_value\": \"198.51.100.24\",\n  \"description\": \"Command-and-control host observed in outbound beaconing\",\n  \"severity\": \"Critical\",\n  \"source\": \"Internal detection\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add indicator with an invalid IP (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Validation rejects a malformed IP address for an IP-type indicator and names the offending field.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"IP Address\",\n  \"threat_value\": \"999.1.1.1\",\n  \"description\": \"Invalid address\",\n  \"severity\": \"High\",\n  \"source\": \"Manual entry\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));",
+                  "pm.test(\"names the field\", () => pm.expect(pm.response.json().errors).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add indicator with an invalid hash (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "A file hash must be a hexadecimal digest of a supported length.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"File Hash\",\n  \"threat_value\": \"not-a-hash\",\n  \"description\": \"Invalid digest\",\n  \"severity\": \"Low\",\n  \"source\": \"Manual entry\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add indicator with an invalid severity (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Severity must be Low, Medium, High or Critical.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"Other\",\n  \"threat_value\": \"Unusual process tree\",\n  \"description\": \"Indicator\",\n  \"severity\": \"Catastrophic\",\n  \"source\": \"Analyst review\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add indicator as analyst (forbidden)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Only administrators may add threat intelligence. The denial is itself recorded as a \"Permission denied\" audit record.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"Domain\",\n  \"threat_value\": \"malicious-update.test\",\n  \"description\": \"Phishing domain impersonating the update portal\",\n  \"severity\": \"High\",\n  \"source\": \"Threat feed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add indicator without a token (unauthenticated)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Protected operations require a bearer token.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_type\": \"Domain\",\n  \"threat_value\": \"malicious-update.test\",\n  \"description\": \"Phishing domain impersonating the update portal\",\n  \"severity\": \"High\",\n  \"source\": \"Threat feed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all indicators",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats?limit=100&offset=0",
+            "description": "Returns stored indicators with their severity, source and date added, using limit/offset pagination."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"array returned\", () => pm.expect(pm.response.json()).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all indicators as auditor",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auditor_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Auditors hold read access to threat intelligence."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all indicators as employee (forbidden)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{employee_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats",
+            "description": "Regular employees have no access to threat intelligence APIs."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a specific indicator",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_0}}",
+            "description": "Returns the complete record for one indicator."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"same record\", () => pm.expect(pm.response.json().id).to.eql(Number(pm.collectionVariables.get(\"threat_id_0\"))));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a non-existing indicator",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/999999",
+            "description": "An unknown identifier returns 404 with the shared error shape."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"error shape\", () => pm.expect(pm.response.json().status).to.eql(\"error\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search by threat type",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?threat_type=IP Address",
+            "description": "Filters indicators by type. Filters combine with AND."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search by severity",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?severity=Critical",
+            "description": "Filters indicators by severity level."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search by partial value",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?threat_value=198.51.100",
+            "description": "Value matching is a literal case-insensitive substring, so a partial indicator matches."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"at least one match\", () => pm.expect(pm.response.json().length).to.be.above(0));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search by source and type combined",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?threat_type=Domain&source=Threat feed",
+            "description": "Several filters narrow the result set together."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search with no matches",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?severity=Low&threat_type=File Hash",
+            "description": "A search with no results returns an empty array rather than an error."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"empty array\", () => pm.expect(pm.response.json()).to.eql([]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search as analyst",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/search?severity=Critical",
+            "description": "Analysts may search threat intelligence during investigations."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update indicator severity and source",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_1}}",
+            "description": "Administrators may revise the description, severity and source. Capture the record before and after this request to show the change.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"severity\": \"Critical\",\n  \"source\": \"Confirmed by analyst review\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"severity updated\", () => pm.expect(pm.response.json().severity).to.eql(\"Critical\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update threat value (rejected)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_1}}",
+            "description": "Threat type and value are immutable: editing them would bypass the duplicate-indicator constraint.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"threat_value\": \"203.0.113.9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update with an empty body (rejected)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_1}}",
+            "description": "An update must contain at least one non-null field.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete indicator as auditor (forbidden)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auditor_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_2}}",
+            "description": "Auditors hold read-only permissions and cannot delete threat records."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete indicator as administrator",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{threats_url}}/threats/{{threat_id_2}}",
+            "description": "Administrators may remove a threat record."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"confirmation returned\", () => pm.expect(pm.response.json().message).to.be.a(\"string\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Create, list, retrieve, search, update and delete threat indicators, including validation and authorization failures."
+    },
+    {
+      "name": "2. Service 5 \u2014 Security Audit Logging (Mohammad Nasrallah)",
+      "item": [
+        {
+          "name": "Create log record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Records a security activity. Integrating services call this endpoint with an administrator service token and the acting user in user_id.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Threat indicator reviewed\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 4: Threat Intelligence\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"log_id\", body.id);",
+                  "pm.test(\"timestamp generated\", () => pm.expect(body.created_at).to.be.a(\"string\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create log record with an Idempotency-Key",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "incident-assignment-demo-1"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Integration contract for Services 1\u20133 and 7\u20139: supplying an Idempotency-Key makes delivery retries safe. The first call creates the record.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Incident assigned\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 3: Incident Management\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 201\", () => pm.response.to.have.status(201));",
+                  "pm.collectionVariables.set(\"idempotent_log_id\", pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Replay the same Idempotency-Key (no duplicate)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "incident-assignment-demo-1"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Replaying a key returns the original record with HTTP 200 instead of creating a second row, so a teammate retry cannot duplicate the event.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Incident assigned\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 3: Incident Management\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"same record returned\", () => pm.expect(pm.response.json().id).to.eql(Number(pm.collectionVariables.get(\"idempotent_log_id\"))));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reuse the key with a different payload (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "incident-assignment-demo-1"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Reusing a key for a different event is a client error rather than a silent overwrite.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Incident closed\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 3: Incident Management\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create log with an invalid severity (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Log severity must be Information, Warning, Error or Critical.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Threat indicator reviewed\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Fatal\",\n  \"related_service\": \"Service 4: Threat Intelligence\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create log for an unknown user (rejected)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "A referenced user must exist.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 999999,\n  \"action\": \"Threat indicator reviewed\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 4: Threat Intelligence\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create log as analyst (forbidden)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Only administrators and integrating service accounts may write audit records.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{analyst_id}}\",\n  \"action\": \"Threat indicator reviewed\",\n  \"description\": \"Analyst reviewed a critical threat indicator during triage\",\n  \"severity\": \"Information\",\n  \"related_service\": \"Service 4: Threat Intelligence\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all logs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs?limit=100&offset=0",
+            "description": "Administrators list audit records newest first. Records are produced automatically by login attempts, permission denials and data modifications across all services."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"array returned\", () => pm.expect(pm.response.json()).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all logs as auditor",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auditor_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Auditors hold full read access to audit records."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all logs as analyst (forbidden)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Service 5's authorization table does not grant analysts the full log listing."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve all logs as employee (forbidden)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{employee_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs",
+            "description": "Regular employees have no access to audit log APIs."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a specific log",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/{{log_id}}",
+            "description": "Returns one audit record in full."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve a specific log as analyst",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/{{log_id}}",
+            "description": "Analysts may read an individual audit record."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve an invalid log id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/999999",
+            "description": "An unknown identifier returns 404."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search logs by severity",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/search?severity=Warning",
+            "description": "Filters audit records by severity. Failed logins and permission denials are recorded as Warning."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search logs by action",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/search?action=Login",
+            "description": "Action matching is a literal case-insensitive substring, so this returns both successful and failed logins."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search logs by user and date",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/search?user_id={{admin_id}}&date_from={{today}}&date_to={{today}}",
+            "description": "Filters combine with AND. The date range is inclusive and interpreted in UTC."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search logs by related service",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/search?related_service=Service 4: Threat Intelligence",
+            "description": "Identifies which service produced each activity."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search logs with no matches",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/search?date_from=2099-01-01",
+            "description": "A search with no results returns an empty array."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"empty array\", () => pm.expect(pm.response.json()).to.eql([]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve logs by user",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/user/{{analyst_id}}",
+            "description": "Returns every activity recorded for one user, filtered on the user identifier."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"all records belong to the user\", () => pm.response.json().forEach(r => pm.expect(r.user_id).to.eql(Number(pm.collectionVariables.get(\"analyst_id\")))));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve logs for a user with no activity",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/user/{{employee_id}}",
+            "description": "A real user with no recorded activity returns an empty array rather than an error. Run this before generating employee activity."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"array returned\", () => pm.expect(pm.response.json()).to.be.an(\"array\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve logs for an unknown user",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/user/999999",
+            "description": "An unknown user identifier returns 404."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete log as analyst (forbidden)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/{{log_id}}",
+            "description": "Analysts, auditors and employees must not delete audit records."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete log as auditor (forbidden)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auditor_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/{{log_id}}",
+            "description": "Auditors hold read-only permissions."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete log as administrator",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{logs_url}}/logs/{{log_id}}",
+            "description": "Only administrators may remove audit records. The deleted identifier, the administrator and the time are retained in an immutable deletion record."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Create, list, retrieve, search and delete audit records, retrieve logs by user, and demonstrate the idempotent ingestion contract used by teammate services."
+    },
+    {
+      "name": "3. Service 6 \u2014 Security Reports (Mohammad Nasrallah)",
+      "item": [
+        {
+          "name": "Generate security summary report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/summary",
+            "description": "Overall platform status: user, asset, open incident and critical threat totals. Compare these figures with the database records to verify them. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate incident report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/incidents",
+            "description": "Total incidents with distribution by severity and by lifecycle status. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate asset report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/assets",
+            "description": "Total assets, count of critical assets and distribution by asset type. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate threat report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/threats",
+            "description": "Threat totals grouped by severity and type, plus the most recently added indicators. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate vulnerability report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/vulnerabilities",
+            "description": "Vulnerability totals grouped by severity and status, plus the count of critical vulnerabilities. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate activity report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{admin_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/activity",
+            "description": "Total activities, login attempts, failed login attempts and the most performed actions, derived from audit records. The response includes a sources block naming each source service and whether the figures were collected over its API or read from the shared database."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));",
+                  "const body = pm.response.json();",
+                  "pm.test(\"sources declared\", () => pm.expect(body.sources).to.be.an(\"array\").that.is.not.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate summary report as auditor",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{auditor_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/summary",
+            "description": "Auditors may generate every security report."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate summary report as analyst (forbidden)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{analyst_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/summary",
+            "description": "Analysts have no report generation access unless explicitly authorized."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate summary report as employee (forbidden)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{employee_token}}"
+              }
+            ],
+            "url": "{{reports_url}}/reports/summary",
+            "description": "Regular employees have no access to report APIs."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Generate summary report without a token",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{reports_url}}/reports/summary",
+            "description": "Report generation requires authentication."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"status 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "description": "Generate all six security reports from live system data and demonstrate report access control. Run the Service 4 and 5 folders first so the reports contain data."
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Supply today's UTC date for the audit log date-range search.",
+          "pm.collectionVariables.set(\"today\", new Date().toISOString().slice(0, 10));"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "identity_url",
+      "value": "http://127.0.0.1:8000/Hassan-Nasrallah",
+      "description": "Hassan Nasrallah's Service 1 (authentication)"
+    },
+    {
+      "key": "threats_url",
+      "value": "http://127.0.0.1:8004/Mohammad-Nasrallah",
+      "description": "Service 4"
+    },
+    {
+      "key": "logs_url",
+      "value": "http://127.0.0.1:8005/Mohammad-Nasrallah",
+      "description": "Service 5"
+    },
+    {
+      "key": "reports_url",
+      "value": "http://127.0.0.1:8006/Mohammad-Nasrallah",
+      "description": "Service 6"
+    },
+    {
+      "key": "admin_token",
+      "value": ""
+    },
+    {
+      "key": "analyst_token",
+      "value": ""
+    },
+    {
+      "key": "employee_token",
+      "value": ""
+    },
+    {
+      "key": "auditor_token",
+      "value": ""
+    },
+    {
+      "key": "admin_id",
+      "value": ""
+    },
+    {
+      "key": "analyst_id",
+      "value": ""
+    },
+    {
+      "key": "employee_id",
+      "value": ""
+    },
+    {
+      "key": "auditor_id",
+      "value": ""
+    },
+    {
+      "key": "threat_id_0",
+      "value": ""
+    },
+    {
+      "key": "threat_id_1",
+      "value": ""
+    },
+    {
+      "key": "threat_id_2",
+      "value": ""
+    },
+    {
+      "key": "log_id",
+      "value": ""
+    },
+    {
+      "key": "idempotent_log_id",
+      "value": ""
+    },
+    {
+      "key": "today",
+      "value": ""
+    }
+  ]
+}
