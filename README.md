@@ -1,4 +1,38 @@
-# Security Incident Detection and Response
+# Security Incident Detection and Response — Complete Team Project
+
+**Hassan Nasrallah:** Services 1–3. **Mohammad Nasrallah:** Services 4–6. **Joseph Awaida:** Services 7–9.
+
+Both teammate branches have been merged into main with their original commits preserved. Final integrated verification passed **82 tests, 184 Postman requests and 239 assertions**. All report sources used live HTTP APIs and database foreign keys passed validation. See `evidence/team/`.
+
+## Run all nine services
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-lock.txt
+.venv/bin/python -m scripts.seed_hassan
+.venv/bin/python -m scripts.run_team
+```
+
+Windows: use `.venv/Scripts/python.exe` instead of `.venv/bin/python`. Service 1 uses port 8000; Services 2–9 use 8002–8009. Each service exposes `/docs`. The notification retry worker starts automatically. Use this integrated runner rather than starting the older overlapping contribution runners below.
+
+## Run the integrated Postman collection
+
+```sh
+.venv/bin/python -m scripts.prepare_team_newman
+npx --yes newman run postman/Team-All-Services.postman_collection.json -e data/team-newman-private.environment.json
+```
+
+Passwords are randomly generated in ignored `data/demo-credentials.json`; do not publish private environments or tokens. The combined collection isolates variables per member and uses Hassan's real identity endpoint. It creates real demonstration records. The original contribution collections are preserved, but use the combined collection for integrated verification; original fixed indicators may clash with pre-existing seed records.
+
+## Moodle package and common report
+
+Use the final `Hassan-Nasrallah-Mohammad-Nasrallah-Joseph-Awaida-430L.zip`. Its common editable/PDF reports are `docs/team/FINAL-TEAM-REPORT.docx` and `.pdf`; it includes all nine services, combined SQL, all collections, genuine screenshots and validation results. `SUBMIT-ON-MOODLE.md` lists the contents and the remaining personal submission requirements. Large final reports/screenshot build artifacts are delivered in the ZIP; their generation sources and validation metadata remain in Git.
+
+The final integration was validated in an isolated database using port base 18000; normal startup defaults to 8000. This preserved earlier local credentials and evidence. `scripts.run_team --base-port 18000` reproduces that port layout. The shared SQLite audit table is directly visible to Service 5, so existing events are not ingested a second time. All six reports explicitly identify their collection sources.
+
+## Original member contribution notes
+
+The notes below preserve the original individual workflows and historical contribution context. The integrated commands above are the primary final-team workflow.
 
 ## Hassan Nasrallah — Sprint I, Services 1–3
 

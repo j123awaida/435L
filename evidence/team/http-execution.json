@@ -1,0 +1,5980 @@
+[
+  {
+    "name": "Hassan Nasrallah \u2014 Login admin",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 1,
+      "role": "admin"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Login analyst",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 2,
+      "role": "analyst"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Login employee",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 3,
+      "role": "employee"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Login auditor",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 4,
+      "role": "auditor"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject wrong password",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid credentials or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Verify session",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/session",
+    "status": 200,
+    "response": {
+      "id": 1,
+      "full_name": "Demo Admin",
+      "username": "admin",
+      "email": "admin@example.test",
+      "department": "Security Lab",
+      "role": "admin",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:00.033007+00:00",
+      "last_login_at": "2026-10-20T13:35:28.739472+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Register employee",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/register",
+    "status": 201,
+    "response": {
+      "id": 5,
+      "full_name": "Postman Demo Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "IT",
+      "role": "employee",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject duplicate username",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/register",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Username or email already exists"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject privileged public registration",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/register",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Public registration may only create an employee"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject invalid email",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/register",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.email",
+          "message": "Value error, Provide a valid email address"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Login newly registered employee",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 5,
+      "role": "employee"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Update own profile",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5",
+    "status": 200,
+    "response": {
+      "id": 5,
+      "full_name": "Updated Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "Finance",
+      "role": "employee",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 List users as auditor",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "full_name": "Demo Admin",
+        "username": "admin",
+        "email": "admin@example.test",
+        "department": "Security Lab",
+        "role": "admin",
+        "account_status": "Active",
+        "created_at": "2026-10-20T13:35:00.033007+00:00",
+        "last_login_at": "2026-10-20T13:35:28.739472+00:00"
+      },
+      {
+        "id": 2,
+        "full_name": "Demo Analyst",
+        "username": "analyst",
+        "email": "analyst@example.test",
+        "department": "Security Lab",
+        "role": "analyst",
+        "account_status": "Active",
+        "created_at": "2026-10-20T13:35:00.033868+00:00",
+        "last_login_at": "2026-10-20T13:35:28.894641+00:00"
+      },
+      {
+        "id": 3,
+        "full_name": "Demo Employee",
+        "username": "employee",
+        "email": "employee@example.test",
+        "department": "Security Lab",
+        "role": "employee",
+        "account_status": "Active",
+        "created_at": "2026-10-20T13:35:00.033876+00:00",
+        "last_login_at": "2026-10-20T13:35:29.039931+00:00"
+      },
+      {
+        "id": 4,
+        "full_name": "Demo Auditor",
+        "username": "auditor",
+        "email": "auditor@example.test",
+        "department": "Security Lab",
+        "role": "auditor",
+        "account_status": "Active",
+        "created_at": "2026-10-20T13:35:00.033873+00:00",
+        "last_login_at": "2026-10-20T13:35:29.185735+00:00"
+      },
+      {
+        "id": 5,
+        "full_name": "Updated Employee",
+        "username": "employee_1792503328578",
+        "email": "employee_1792503328578@example.test",
+        "department": "Finance",
+        "role": "employee",
+        "account_status": "Active",
+        "created_at": "2026-10-20T13:35:29.492193+00:00",
+        "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Retrieve own username",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/employee_1792503328578",
+    "status": 200,
+    "response": {
+      "id": 5,
+      "full_name": "Updated Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "Finance",
+      "role": "employee",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Missing username",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/does-not-exist-1792503328578",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "User not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject analyst user management",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject unauthorized user deletion",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 View roles and permissions",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5/roles",
+    "status": 200,
+    "response": {
+      "user_id": 5,
+      "role": "employee",
+      "permissions": [
+        "users:read-self",
+        "users:update-self",
+        "incidents:report",
+        "incidents:read-submitted"
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Assign analyst role",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5/role",
+    "status": 200,
+    "response": {
+      "id": 5,
+      "full_name": "Updated Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "Finance",
+      "role": "analyst",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Role change revokes old session",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/session",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid, expired token or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Remove analyst role",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5/role",
+    "status": 200,
+    "response": {
+      "id": 5,
+      "full_name": "Updated Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "Finance",
+      "role": "employee",
+      "account_status": "Active",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Suspend account",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5/account-status",
+    "status": 200,
+    "response": {
+      "id": 5,
+      "full_name": "Updated Employee",
+      "username": "employee_1792503328578",
+      "email": "employee_1792503328578@example.test",
+      "department": "Finance",
+      "role": "employee",
+      "account_status": "Suspended",
+      "created_at": "2026-10-20T13:35:29.492193+00:00",
+      "last_login_at": "2026-10-20T13:35:29.834773+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject suspended login",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid credentials or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Delete account",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/5",
+    "status": 200,
+    "response": {
+      "message": "User deleted"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Deleted account is absent",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/employee_1792503328578",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "User not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Create incident asset",
+    "method": "POST",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets",
+    "status": 201,
+    "response": {
+      "id": 3,
+      "name": "Server 1792503328578",
+      "owner_id": 3,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.50",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "Critical",
+      "status": "Active",
+      "created_at": "2026-10-20T13:35:30.361794+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Create temporary workstation",
+    "method": "POST",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets",
+    "status": 201,
+    "response": {
+      "id": 4,
+      "name": "Temporary 1792503328578",
+      "owner_id": 3,
+      "asset_type": "Workstation",
+      "ip_address": "2001:db8::1",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "Low",
+      "status": "Active",
+      "created_at": "2026-10-20T13:35:30.379317+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject invalid IP",
+    "method": "POST",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.ip_address",
+          "message": "Value error, '999.0.0.1' does not appear to be an IPv4 or IPv6 address"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Update asset",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/3",
+    "status": 200,
+    "response": {
+      "id": 3,
+      "name": "Server 1792503328578",
+      "owner_id": 3,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.50",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Under Maintenance",
+      "created_at": "2026-10-20T13:35:30.361794+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 List assets",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "name": "Lab server",
+        "owner_id": 1,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.1",
+        "operating_system": null,
+        "department": "Security Lab",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Active",
+        "created_at": "2026-10-20T13:35:00.033937+00:00"
+      },
+      {
+        "id": 2,
+        "name": "Lab workstation",
+        "owner_id": 1,
+        "asset_type": "Workstation",
+        "ip_address": "192.0.2.2",
+        "operating_system": null,
+        "department": "Security Lab",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Active",
+        "created_at": "2026-10-20T13:35:00.034020+00:00"
+      },
+      {
+        "id": 3,
+        "name": "Server 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.50",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Under Maintenance",
+        "created_at": "2026-10-20T13:35:30.361794+00:00"
+      },
+      {
+        "id": 4,
+        "name": "Temporary 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Workstation",
+        "ip_address": "2001:db8::1",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "Low",
+        "status": "Active",
+        "created_at": "2026-10-20T13:35:30.379317+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Retrieve asset",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/3",
+    "status": 200,
+    "response": {
+      "id": 3,
+      "name": "Server 1792503328578",
+      "owner_id": 3,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.50",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Under Maintenance",
+      "created_at": "2026-10-20T13:35:30.361794+00:00",
+      "incident_ids": [],
+      "vulnerability_ids": []
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Missing asset",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/2147483647",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Asset not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Search name=Server",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/search?name=Server",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "name": "Lab server",
+        "owner_id": 1,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.1",
+        "operating_system": null,
+        "department": "Security Lab",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Active",
+        "created_at": "2026-10-20T13:35:00.033937+00:00"
+      },
+      {
+        "id": 3,
+        "name": "Server 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.50",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Under Maintenance",
+        "created_at": "2026-10-20T13:35:30.361794+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Search asset_type=Server",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/search?asset_type=Server",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "name": "Lab server",
+        "owner_id": 1,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.1",
+        "operating_system": null,
+        "department": "Security Lab",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Active",
+        "created_at": "2026-10-20T13:35:00.033937+00:00"
+      },
+      {
+        "id": 3,
+        "name": "Server 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.50",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Under Maintenance",
+        "created_at": "2026-10-20T13:35:30.361794+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Search ip_address=192.0.2.50",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/search?ip_address=192.0.2.50",
+    "status": 200,
+    "response": [
+      {
+        "id": 3,
+        "name": "Server 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.50",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Under Maintenance",
+        "created_at": "2026-10-20T13:35:30.361794+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Search department=IT&criticality=High",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/search?department=IT&criticality=High",
+    "status": 200,
+    "response": [
+      {
+        "id": 3,
+        "name": "Server 1792503328578",
+        "owner_id": 3,
+        "asset_type": "Server",
+        "ip_address": "192.0.2.50",
+        "operating_system": null,
+        "department": "IT",
+        "location": "Lab",
+        "criticality": "High",
+        "status": "Under Maintenance",
+        "created_at": "2026-10-20T13:35:30.361794+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 View asset history",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/3/history",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "asset_id": 3,
+        "actor_id": 1,
+        "action": "Created",
+        "snapshot": {
+          "id": 3,
+          "name": "Server 1792503328578",
+          "owner_id": 3,
+          "asset_type": "Server",
+          "ip_address": "192.0.2.50",
+          "operating_system": null,
+          "department": "IT",
+          "location": "Lab",
+          "criticality": "Critical",
+          "status": "Active",
+          "created_at": "2026-10-20T13:35:30.361794+00:00"
+        },
+        "created_at": "2026-10-20T13:35:30.361962+00:00"
+      },
+      {
+        "id": 3,
+        "asset_id": 3,
+        "actor_id": 1,
+        "action": "Before update",
+        "snapshot": {
+          "id": 3,
+          "name": "Server 1792503328578",
+          "owner_id": 3,
+          "asset_type": "Server",
+          "ip_address": "192.0.2.50",
+          "operating_system": null,
+          "department": "IT",
+          "location": "Lab",
+          "criticality": "Critical",
+          "status": "Active",
+          "created_at": "2026-10-20T13:35:30.361794+00:00"
+        },
+        "created_at": "2026-10-20T13:35:30.409899+00:00"
+      },
+      {
+        "id": 4,
+        "asset_id": 3,
+        "actor_id": 1,
+        "action": "Updated",
+        "snapshot": {
+          "id": 3,
+          "name": "Server 1792503328578",
+          "owner_id": 3,
+          "asset_type": "Server",
+          "ip_address": "192.0.2.50",
+          "operating_system": null,
+          "department": "IT",
+          "location": "Lab",
+          "criticality": "High",
+          "status": "Under Maintenance",
+          "created_at": "2026-10-20T13:35:30.361794+00:00"
+        },
+        "created_at": "2026-10-20T13:35:30.410148+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject employee asset access",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject analyst asset deletion",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/4",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Delete unused asset",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/4",
+    "status": 200,
+    "response": {
+      "message": "Asset deleted"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Report incident",
+    "method": "POST",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents",
+    "status": 201,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": null,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject invalid severity",
+    "method": "POST",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.severity",
+          "message": "Input should be 'Low', 'Medium', 'High' or 'Critical'"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 List all incidents",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents",
+    "status": 200,
+    "response": [
+      {
+        "title": "Suspicious login 1792503328578",
+        "description": "Review access logs",
+        "category": "Unauthorized access",
+        "severity": "High",
+        "reporter_id": 3,
+        "asset_id": 3,
+        "id": 1,
+        "assigned_analyst_id": null,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:30.608721+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Track submitted incident",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": null,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null,
+      "investigation_notes": []
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Missing incident",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/2147483647",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Incident not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject unassigned analyst access",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Access is limited to submitted or assigned incidents"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject employee assignment",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/assign",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject non-analyst assignee",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/assign",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Assigned user must be an active security analyst"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Assign incident",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/assign",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 List assigned incidents",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents",
+    "status": 200,
+    "response": [
+      {
+        "title": "Suspicious login 1792503328578",
+        "description": "Review access logs",
+        "category": "Unauthorized access",
+        "severity": "High",
+        "reporter_id": 3,
+        "asset_id": 3,
+        "id": 1,
+        "assigned_analyst_id": 2,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:30.608721+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Retrieve related asset as analyst",
+    "method": "GET",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/3",
+    "status": 200,
+    "response": {
+      "id": 3,
+      "name": "Server 1792503328578",
+      "owner_id": 3,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.50",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Under Maintenance",
+      "created_at": "2026-10-20T13:35:30.361794+00:00",
+      "incident_ids": [
+        1
+      ],
+      "vulnerability_ids": []
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject skipped lifecycle",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Incident must advance one lifecycle step at a time"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Add investigation note",
+    "method": "POST",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/notes",
+    "status": 201,
+    "response": {
+      "content": "Reviewed authentication logs; isolated affected host.",
+      "id": 1,
+      "incident_id": 1,
+      "analyst_id": 2,
+      "created_at": "2026-10-20T13:35:30.788855+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Read investigation notes",
+    "method": "GET",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null,
+      "investigation_notes": [
+        {
+          "content": "Reviewed authentication logs; isolated affected host.",
+          "id": 1,
+          "incident_id": 1,
+          "analyst_id": 2,
+          "created_at": "2026-10-20T13:35:30.788855+00:00"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      },
+      {
+        "name": "Investigation note persisted",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Advance to Under Investigation",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Under Investigation",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Advance to Mitigated",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Mitigated",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Advance to Resolved",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Resolved",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": "2026-10-20T13:35:30.855199+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Advance to Closed",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 200,
+    "response": {
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "id": 1,
+      "assigned_analyst_id": 2,
+      "status": "Closed",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": "2026-10-20T13:35:30.855199+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject backward transition",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents/1/status",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Incident must advance one lifecycle step at a time"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Preserve asset referenced by incident",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18002/Hassan-Nasrallah/assets/3",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Database constraint conflict"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Logout administrator",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/logout",
+    "status": 200,
+    "response": {
+      "message": "Session revoked"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Hassan Nasrallah \u2014 Reject revoked token",
+    "method": "GET",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/session",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid, expired token or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Login as admin",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 1,
+      "role": "admin"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "role is admin",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Login as analyst",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 2,
+      "role": "analyst"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "role is analyst",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Login as employee",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 3,
+      "role": "employee"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "role is employee",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Login as auditor",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 4,
+      "role": "auditor"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "role is auditor",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Login with an incorrect password (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid credentials or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "status 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add threat indicator \u2014 IP address indicator",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 201,
+    "response": {
+      "id": 1,
+      "threat_type": "IP Address",
+      "threat_value": "198.51.100.216",
+      "description": "Command-and-control host observed in outbound beaconing",
+      "severity": "Critical",
+      "source": "Internal detection",
+      "created_at": "2026-10-20T13:35:31.701341+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 201",
+        "passed": true
+      },
+      {
+        "name": "stored fields returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add threat indicator \u2014 Domain indicator",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 201,
+    "response": {
+      "id": 2,
+      "threat_type": "Domain",
+      "threat_value": "run-1792503330941.malicious-update.test",
+      "description": "Phishing domain impersonating the update portal",
+      "severity": "High",
+      "source": "Threat feed",
+      "created_at": "2026-10-20T13:35:31.718560+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 201",
+        "passed": true
+      },
+      {
+        "name": "stored fields returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add threat indicator \u2014 File hash indicator",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 201,
+    "response": {
+      "id": 3,
+      "threat_type": "File Hash",
+      "threat_value": "0000000000000000000001a15986387d",
+      "description": "Dropper sample recovered from an email attachment",
+      "severity": "Medium",
+      "source": "Malware analysis",
+      "created_at": "2026-10-20T13:35:31.734928+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 201",
+        "passed": true
+      },
+      {
+        "name": "stored fields returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add duplicate indicator (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Database constraint conflict"
+    },
+    "assertions": [
+      {
+        "name": "status 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add indicator with an invalid IP (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body",
+          "message": "Value error, Provide a valid IPv4 or IPv6 address"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      },
+      {
+        "name": "names the field",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add indicator with an invalid hash (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body",
+          "message": "Value error, Provide an MD5, SHA-1, SHA-256 or SHA-512 hexadecimal digest"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add indicator with an invalid severity (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.severity",
+          "message": "Input should be 'Low', 'Medium', 'High' or 'Critical'"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add indicator as analyst (forbidden)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Add indicator without a token (unauthenticated)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Bearer token required"
+    },
+    "assertions": [
+      {
+        "name": "status 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all indicators",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats?limit=100&offset=0",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      },
+      {
+        "id": 2,
+        "threat_type": "Domain",
+        "threat_value": "run-1792503330941.malicious-update.test",
+        "description": "Phishing domain impersonating the update portal",
+        "severity": "High",
+        "source": "Threat feed",
+        "created_at": "2026-10-20T13:35:31.718560+00:00"
+      },
+      {
+        "id": 3,
+        "threat_type": "File Hash",
+        "threat_value": "0000000000000000000001a15986387d",
+        "description": "Dropper sample recovered from an email attachment",
+        "severity": "Medium",
+        "source": "Malware analysis",
+        "created_at": "2026-10-20T13:35:31.734928+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "array returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all indicators as auditor",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      },
+      {
+        "id": 2,
+        "threat_type": "Domain",
+        "threat_value": "run-1792503330941.malicious-update.test",
+        "description": "Phishing domain impersonating the update portal",
+        "severity": "High",
+        "source": "Threat feed",
+        "created_at": "2026-10-20T13:35:31.718560+00:00"
+      },
+      {
+        "id": 3,
+        "threat_type": "File Hash",
+        "threat_value": "0000000000000000000001a15986387d",
+        "description": "Dropper sample recovered from an email attachment",
+        "severity": "Medium",
+        "source": "Malware analysis",
+        "created_at": "2026-10-20T13:35:31.734928+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all indicators as employee (forbidden)",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve a specific indicator",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/1",
+    "status": 200,
+    "response": {
+      "id": 1,
+      "threat_type": "IP Address",
+      "threat_value": "198.51.100.216",
+      "description": "Command-and-control host observed in outbound beaconing",
+      "severity": "Critical",
+      "source": "Internal detection",
+      "created_at": "2026-10-20T13:35:31.701341+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "same record",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve a non-existing indicator",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Threat not found"
+    },
+    "assertions": [
+      {
+        "name": "status 404",
+        "passed": true
+      },
+      {
+        "name": "error shape",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search by threat type",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?threat_type=IP%2520Address",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search by severity",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?severity=Critical",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search by partial value",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?threat_value=198.51.100",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "at least one match",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search by source and type combined",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?threat_type=Domain&source=Threat%2520feed",
+    "status": 200,
+    "response": [
+      {
+        "id": 2,
+        "threat_type": "Domain",
+        "threat_value": "run-1792503330941.malicious-update.test",
+        "description": "Phishing domain impersonating the update portal",
+        "severity": "High",
+        "source": "Threat feed",
+        "created_at": "2026-10-20T13:35:31.718560+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search with no matches",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?severity=Low&threat_type=File%2520Hash",
+    "status": 200,
+    "response": [],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "empty array",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search as analyst",
+    "method": "GET",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/search?severity=Critical",
+    "status": 200,
+    "response": [
+      {
+        "id": 1,
+        "threat_type": "IP Address",
+        "threat_value": "198.51.100.216",
+        "description": "Command-and-control host observed in outbound beaconing",
+        "severity": "Critical",
+        "source": "Internal detection",
+        "created_at": "2026-10-20T13:35:31.701341+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Update indicator severity and source",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/2",
+    "status": 200,
+    "response": {
+      "id": 2,
+      "threat_type": "Domain",
+      "threat_value": "run-1792503330941.malicious-update.test",
+      "description": "Phishing domain impersonating the update portal",
+      "severity": "Critical",
+      "source": "Confirmed by analyst review",
+      "created_at": "2026-10-20T13:35:31.718560+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "severity updated",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Update threat value (rejected)",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/2",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.threat_value",
+          "message": "Extra inputs are not permitted"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Update with an empty body (rejected)",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/2",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body",
+          "message": "Value error, Provide at least one non-null update field"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Delete indicator as auditor (forbidden)",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/3",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Delete indicator as administrator",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats/3",
+    "status": 200,
+    "response": {
+      "message": "Threat indicator deleted"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "confirmation returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Create log record",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 201,
+    "response": {
+      "id": 48,
+      "user_id": 2,
+      "action": "Threat indicator reviewed",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.136451+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 201",
+        "passed": true
+      },
+      {
+        "name": "timestamp generated",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Create log record with an Idempotency-Key",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 201,
+    "response": {
+      "id": 49,
+      "user_id": 2,
+      "action": "Incident assigned",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management",
+      "created_at": "2026-10-20T13:35:32.154051+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 201",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Replay the same Idempotency-Key (no duplicate)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 200,
+    "response": {
+      "id": 49,
+      "user_id": 2,
+      "action": "Incident assigned",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management",
+      "created_at": "2026-10-20T13:35:32.154051+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "same record returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Reuse the key with a different payload (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Idempotency-Key was already used for a different log payload"
+    },
+    "assertions": [
+      {
+        "name": "status 409",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Create log with an invalid severity (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.severity",
+          "message": "Input should be 'Information', 'Warning', 'Error' or 'Critical'"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Create log for an unknown user (rejected)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Referenced user does not exist"
+    },
+    "assertions": [
+      {
+        "name": "status 422",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Create log as analyst (forbidden)",
+    "method": "POST",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all logs",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs?limit=100&offset=0",
+    "status": 200,
+    "response": [
+      {
+        "id": 50,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.235910+00:00"
+      },
+      {
+        "id": 49,
+        "user_id": 2,
+        "action": "Incident assigned",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management",
+        "created_at": "2026-10-20T13:35:32.154051+00:00"
+      },
+      {
+        "id": 48,
+        "user_id": 2,
+        "action": "Threat indicator reviewed",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.136451+00:00"
+      },
+      {
+        "id": 47,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.090788+00:00"
+      },
+      {
+        "id": 46,
+        "user_id": 4,
+        "action": "Permission denied",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.074586+00:00"
+      },
+      {
+        "id": 45,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Mohammad-Nasrallah/threats/2",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.007258+00:00"
+      },
+      {
+        "id": 44,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.870381+00:00"
+      },
+      {
+        "id": 43,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.811336+00:00"
+      },
+      {
+        "id": 42,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.736169+00:00"
+      },
+      {
+        "id": 41,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.719870+00:00"
+      },
+      {
+        "id": 40,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.703048+00:00"
+      },
+      {
+        "id": 39,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.657190+00:00"
+      },
+      {
+        "id": 38,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.513019+00:00"
+      },
+      {
+        "id": 37,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.362955+00:00"
+      },
+      {
+        "id": 36,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.219546+00:00"
+      },
+      {
+        "id": 35,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.075593+00:00"
+      },
+      {
+        "id": 34,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/users/logout",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.917080+00:00"
+      },
+      {
+        "id": 33,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.872667+00:00"
+      },
+      {
+        "id": 32,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.856154+00:00"
+      },
+      {
+        "id": 31,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.839670+00:00"
+      },
+      {
+        "id": 30,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.823387+00:00"
+      },
+      {
+        "id": 29,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents/1/notes",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.789805+00:00"
+      },
+      {
+        "id": 28,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.729373+00:00"
+      },
+      {
+        "id": 27,
+        "user_id": 1,
+        "action": "Incident assigned",
+        "description": "Incident 1 assigned to analyst 2",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.728493+00:00"
+      },
+      {
+        "id": 26,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.697578+00:00"
+      },
+      {
+        "id": 25,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/incidents/1: Access is limited to submitted or assigned incidents",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.682095+00:00"
+      },
+      {
+        "id": 24,
+        "user_id": 3,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.609753+00:00"
+      },
+      {
+        "id": 23,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/assets/4",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.570514+00:00"
+      },
+      {
+        "id": 22,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/assets/4: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.555627+00:00"
+      },
+      {
+        "id": 21,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/assets: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.541557+00:00"
+      },
+      {
+        "id": 20,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/assets/3",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.410882+00:00"
+      },
+      {
+        "id": 19,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.380185+00:00"
+      },
+      {
+        "id": 18,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.362687+00:00"
+      },
+      {
+        "id": 17,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.307736+00:00"
+      },
+      {
+        "id": 16,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.162794+00:00"
+      },
+      {
+        "id": 15,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/account-status",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.017413+00:00"
+      },
+      {
+        "id": 14,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.000505+00:00"
+      },
+      {
+        "id": 13,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.970387+00:00"
+      },
+      {
+        "id": 12,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/users/5: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.938073+00:00"
+      },
+      {
+        "id": 11,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/users: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.921336+00:00"
+      },
+      {
+        "id": 10,
+        "user_id": 5,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.858670+00:00"
+      },
+      {
+        "id": 9,
+        "user_id": 5,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.835670+00:00"
+      },
+      {
+        "id": 8,
+        "user_id": null,
+        "action": "Permission denied",
+        "description": "Public registration requested a privileged role",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.651538+00:00"
+      },
+      {
+        "id": 7,
+        "user_id": 5,
+        "action": "Registration",
+        "description": "User account created",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.493126+00:00"
+      },
+      {
+        "id": 6,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.329653+00:00"
+      },
+      {
+        "id": 5,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.186382+00:00"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.041447+00:00"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.895327+00:00"
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.740208+00:00"
+      },
+      {
+        "id": 1,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:19.292864+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "array returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all logs as auditor",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 200,
+    "response": [
+      {
+        "id": 50,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.235910+00:00"
+      },
+      {
+        "id": 49,
+        "user_id": 2,
+        "action": "Incident assigned",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management",
+        "created_at": "2026-10-20T13:35:32.154051+00:00"
+      },
+      {
+        "id": 48,
+        "user_id": 2,
+        "action": "Threat indicator reviewed",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.136451+00:00"
+      },
+      {
+        "id": 47,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.090788+00:00"
+      },
+      {
+        "id": 46,
+        "user_id": 4,
+        "action": "Permission denied",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.074586+00:00"
+      },
+      {
+        "id": 45,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Mohammad-Nasrallah/threats/2",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.007258+00:00"
+      },
+      {
+        "id": 44,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.870381+00:00"
+      },
+      {
+        "id": 43,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.811336+00:00"
+      },
+      {
+        "id": 42,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.736169+00:00"
+      },
+      {
+        "id": 41,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.719870+00:00"
+      },
+      {
+        "id": 40,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.703048+00:00"
+      },
+      {
+        "id": 39,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.657190+00:00"
+      },
+      {
+        "id": 38,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.513019+00:00"
+      },
+      {
+        "id": 37,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.362955+00:00"
+      },
+      {
+        "id": 36,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.219546+00:00"
+      },
+      {
+        "id": 35,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.075593+00:00"
+      },
+      {
+        "id": 34,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/users/logout",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.917080+00:00"
+      },
+      {
+        "id": 33,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.872667+00:00"
+      },
+      {
+        "id": 32,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.856154+00:00"
+      },
+      {
+        "id": 31,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.839670+00:00"
+      },
+      {
+        "id": 30,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.823387+00:00"
+      },
+      {
+        "id": 29,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents/1/notes",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.789805+00:00"
+      },
+      {
+        "id": 28,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.729373+00:00"
+      },
+      {
+        "id": 27,
+        "user_id": 1,
+        "action": "Incident assigned",
+        "description": "Incident 1 assigned to analyst 2",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.728493+00:00"
+      },
+      {
+        "id": 26,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.697578+00:00"
+      },
+      {
+        "id": 25,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/incidents/1: Access is limited to submitted or assigned incidents",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.682095+00:00"
+      },
+      {
+        "id": 24,
+        "user_id": 3,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.609753+00:00"
+      },
+      {
+        "id": 23,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/assets/4",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.570514+00:00"
+      },
+      {
+        "id": 22,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/assets/4: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.555627+00:00"
+      },
+      {
+        "id": 21,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/assets: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.541557+00:00"
+      },
+      {
+        "id": 20,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/assets/3",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.410882+00:00"
+      },
+      {
+        "id": 19,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.380185+00:00"
+      },
+      {
+        "id": 18,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.362687+00:00"
+      },
+      {
+        "id": 17,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.307736+00:00"
+      },
+      {
+        "id": 16,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.162794+00:00"
+      },
+      {
+        "id": 15,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/account-status",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.017413+00:00"
+      },
+      {
+        "id": 14,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.000505+00:00"
+      },
+      {
+        "id": 13,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.970387+00:00"
+      },
+      {
+        "id": 12,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/users/5: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.938073+00:00"
+      },
+      {
+        "id": 11,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/users: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.921336+00:00"
+      },
+      {
+        "id": 10,
+        "user_id": 5,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.858670+00:00"
+      },
+      {
+        "id": 9,
+        "user_id": 5,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.835670+00:00"
+      },
+      {
+        "id": 8,
+        "user_id": null,
+        "action": "Permission denied",
+        "description": "Public registration requested a privileged role",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.651538+00:00"
+      },
+      {
+        "id": 7,
+        "user_id": 5,
+        "action": "Registration",
+        "description": "User account created",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.493126+00:00"
+      },
+      {
+        "id": 6,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.329653+00:00"
+      },
+      {
+        "id": 5,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.186382+00:00"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.041447+00:00"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.895327+00:00"
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.740208+00:00"
+      },
+      {
+        "id": 1,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:19.292864+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all logs as analyst (forbidden)",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve all logs as employee (forbidden)",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve a specific log",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/48",
+    "status": 200,
+    "response": {
+      "id": 48,
+      "user_id": 2,
+      "action": "Threat indicator reviewed",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.136451+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve a specific log as analyst",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/48",
+    "status": 200,
+    "response": {
+      "id": 48,
+      "user_id": 2,
+      "action": "Threat indicator reviewed",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.136451+00:00"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve an invalid log id",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Log not found"
+    },
+    "assertions": [
+      {
+        "name": "status 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search logs by severity",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/search?severity=Warning",
+    "status": 200,
+    "response": [
+      {
+        "id": 52,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.304549+00:00"
+      },
+      {
+        "id": 51,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.288060+00:00"
+      },
+      {
+        "id": 50,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.235910+00:00"
+      },
+      {
+        "id": 46,
+        "user_id": 4,
+        "action": "Permission denied",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.074586+00:00"
+      },
+      {
+        "id": 44,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.870381+00:00"
+      },
+      {
+        "id": 43,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.811336+00:00"
+      },
+      {
+        "id": 39,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.657190+00:00"
+      },
+      {
+        "id": 26,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.697578+00:00"
+      },
+      {
+        "id": 25,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/incidents/1: Access is limited to submitted or assigned incidents",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.682095+00:00"
+      },
+      {
+        "id": 22,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/assets/4: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.555627+00:00"
+      },
+      {
+        "id": 21,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/assets: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.541557+00:00"
+      },
+      {
+        "id": 16,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.162794+00:00"
+      },
+      {
+        "id": 12,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/users/5: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.938073+00:00"
+      },
+      {
+        "id": 11,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/users: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.921336+00:00"
+      },
+      {
+        "id": 8,
+        "user_id": null,
+        "action": "Permission denied",
+        "description": "Public registration requested a privileged role",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.651538+00:00"
+      },
+      {
+        "id": 6,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.329653+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search logs by action",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/search?action=Login",
+    "status": 200,
+    "response": [
+      {
+        "id": 39,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.657190+00:00"
+      },
+      {
+        "id": 38,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.513019+00:00"
+      },
+      {
+        "id": 37,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.362955+00:00"
+      },
+      {
+        "id": 36,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.219546+00:00"
+      },
+      {
+        "id": 35,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.075593+00:00"
+      },
+      {
+        "id": 16,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.162794+00:00"
+      },
+      {
+        "id": 9,
+        "user_id": 5,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.835670+00:00"
+      },
+      {
+        "id": 6,
+        "user_id": null,
+        "action": "Login failed",
+        "description": "Invalid credentials or inactive account",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.329653+00:00"
+      },
+      {
+        "id": 5,
+        "user_id": 4,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.186382+00:00"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.041447+00:00"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.895327+00:00"
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.740208+00:00"
+      },
+      {
+        "id": 1,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:19.292864+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search logs by user and date",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/search?user_id=1&date_from=2026-10-20&date_to=2026-10-20",
+    "status": 200,
+    "response": [
+      {
+        "id": 47,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.090788+00:00"
+      },
+      {
+        "id": 45,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Mohammad-Nasrallah/threats/2",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.007258+00:00"
+      },
+      {
+        "id": 42,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.736169+00:00"
+      },
+      {
+        "id": 41,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.719870+00:00"
+      },
+      {
+        "id": 40,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.703048+00:00"
+      },
+      {
+        "id": 35,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.075593+00:00"
+      },
+      {
+        "id": 34,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/users/logout",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.917080+00:00"
+      },
+      {
+        "id": 28,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.729373+00:00"
+      },
+      {
+        "id": 27,
+        "user_id": 1,
+        "action": "Incident assigned",
+        "description": "Incident 1 assigned to analyst 2",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.728493+00:00"
+      },
+      {
+        "id": 23,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/assets/4",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.570514+00:00"
+      },
+      {
+        "id": 20,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/assets/3",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.410882+00:00"
+      },
+      {
+        "id": 19,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.380185+00:00"
+      },
+      {
+        "id": 18,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/assets",
+        "severity": "Information",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.362687+00:00"
+      },
+      {
+        "id": 17,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.307736+00:00"
+      },
+      {
+        "id": 15,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/account-status",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.017413+00:00"
+      },
+      {
+        "id": 14,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.000505+00:00"
+      },
+      {
+        "id": 13,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/users/5/role",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.970387+00:00"
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.740208+00:00"
+      },
+      {
+        "id": 1,
+        "user_id": 1,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:19.292864+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search logs by related service",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/search?related_service=Service%25204%3A%2520Threat%2520Intelligence",
+    "status": 200,
+    "response": [
+      {
+        "id": 48,
+        "user_id": 2,
+        "action": "Threat indicator reviewed",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.136451+00:00"
+      },
+      {
+        "id": 47,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.090788+00:00"
+      },
+      {
+        "id": 46,
+        "user_id": 4,
+        "action": "Permission denied",
+        "description": "DELETE /Mohammad-Nasrallah/threats/3: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.074586+00:00"
+      },
+      {
+        "id": 45,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "PUT /Mohammad-Nasrallah/threats/2",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.007258+00:00"
+      },
+      {
+        "id": 44,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.870381+00:00"
+      },
+      {
+        "id": 43,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.811336+00:00"
+      },
+      {
+        "id": 42,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.736169+00:00"
+      },
+      {
+        "id": 41,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.719870+00:00"
+      },
+      {
+        "id": 40,
+        "user_id": 1,
+        "action": "Data modification",
+        "description": "POST /Mohammad-Nasrallah/threats",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.703048+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Search logs with no matches",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/search?date_from=2099-01-01",
+    "status": 200,
+    "response": [],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "empty array",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve logs by user",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/user/2",
+    "status": 200,
+    "response": [
+      {
+        "id": 51,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.288060+00:00"
+      },
+      {
+        "id": 50,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.235910+00:00"
+      },
+      {
+        "id": 49,
+        "user_id": 2,
+        "action": "Incident assigned",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management",
+        "created_at": "2026-10-20T13:35:32.154051+00:00"
+      },
+      {
+        "id": 48,
+        "user_id": 2,
+        "action": "Threat indicator reviewed",
+        "description": "Analyst reviewed a critical threat indicator during triage",
+        "severity": "Information",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:32.136451+00:00"
+      },
+      {
+        "id": 43,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.811336+00:00"
+      },
+      {
+        "id": 36,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.219546+00:00"
+      },
+      {
+        "id": 33,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.872667+00:00"
+      },
+      {
+        "id": 32,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.856154+00:00"
+      },
+      {
+        "id": 31,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.839670+00:00"
+      },
+      {
+        "id": 30,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.823387+00:00"
+      },
+      {
+        "id": 29,
+        "user_id": 2,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents/1/notes",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.789805+00:00"
+      },
+      {
+        "id": 25,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/incidents/1: Access is limited to submitted or assigned incidents",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.682095+00:00"
+      },
+      {
+        "id": 22,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/assets/4: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.555627+00:00"
+      },
+      {
+        "id": 11,
+        "user_id": 2,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/users: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.921336+00:00"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:28.895327+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "all records belong to the user",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve logs for a user with no activity",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/user/3",
+    "status": 200,
+    "response": [
+      {
+        "id": 52,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 5: Security Audit Logging",
+        "created_at": "2026-10-20T13:35:32.304549+00:00"
+      },
+      {
+        "id": 44,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 4: Threat Intelligence",
+        "created_at": "2026-10-20T13:35:31.870381+00:00"
+      },
+      {
+        "id": 37,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:31.362955+00:00"
+      },
+      {
+        "id": 26,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "PUT /Hassan-Nasrallah/incidents/1/assign: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.697578+00:00"
+      },
+      {
+        "id": 24,
+        "user_id": 3,
+        "action": "Data modification",
+        "description": "POST /Hassan-Nasrallah/incidents",
+        "severity": "Information",
+        "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.609753+00:00"
+      },
+      {
+        "id": 21,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "GET /Hassan-Nasrallah/assets: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:30.541557+00:00"
+      },
+      {
+        "id": 12,
+        "user_id": 3,
+        "action": "Permission denied",
+        "description": "DELETE /Hassan-Nasrallah/users/5: Role does not permit this operation",
+        "severity": "Warning",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.938073+00:00"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "action": "Login",
+        "description": "Successful authentication",
+        "severity": "Information",
+        "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+        "created_at": "2026-10-20T13:35:29.041447+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "array returned",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Retrieve logs for an unknown user",
+    "method": "GET",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/user/999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "User not found"
+    },
+    "assertions": [
+      {
+        "name": "status 404",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Delete log as analyst (forbidden)",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/48",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Delete log as auditor (forbidden)",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/48",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Delete log as administrator",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs/48",
+    "status": 200,
+    "response": {
+      "message": "Log deleted"
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate security summary report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/summary",
+    "status": 200,
+    "response": {
+      "users": 4,
+      "assets": 3,
+      "open_incidents": 0,
+      "critical_threats": 2,
+      "sources": [
+        {
+          "name": "assets",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18002/Hassan-Nasrallah/assets"
+        },
+        {
+          "name": "incidents",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents"
+        },
+        {
+          "name": "threats",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats"
+        },
+        {
+          "name": "users",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18000/Hassan-Nasrallah/users"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate incident report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/incidents",
+    "status": 200,
+    "response": {
+      "total_incidents": 1,
+      "incidents_by_severity": {
+        "High": 1
+      },
+      "incidents_by_status": {
+        "Closed": 1
+      },
+      "sources": [
+        {
+          "name": "incidents",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate asset report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/assets",
+    "status": 200,
+    "response": {
+      "total_assets": 3,
+      "critical_assets": 0,
+      "assets_by_type": {
+        "Server": 2,
+        "Workstation": 1
+      },
+      "sources": [
+        {
+          "name": "assets",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18002/Hassan-Nasrallah/assets"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate threat report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/threats",
+    "status": 200,
+    "response": {
+      "total_threats": 2,
+      "threats_by_severity": {
+        "Critical": 2
+      },
+      "threats_by_type": {
+        "Domain": 1,
+        "IP Address": 1
+      },
+      "recent_threats": [
+        {
+          "id": 2,
+          "threat_type": "Domain",
+          "threat_value": "run-1792503330941.malicious-update.test",
+          "description": "Phishing domain impersonating the update portal",
+          "severity": "Critical",
+          "source": "Confirmed by analyst review",
+          "created_at": "2026-10-20T13:35:31.718560+00:00"
+        },
+        {
+          "id": 1,
+          "threat_type": "IP Address",
+          "threat_value": "198.51.100.216",
+          "description": "Command-and-control host observed in outbound beaconing",
+          "severity": "Critical",
+          "source": "Internal detection",
+          "created_at": "2026-10-20T13:35:31.701341+00:00"
+        }
+      ],
+      "sources": [
+        {
+          "name": "threats",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate vulnerability report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/vulnerabilities",
+    "status": 200,
+    "response": {
+      "total_vulnerabilities": 0,
+      "vulnerabilities_by_severity": {},
+      "vulnerabilities_by_status": {},
+      "critical_vulnerabilities": 0,
+      "sources": [
+        {
+          "name": "vulnerabilities",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate activity report",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/activity",
+    "status": 200,
+    "response": {
+      "total_activities": 54,
+      "login_attempts": 13,
+      "failed_login_attempts": 3,
+      "most_performed_actions": [
+        {
+          "action": "Data modification",
+          "count": 23
+        },
+        {
+          "action": "Permission denied",
+          "count": 15
+        },
+        {
+          "action": "Login",
+          "count": 10
+        },
+        {
+          "action": "Login failed",
+          "count": 3
+        },
+        {
+          "action": "Incident assigned",
+          "count": 2
+        },
+        {
+          "action": "Registration",
+          "count": 1
+        }
+      ],
+      "sources": [
+        {
+          "name": "logs",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      },
+      {
+        "name": "sources declared",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate summary report as auditor",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/summary",
+    "status": 200,
+    "response": {
+      "users": 4,
+      "assets": 3,
+      "open_incidents": 0,
+      "critical_threats": 2,
+      "sources": [
+        {
+          "name": "assets",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18002/Hassan-Nasrallah/assets"
+        },
+        {
+          "name": "incidents",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents"
+        },
+        {
+          "name": "threats",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats"
+        },
+        {
+          "name": "users",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18000/Hassan-Nasrallah/users"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "status 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate summary report as analyst (forbidden)",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/summary",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate summary report as employee (forbidden)",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/summary",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "status 403",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Mohammad Nasrallah \u2014 Generate summary report without a token",
+    "method": "GET",
+    "url": "http://127.0.0.1:18006/Mohammad-Nasrallah/reports/summary",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Bearer token required"
+    },
+    "assertions": [
+      {
+        "name": "status 401",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Login admin",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 1,
+      "role": "admin"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Login analyst",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 2,
+      "role": "analyst"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Login employee",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 3,
+      "role": "employee"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Login auditor",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 200,
+    "response": {
+      "access_token": "[REDACTED]",
+      "token_type": "bearer",
+      "expires_in": 3600,
+      "user_id": 4,
+      "role": "auditor"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject incorrect password",
+    "method": "POST",
+    "url": "http://127.0.0.1:18000/Hassan-Nasrallah/users/login",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Invalid credentials or inactive account"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create critical vulnerability",
+    "method": "POST",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 201,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create second vulnerability",
+    "method": "POST",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 201,
+    "response": {
+      "title": "Workstation review",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-23456",
+      "cvss_score": 5.5,
+      "severity": "Medium",
+      "asset_id": 2,
+      "discovery_source": "Lab scanner",
+      "id": 2,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:33.782033+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve vulnerabilities",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 200,
+    "response": [
+      {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "id": 1,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.766236+00:00",
+        "resolution_date": null
+      },
+      {
+        "title": "Workstation review",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-23456",
+        "cvss_score": 5.5,
+        "severity": "Medium",
+        "asset_id": 2,
+        "discovery_source": "Lab scanner",
+        "id": 2,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.782033+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve vulnerability",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Missing vulnerability",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/99999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Vulnerabilitie not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search severity=Critical",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/search?severity=Critical",
+    "status": 200,
+    "response": [
+      {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "id": 1,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.766236+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search asset_id=2",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/search?asset_id=2",
+    "status": 200,
+    "response": [
+      {
+        "title": "Workstation review",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-23456",
+        "cvss_score": 5.5,
+        "severity": "Medium",
+        "asset_id": 2,
+        "discovery_source": "Lab scanner",
+        "id": 2,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.782033+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search cve_identifier=CVE-2026-12345",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/search?cve_identifier=CVE-2026-12345",
+    "status": 200,
+    "response": [
+      {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "id": 1,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.766236+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search status=Open",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/search?status=Open",
+    "status": 200,
+    "response": [
+      {
+        "title": "Exposed remote service",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-12345",
+        "cvss_score": 9.1,
+        "severity": "Critical",
+        "asset_id": 1,
+        "discovery_source": "Lab scanner",
+        "id": 1,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.766236+00:00",
+        "resolution_date": null
+      },
+      {
+        "title": "Workstation review",
+        "description": "Scanner detected an exposed service requiring review.",
+        "cve_identifier": "CVE-2026-23456",
+        "cvss_score": 5.5,
+        "severity": "Medium",
+        "asset_id": 2,
+        "discovery_source": "Lab scanner",
+        "id": 2,
+        "status": "Open",
+        "created_at": "2026-10-20T13:35:33.782033+00:00",
+        "resolution_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject CVSS above ten",
+    "method": "POST",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.cvss_score",
+          "message": "Input should be less than or equal to 10"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject missing title",
+    "method": "POST",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 422,
+    "response": {
+      "status": "error",
+      "message": "Invalid request",
+      "errors": [
+        {
+          "field": "body.title",
+          "message": "Field required"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 422",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject employee access",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject missing token",
+    "method": "GET",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities",
+    "status": 401,
+    "response": {
+      "status": "error",
+      "message": "Bearer token required"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 401",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject lifecycle skip",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Vulnerability must advance one lifecycle step at a time"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Advance vulnerability to Under Investigation",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "Under Investigation",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Advance vulnerability to In Progress",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "In Progress",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Advance vulnerability to Resolved",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "Resolved",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": "2026-10-20T13:35:33.994687+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      },
+      {
+        "name": "Server recorded completion timestamp",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Advance vulnerability to Closed",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "title": "Exposed remote service",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-12345",
+      "cvss_score": 9.1,
+      "severity": "Critical",
+      "asset_id": 1,
+      "discovery_source": "Lab scanner",
+      "id": 1,
+      "status": "Closed",
+      "created_at": "2026-10-20T13:35:33.766236+00:00",
+      "resolution_date": "2026-10-20T13:35:33.994687+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject analyst deletion",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Delete vulnerability",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities/1",
+    "status": 200,
+    "response": {
+      "message": "Vulnerability deleted"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create employee alert",
+    "method": "POST",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications",
+    "status": 201,
+    "response": {
+      "user_id": 3,
+      "title": "Security alert",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Security Alert",
+      "severity": "High",
+      "id": 1,
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.089687+00:00",
+      "read_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create analyst alert",
+    "method": "POST",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications",
+    "status": 201,
+    "response": {
+      "user_id": 2,
+      "title": "Incident assigned",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Incident Assignment",
+      "severity": "High",
+      "id": 2,
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.105249+00:00",
+      "read_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve own notifications",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/user/3",
+    "status": 200,
+    "response": [
+      {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "id": 1,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.089687+00:00",
+        "read_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve empty notifications",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/user/4",
+    "status": 200,
+    "response": [],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve specific notification",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1",
+    "status": 200,
+    "response": {
+      "user_id": 3,
+      "title": "Security alert",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Security Alert",
+      "severity": "High",
+      "id": 1,
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.089687+00:00",
+      "read_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject another user notification",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Access to another user\u2019s notifications is forbidden"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Missing notification",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/99999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Notification not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search user_id=3",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/search?user_id=3",
+    "status": 200,
+    "response": [
+      {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "id": 1,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.089687+00:00",
+        "read_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search notification_type=Security%20Alert",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/search?notification_type=Security%2520Alert",
+    "status": 200,
+    "response": [
+      {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "id": 1,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.089687+00:00",
+        "read_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search severity=High",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/search?severity=High",
+    "status": 200,
+    "response": [
+      {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "id": 1,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.089687+00:00",
+        "read_date": null
+      },
+      {
+        "user_id": 2,
+        "title": "Incident assigned",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Incident Assignment",
+        "severity": "High",
+        "id": 2,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.105249+00:00",
+        "read_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Search status=Unread",
+    "method": "GET",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/search?status=Unread",
+    "status": 200,
+    "response": [
+      {
+        "user_id": 3,
+        "title": "Security alert",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Security Alert",
+        "severity": "High",
+        "id": 1,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.089687+00:00",
+        "read_date": null
+      },
+      {
+        "user_id": 2,
+        "title": "Incident assigned",
+        "message": "Review the reported suspicious message.",
+        "notification_type": "Incident Assignment",
+        "severity": "High",
+        "id": 2,
+        "status": "Unread",
+        "created_at": "2026-10-20T13:35:34.105249+00:00",
+        "read_date": null
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject auditor marking read",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1/read",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Mark own notification read",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1/read",
+    "status": 200,
+    "response": {
+      "user_id": 3,
+      "title": "Security alert",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Security Alert",
+      "severity": "High",
+      "id": 1,
+      "status": "Read",
+      "created_at": "2026-10-20T13:35:34.089687+00:00",
+      "read_date": "2026-10-20T13:35:34.299557+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Repeat mark read",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1/read",
+    "status": 200,
+    "response": {
+      "user_id": 3,
+      "title": "Security alert",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Security Alert",
+      "severity": "High",
+      "id": 1,
+      "status": "Read",
+      "created_at": "2026-10-20T13:35:34.089687+00:00",
+      "read_date": "2026-10-20T13:35:34.299557+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject employee deletion",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Delete notification",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18008/Joseph-Awaida/notifications/1",
+    "status": 200,
+    "response": {
+      "message": "Notification deleted"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create playbook",
+    "method": "POST",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks",
+    "status": 201,
+    "response": {
+      "name": "Malware containment",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Malware",
+      "severity": "High",
+      "id": 1,
+      "created_by": 1,
+      "created_at": "2026-10-20T13:35:34.385020+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Create second playbook",
+    "method": "POST",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks",
+    "status": 201,
+    "response": {
+      "name": "Phishing investigation",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Phishing",
+      "severity": "Medium",
+      "id": 2,
+      "created_by": 1,
+      "created_at": "2026-10-20T13:35:34.401739+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 List playbooks",
+    "method": "GET",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks",
+    "status": 200,
+    "response": [
+      {
+        "name": "Malware containment",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Malware",
+        "severity": "High",
+        "id": 1,
+        "created_by": 1,
+        "created_at": "2026-10-20T13:35:34.385020+00:00"
+      },
+      {
+        "name": "Phishing investigation",
+        "description": "Isolate and investigate a suspected malware infection.",
+        "incident_category": "Phishing",
+        "severity": "Medium",
+        "id": 2,
+        "created_by": 1,
+        "created_at": "2026-10-20T13:35:34.401739+00:00"
+      }
+    ],
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve playbook",
+    "method": "GET",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1",
+    "status": 200,
+    "response": {
+      "name": "Malware containment",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Malware",
+      "severity": "High",
+      "id": 1,
+      "created_by": 1,
+      "created_at": "2026-10-20T13:35:34.385020+00:00",
+      "actions": [],
+      "execution_history": []
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Missing playbook",
+    "method": "GET",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/99999999",
+    "status": 404,
+    "response": {
+      "status": "error",
+      "message": "Playbook not found"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 404",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Add response step 1",
+    "method": "POST",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1/actions",
+    "status": 201,
+    "response": {
+      "description": "Isolate asset",
+      "step_number": 1,
+      "assigned_user_id": 2,
+      "id": 1,
+      "playbook_id": 1,
+      "status": "Pending",
+      "completion_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Add response step 2",
+    "method": "POST",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1/actions",
+    "status": 201,
+    "response": {
+      "description": "Investigate artifacts",
+      "step_number": 2,
+      "assigned_user_id": 2,
+      "id": 2,
+      "playbook_id": 1,
+      "status": "Pending",
+      "completion_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 201",
+        "passed": true
+      },
+      {
+        "name": "Persisted record identifier",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject duplicate step",
+    "method": "POST",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1/actions",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Database constraint conflict"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject out of order action",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/actions/2/status",
+    "status": 409,
+    "response": {
+      "status": "error",
+      "message": "Complete earlier response steps first"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 409",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Step 1 In Progress",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/actions/1/status",
+    "status": 200,
+    "response": {
+      "description": "Isolate asset",
+      "step_number": 1,
+      "assigned_user_id": 2,
+      "id": 1,
+      "playbook_id": 1,
+      "status": "In Progress",
+      "completion_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Step 1 Completed",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/actions/1/status",
+    "status": 200,
+    "response": {
+      "description": "Isolate asset",
+      "step_number": 1,
+      "assigned_user_id": 2,
+      "id": 1,
+      "playbook_id": 1,
+      "status": "Completed",
+      "completion_date": "2026-10-20T13:35:34.533174+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      },
+      {
+        "name": "Server recorded completion timestamp",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Step 2 In Progress",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/actions/2/status",
+    "status": 200,
+    "response": {
+      "description": "Investigate artifacts",
+      "step_number": 2,
+      "assigned_user_id": 2,
+      "id": 2,
+      "playbook_id": 1,
+      "status": "In Progress",
+      "completion_date": null
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Step 2 Completed",
+    "method": "PUT",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/actions/2/status",
+    "status": 200,
+    "response": {
+      "description": "Investigate artifacts",
+      "step_number": 2,
+      "assigned_user_id": 2,
+      "id": 2,
+      "playbook_id": 1,
+      "status": "Completed",
+      "completion_date": "2026-10-20T13:35:34.561903+00:00"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      },
+      {
+        "name": "Server recorded completion timestamp",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Retrieve completed workflow",
+    "method": "GET",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1",
+    "status": 200,
+    "response": {
+      "name": "Malware containment",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Malware",
+      "severity": "High",
+      "id": 1,
+      "created_by": 1,
+      "created_at": "2026-10-20T13:35:34.385020+00:00",
+      "actions": [
+        {
+          "description": "Isolate asset",
+          "step_number": 1,
+          "assigned_user_id": 2,
+          "id": 1,
+          "playbook_id": 1,
+          "status": "Completed",
+          "completion_date": "2026-10-20T13:35:34.533174+00:00"
+        },
+        {
+          "description": "Investigate artifacts",
+          "step_number": 2,
+          "assigned_user_id": 2,
+          "id": 2,
+          "playbook_id": 1,
+          "status": "Completed",
+          "completion_date": "2026-10-20T13:35:34.561903+00:00"
+        }
+      ],
+      "execution_history": [
+        {
+          "id": 1,
+          "action_id": 1,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": null,
+          "new_status": "Pending",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.461265+00:00"
+        },
+        {
+          "id": 2,
+          "action_id": 2,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": null,
+          "new_status": "Pending",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.476375+00:00"
+        },
+        {
+          "id": 3,
+          "action_id": 1,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": "Pending",
+          "new_status": "In Progress",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.519494+00:00"
+        },
+        {
+          "id": 4,
+          "action_id": 1,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": "In Progress",
+          "new_status": "Completed",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.533368+00:00"
+        },
+        {
+          "id": 5,
+          "action_id": 2,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": "Pending",
+          "new_status": "In Progress",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.547710+00:00"
+        },
+        {
+          "id": 6,
+          "action_id": 2,
+          "playbook_id": 1,
+          "actor_id": 2,
+          "old_status": "In Progress",
+          "new_status": "Completed",
+          "assigned_user_id": 2,
+          "recorded_at": "2026-10-20T13:35:34.562112+00:00"
+        }
+      ]
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Reject analyst deleting playbook",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1",
+    "status": 403,
+    "response": {
+      "status": "error",
+      "message": "Role does not permit this operation"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 403",
+        "passed": true
+      },
+      {
+        "name": "Consistent error envelope",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "name": "Joseph Awaida \u2014 Delete playbook",
+    "method": "DELETE",
+    "url": "http://127.0.0.1:18009/Joseph-Awaida/playbooks/1",
+    "status": 200,
+    "response": {
+      "message": "Playbook and actions deleted; execution history preserved"
+    },
+    "assertions": [
+      {
+        "name": "HTTP 200",
+        "passed": true
+      }
+    ]
+  }
+]

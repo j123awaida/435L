@@ -1,0 +1,1257 @@
+{
+  "action_history": [
+    {
+      "id": 1,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": null,
+      "new_status": "Pending",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.461265+00:00"
+    },
+    {
+      "id": 2,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": null,
+      "new_status": "Pending",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.476375+00:00"
+    },
+    {
+      "id": 3,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "Pending",
+      "new_status": "In Progress",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.519494+00:00"
+    },
+    {
+      "id": 4,
+      "action_id": 1,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "In Progress",
+      "new_status": "Completed",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.533368+00:00"
+    },
+    {
+      "id": 5,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "Pending",
+      "new_status": "In Progress",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.547710+00:00"
+    },
+    {
+      "id": 6,
+      "action_id": 2,
+      "playbook_id": 1,
+      "actor_id": 2,
+      "old_status": "In Progress",
+      "new_status": "Completed",
+      "assigned_user_id": 2,
+      "recorded_at": "2026-10-20T13:35:34.562112+00:00"
+    }
+  ],
+  "actions": [],
+  "asset_history": [
+    {
+      "id": 1,
+      "asset_id": 3,
+      "actor_id": 1,
+      "action": "Created",
+      "snapshot_json": "{\"id\": 3, \"name\": \"Server 1792503328578\", \"owner_id\": 3, \"asset_type\": \"Server\", \"ip_address\": \"192.0.2.50\", \"operating_system\": null, \"department\": \"IT\", \"location\": \"Lab\", \"criticality\": \"Critical\", \"status\": \"Active\", \"created_at\": \"2026-10-20T13:35:30.361794+00:00\"}",
+      "created_at": "2026-10-20T13:35:30.361962+00:00"
+    },
+    {
+      "id": 2,
+      "asset_id": 4,
+      "actor_id": 1,
+      "action": "Created",
+      "snapshot_json": "{\"id\": 4, \"name\": \"Temporary 1792503328578\", \"owner_id\": 3, \"asset_type\": \"Workstation\", \"ip_address\": \"2001:db8::1\", \"operating_system\": null, \"department\": \"IT\", \"location\": \"Lab\", \"criticality\": \"Low\", \"status\": \"Active\", \"created_at\": \"2026-10-20T13:35:30.379317+00:00\"}",
+      "created_at": "2026-10-20T13:35:30.379448+00:00"
+    },
+    {
+      "id": 3,
+      "asset_id": 3,
+      "actor_id": 1,
+      "action": "Before update",
+      "snapshot_json": "{\"id\": 3, \"name\": \"Server 1792503328578\", \"owner_id\": 3, \"asset_type\": \"Server\", \"ip_address\": \"192.0.2.50\", \"operating_system\": null, \"department\": \"IT\", \"location\": \"Lab\", \"criticality\": \"Critical\", \"status\": \"Active\", \"created_at\": \"2026-10-20T13:35:30.361794+00:00\"}",
+      "created_at": "2026-10-20T13:35:30.409899+00:00"
+    },
+    {
+      "id": 4,
+      "asset_id": 3,
+      "actor_id": 1,
+      "action": "Updated",
+      "snapshot_json": "{\"id\": 3, \"name\": \"Server 1792503328578\", \"owner_id\": 3, \"asset_type\": \"Server\", \"ip_address\": \"192.0.2.50\", \"operating_system\": null, \"department\": \"IT\", \"location\": \"Lab\", \"criticality\": \"High\", \"status\": \"Under Maintenance\", \"created_at\": \"2026-10-20T13:35:30.361794+00:00\"}",
+      "created_at": "2026-10-20T13:35:30.410148+00:00"
+    },
+    {
+      "id": 5,
+      "asset_id": 4,
+      "actor_id": 1,
+      "action": "Deleted",
+      "snapshot_json": "{\"id\": 4, \"name\": \"Temporary 1792503328578\", \"owner_id\": 3, \"asset_type\": \"Workstation\", \"ip_address\": \"2001:db8::1\", \"operating_system\": null, \"department\": \"IT\", \"location\": \"Lab\", \"criticality\": \"Low\", \"status\": \"Active\", \"created_at\": \"2026-10-20T13:35:30.379317+00:00\"}",
+      "created_at": "2026-10-20T13:35:30.569653+00:00"
+    }
+  ],
+  "asset_profiles": [
+    {
+      "asset_id": 1,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.1",
+      "operating_system": null,
+      "department": "Security Lab",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Active",
+      "created_at": "2026-10-20T13:35:00.033937+00:00"
+    },
+    {
+      "asset_id": 2,
+      "asset_type": "Workstation",
+      "ip_address": "192.0.2.2",
+      "operating_system": null,
+      "department": "Security Lab",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Active",
+      "created_at": "2026-10-20T13:35:00.034020+00:00"
+    },
+    {
+      "asset_id": 3,
+      "asset_type": "Server",
+      "ip_address": "192.0.2.50",
+      "operating_system": null,
+      "department": "IT",
+      "location": "Lab",
+      "criticality": "High",
+      "status": "Under Maintenance",
+      "created_at": "2026-10-20T13:35:30.361794+00:00"
+    }
+  ],
+  "assets": [
+    {
+      "id": 1,
+      "name": "Lab server",
+      "owner_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Lab workstation",
+      "owner_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Server 1792503328578",
+      "owner_id": 3
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:19.292864+00:00"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:28.740208+00:00"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:28.895327+00:00"
+    },
+    {
+      "id": 4,
+      "user_id": 3,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.041447+00:00"
+    },
+    {
+      "id": 5,
+      "user_id": 4,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.186382+00:00"
+    },
+    {
+      "id": 6,
+      "user_id": null,
+      "action": "Login failed",
+      "description": "Invalid credentials or inactive account",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.329653+00:00"
+    },
+    {
+      "id": 7,
+      "user_id": 5,
+      "action": "Registration",
+      "description": "User account created",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.493126+00:00"
+    },
+    {
+      "id": 8,
+      "user_id": null,
+      "action": "Permission denied",
+      "description": "Public registration requested a privileged role",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.651538+00:00"
+    },
+    {
+      "id": 9,
+      "user_id": 5,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.835670+00:00"
+    },
+    {
+      "id": 10,
+      "user_id": 5,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/users/5",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.858670+00:00"
+    },
+    {
+      "id": 11,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Hassan-Nasrallah/users: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.921336+00:00"
+    },
+    {
+      "id": 12,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "DELETE /Hassan-Nasrallah/users/5: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.938073+00:00"
+    },
+    {
+      "id": 13,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/users/5/role",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:29.970387+00:00"
+    },
+    {
+      "id": 14,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Hassan-Nasrallah/users/5/role",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.000505+00:00"
+    },
+    {
+      "id": 15,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/users/5/account-status",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.017413+00:00"
+    },
+    {
+      "id": 16,
+      "user_id": null,
+      "action": "Login failed",
+      "description": "Invalid credentials or inactive account",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.162794+00:00"
+    },
+    {
+      "id": 17,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Hassan-Nasrallah/users/5",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.307736+00:00"
+    },
+    {
+      "id": 18,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Hassan-Nasrallah/assets",
+      "severity": "Information",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.362687+00:00"
+    },
+    {
+      "id": 19,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Hassan-Nasrallah/assets",
+      "severity": "Information",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.380185+00:00"
+    },
+    {
+      "id": 20,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/assets/3",
+      "severity": "Information",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.410882+00:00"
+    },
+    {
+      "id": 21,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Hassan-Nasrallah/assets: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.541557+00:00"
+    },
+    {
+      "id": 22,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Hassan-Nasrallah/assets/4: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.555627+00:00"
+    },
+    {
+      "id": 23,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Hassan-Nasrallah/assets/4",
+      "severity": "Information",
+      "related_service": "Service 2: Asset Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.570514+00:00"
+    },
+    {
+      "id": 24,
+      "user_id": 3,
+      "action": "Data modification",
+      "description": "POST /Hassan-Nasrallah/incidents",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.609753+00:00"
+    },
+    {
+      "id": 25,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Hassan-Nasrallah/incidents/1: Access is limited to submitted or assigned incidents",
+      "severity": "Warning",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.682095+00:00"
+    },
+    {
+      "id": 26,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/assign: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.697578+00:00"
+    },
+    {
+      "id": 27,
+      "user_id": 1,
+      "action": "Incident assigned",
+      "description": "Incident 1 assigned to analyst 2",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.728493+00:00"
+    },
+    {
+      "id": 28,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/assign",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.729373+00:00"
+    },
+    {
+      "id": 29,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "POST /Hassan-Nasrallah/incidents/1/notes",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.789805+00:00"
+    },
+    {
+      "id": 30,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.823387+00:00"
+    },
+    {
+      "id": 31,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.839670+00:00"
+    },
+    {
+      "id": 32,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.856154+00:00"
+    },
+    {
+      "id": 33,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Hassan-Nasrallah/incidents/1/status",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.872667+00:00"
+    },
+    {
+      "id": 34,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Hassan-Nasrallah/users/logout",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:30.917080+00:00"
+    },
+    {
+      "id": 35,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:31.075593+00:00"
+    },
+    {
+      "id": 36,
+      "user_id": 2,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:31.219546+00:00"
+    },
+    {
+      "id": 37,
+      "user_id": 3,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:31.362955+00:00"
+    },
+    {
+      "id": 38,
+      "user_id": 4,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:31.513019+00:00"
+    },
+    {
+      "id": 39,
+      "user_id": null,
+      "action": "Login failed",
+      "description": "Invalid credentials or inactive account",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:31.657190+00:00"
+    },
+    {
+      "id": 40,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Mohammad-Nasrallah/threats",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:31.703048+00:00"
+    },
+    {
+      "id": 41,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Mohammad-Nasrallah/threats",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:31.719870+00:00"
+    },
+    {
+      "id": 42,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Mohammad-Nasrallah/threats",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:31.736169+00:00"
+    },
+    {
+      "id": 43,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "POST /Mohammad-Nasrallah/threats: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:31.811336+00:00"
+    },
+    {
+      "id": 44,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Mohammad-Nasrallah/threats: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:31.870381+00:00"
+    },
+    {
+      "id": 45,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "PUT /Mohammad-Nasrallah/threats/2",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.007258+00:00"
+    },
+    {
+      "id": 46,
+      "user_id": 4,
+      "action": "Permission denied",
+      "description": "DELETE /Mohammad-Nasrallah/threats/3: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.074586+00:00"
+    },
+    {
+      "id": 47,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Mohammad-Nasrallah/threats/3",
+      "severity": "Information",
+      "related_service": "Service 4: Threat Intelligence",
+      "created_at": "2026-10-20T13:35:32.090788+00:00"
+    },
+    {
+      "id": 49,
+      "user_id": 2,
+      "action": "Incident assigned",
+      "description": "Analyst reviewed a critical threat indicator during triage",
+      "severity": "Information",
+      "related_service": "Service 3: Incident Management",
+      "created_at": "2026-10-20T13:35:32.154051+00:00"
+    },
+    {
+      "id": 50,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "POST /Mohammad-Nasrallah/logs: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.235910+00:00"
+    },
+    {
+      "id": 51,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.288060+00:00"
+    },
+    {
+      "id": 52,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Mohammad-Nasrallah/logs: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.304549+00:00"
+    },
+    {
+      "id": 53,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Mohammad-Nasrallah/logs/48: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.474441+00:00"
+    },
+    {
+      "id": 54,
+      "user_id": 4,
+      "action": "Permission denied",
+      "description": "DELETE /Mohammad-Nasrallah/logs/48: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.488766+00:00"
+    },
+    {
+      "id": 55,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Mohammad-Nasrallah/logs/48",
+      "severity": "Information",
+      "related_service": "Service 5: Security Audit Logging",
+      "created_at": "2026-10-20T13:35:32.503031+00:00"
+    },
+    {
+      "id": 56,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Mohammad-Nasrallah/reports/summary: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 6: Security Reports",
+      "created_at": "2026-10-20T13:35:33.004438+00:00"
+    },
+    {
+      "id": 57,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Mohammad-Nasrallah/reports/summary: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 6: Security Reports",
+      "created_at": "2026-10-20T13:35:33.024975+00:00"
+    },
+    {
+      "id": 58,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:33.182236+00:00"
+    },
+    {
+      "id": 59,
+      "user_id": 2,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:33.323191+00:00"
+    },
+    {
+      "id": 60,
+      "user_id": 3,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:33.467067+00:00"
+    },
+    {
+      "id": 61,
+      "user_id": 4,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:33.609402+00:00"
+    },
+    {
+      "id": 62,
+      "user_id": null,
+      "action": "Login failed",
+      "description": "Invalid credentials or inactive account",
+      "severity": "Warning",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:35:33.750398+00:00"
+    },
+    {
+      "id": 63,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/vulnerabilities",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.767636+00:00"
+    },
+    {
+      "id": 64,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/vulnerabilities",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.783067+00:00"
+    },
+    {
+      "id": 65,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "GET /Joseph-Awaida/vulnerabilities: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.924145+00:00"
+    },
+    {
+      "id": 66,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/vulnerabilities/1",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.964115+00:00"
+    },
+    {
+      "id": 67,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/vulnerabilities/1",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.981094+00:00"
+    },
+    {
+      "id": 68,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/vulnerabilities/1",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:33.995647+00:00"
+    },
+    {
+      "id": 69,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/vulnerabilities/1",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:34.009792+00:00"
+    },
+    {
+      "id": 70,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/vulnerabilities/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:34.023685+00:00"
+    },
+    {
+      "id": 71,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Joseph-Awaida/vulnerabilities/1",
+      "severity": "Information",
+      "related_service": "Service 7: Vulnerability Management",
+      "created_at": "2026-10-20T13:35:34.046876+00:00"
+    },
+    {
+      "id": 72,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/notifications",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.090758+00:00"
+    },
+    {
+      "id": 73,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/notifications",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.106286+00:00"
+    },
+    {
+      "id": 74,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "GET /Joseph-Awaida/notifications/1: Access to another user\u2019s notifications is forbidden",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.156155+00:00"
+    },
+    {
+      "id": 75,
+      "user_id": 4,
+      "action": "Permission denied",
+      "description": "PUT /Joseph-Awaida/notifications/1/read: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.287086+00:00"
+    },
+    {
+      "id": 76,
+      "user_id": 3,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/notifications/1/read",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.300696+00:00"
+    },
+    {
+      "id": 77,
+      "user_id": 3,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/notifications/1/read",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.313704+00:00"
+    },
+    {
+      "id": 78,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/notifications",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.319891+00:00"
+    },
+    {
+      "id": 79,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/notifications",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.326458+00:00"
+    },
+    {
+      "id": 80,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/notifications",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.333291+00:00"
+    },
+    {
+      "id": 81,
+      "user_id": 3,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/notifications/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.332661+00:00"
+    },
+    {
+      "id": 82,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Joseph-Awaida/notifications/1",
+      "severity": "Information",
+      "related_service": "Service 8: Notification and Alert Management",
+      "created_at": "2026-10-20T13:35:34.348561+00:00"
+    },
+    {
+      "id": 83,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/playbooks",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.386292+00:00"
+    },
+    {
+      "id": 84,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/playbooks",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.404353+00:00"
+    },
+    {
+      "id": 85,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/playbooks/1/actions",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.462343+00:00"
+    },
+    {
+      "id": 86,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "POST /Joseph-Awaida/playbooks/1/actions",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.477161+00:00"
+    },
+    {
+      "id": 87,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/actions/1/status",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.520220+00:00"
+    },
+    {
+      "id": 88,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/actions/1/status",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.534025+00:00"
+    },
+    {
+      "id": 89,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/actions/2/status",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.548428+00:00"
+    },
+    {
+      "id": 90,
+      "user_id": 2,
+      "action": "Data modification",
+      "description": "PUT /Joseph-Awaida/actions/2/status",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.562837+00:00"
+    },
+    {
+      "id": 91,
+      "user_id": 2,
+      "action": "Permission denied",
+      "description": "DELETE /Joseph-Awaida/playbooks/1: Role does not permit this operation",
+      "severity": "Warning",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.591319+00:00"
+    },
+    {
+      "id": 92,
+      "user_id": 1,
+      "action": "Data modification",
+      "description": "DELETE /Joseph-Awaida/playbooks/1",
+      "severity": "Information",
+      "related_service": "Service 9: Security Playbook and Response Automation",
+      "created_at": "2026-10-20T13:35:34.605942+00:00"
+    },
+    {
+      "id": 93,
+      "user_id": 1,
+      "action": "Login",
+      "description": "Successful authentication",
+      "severity": "Information",
+      "related_service": "Service 1: Users and Identity Management \u2014 Hassan Nasrallah",
+      "created_at": "2026-10-20T13:38:33.360866+00:00"
+    },
+    {
+      "id": 94,
+      "user_id": 1,
+      "action": "Merged team integration verified",
+      "description": "Actual HTTP verification of nine merged services.",
+      "severity": "Information",
+      "related_service": "Team integration",
+      "created_at": "2026-10-20T13:38:33.634083+00:00"
+    }
+  ],
+  "deleted_users": [
+    {
+      "user_id": 5,
+      "deleted_at": "2026-10-20T13:35:30.306850+00:00"
+    }
+  ],
+  "incidents": [
+    {
+      "id": 1,
+      "title": "Suspicious login 1792503328578",
+      "description": "Review access logs",
+      "category": "Unauthorized access",
+      "severity": "High",
+      "reporter_id": 3,
+      "asset_id": 3,
+      "assigned_analyst_id": 2,
+      "status": "Closed",
+      "created_at": "2026-10-20T13:35:30.608721+00:00",
+      "resolution_date": "2026-10-20T13:35:30.855199+00:00"
+    }
+  ],
+  "investigation_notes": [
+    {
+      "id": 1,
+      "incident_id": 1,
+      "analyst_id": 2,
+      "content": "Reviewed authentication logs; isolated affected host.",
+      "created_at": "2026-10-20T13:35:30.788855+00:00"
+    }
+  ],
+  "log_receipts": [
+    {
+      "idempotency_key": "incident-assignment-demo-1-1792503330941",
+      "log_id": 49,
+      "payload_hash": "09590e7683f01f6de07b200d855bc520857b4f36ad2f82277813ddff14c7b7c0",
+      "created_at": "2026-10-20T13:35:32.154254+00:00"
+    },
+    {
+      "idempotency_key": "team-verification-2026-10-20T13:38:33.628639+00:00",
+      "log_id": 94,
+      "payload_hash": "3224874e737a49b0d9a5ce27c1e95462a15a27a0b45403b08c83ffcb77e18b5e",
+      "created_at": "2026-10-20T13:38:33.634360+00:00"
+    }
+  ],
+  "log_tombstones": [
+    {
+      "id": 1,
+      "log_id": 48,
+      "deleted_by": 1,
+      "action": "Threat indicator reviewed",
+      "recorded_at": "2026-10-20T13:35:32.136451+00:00",
+      "deleted_at": "2026-10-20T13:35:32.502340+00:00"
+    }
+  ],
+  "notification_outbox": [
+    {
+      "event_id": "181b8c82-1115-46da-bc02-eaeefa3135ed",
+      "payload_json": "{\"message\": \"Investigate incident 1: Review access logs\", \"notification_type\": \"Incident Assignment\", \"severity\": \"High\", \"title\": \"Incident assigned: Suspicious login 1792503328578\", \"user_id\": 2}",
+      "status": "Delivered",
+      "attempts": 1,
+      "last_error": null,
+      "created_at": "2026-10-20T13:35:30.728609+00:00",
+      "delivered_at": "2026-10-20T13:35:34.321627+00:00"
+    },
+    {
+      "event_id": "5d4df4e7-e27e-4ca5-9e18-d5bcf29ffcaa",
+      "payload_json": "{\"message\": \"CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.\", \"notification_type\": \"Vulnerability Alert\", \"severity\": \"Critical\", \"title\": \"Vulnerability discovered: Exposed remote service\", \"user_id\": 1}",
+      "status": "Delivered",
+      "attempts": 1,
+      "last_error": null,
+      "created_at": "2026-10-20T13:35:33.766594+00:00",
+      "delivered_at": "2026-10-20T13:35:34.328044+00:00"
+    },
+    {
+      "event_id": "072e5dd4-93cc-4b58-9079-5f7750fb47a3",
+      "payload_json": "{\"message\": \"CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.\", \"notification_type\": \"Vulnerability Alert\", \"severity\": \"Medium\", \"title\": \"Vulnerability discovered: Workstation review\", \"user_id\": 1}",
+      "status": "Delivered",
+      "attempts": 1,
+      "last_error": null,
+      "created_at": "2026-10-20T13:35:33.782347+00:00",
+      "delivered_at": "2026-10-20T13:35:34.334635+00:00"
+    }
+  ],
+  "notification_receipts": [
+    {
+      "event_id": "181b8c82-1115-46da-bc02-eaeefa3135ed",
+      "payload_hash": "ef5903977341da1e44b17b8b4764030eccc4b6bbb979cc841cf4a564f69ce0d4",
+      "response_json": "{\"id\": 3, \"user_id\": 2, \"title\": \"Incident assigned: Suspicious login 1792503328578\", \"message\": \"Investigate incident 1: Review access logs\", \"notification_type\": \"Incident Assignment\", \"severity\": \"High\", \"status\": \"Unread\", \"created_at\": \"2026-10-20T13:35:34.318882+00:00\", \"read_date\": null}"
+    },
+    {
+      "event_id": "5d4df4e7-e27e-4ca5-9e18-d5bcf29ffcaa",
+      "payload_hash": "bfcbc109bac40f8e26ea3211b1af6e987e35548de74649946014f4afc1171b5d",
+      "response_json": "{\"id\": 4, \"user_id\": 1, \"title\": \"Vulnerability discovered: Exposed remote service\", \"message\": \"CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.\", \"notification_type\": \"Vulnerability Alert\", \"severity\": \"Critical\", \"status\": \"Unread\", \"created_at\": \"2026-10-20T13:35:34.324636+00:00\", \"read_date\": null}"
+    },
+    {
+      "event_id": "072e5dd4-93cc-4b58-9079-5f7750fb47a3",
+      "payload_hash": "76a528674b38b58d71e3ccc9aacfe8c8ed8f000025c82ef8b5d80d129c74afc1",
+      "response_json": "{\"id\": 5, \"user_id\": 1, \"title\": \"Vulnerability discovered: Workstation review\", \"message\": \"CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.\", \"notification_type\": \"Vulnerability Alert\", \"severity\": \"Medium\", \"status\": \"Unread\", \"created_at\": \"2026-10-20T13:35:34.332181+00:00\", \"read_date\": null}"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 2,
+      "user_id": 2,
+      "title": "Incident assigned",
+      "message": "Review the reported suspicious message.",
+      "notification_type": "Incident Assignment",
+      "severity": "High",
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.105249+00:00",
+      "read_date": null
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "title": "Incident assigned: Suspicious login 1792503328578",
+      "message": "Investigate incident 1: Review access logs",
+      "notification_type": "Incident Assignment",
+      "severity": "High",
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.318882+00:00",
+      "read_date": null
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "title": "Vulnerability discovered: Exposed remote service",
+      "message": "CVE-2026-12345 affects asset 1; severity Critical, CVSS 9.1.",
+      "notification_type": "Vulnerability Alert",
+      "severity": "Critical",
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.324636+00:00",
+      "read_date": null
+    },
+    {
+      "id": 5,
+      "user_id": 1,
+      "title": "Vulnerability discovered: Workstation review",
+      "message": "CVE-2026-23456 affects asset 2; severity Medium, CVSS 5.5.",
+      "notification_type": "Vulnerability Alert",
+      "severity": "Medium",
+      "status": "Unread",
+      "created_at": "2026-10-20T13:35:34.332181+00:00",
+      "read_date": null
+    }
+  ],
+  "playbooks": [
+    {
+      "id": 2,
+      "name": "Phishing investigation",
+      "description": "Isolate and investigate a suspected malware infection.",
+      "incident_category": "Phishing",
+      "severity": "Medium",
+      "created_by": 1,
+      "created_at": "2026-10-20T13:35:34.401739+00:00"
+    }
+  ],
+  "threats": [
+    {
+      "id": 1,
+      "threat_type": "IP Address",
+      "threat_value": "198.51.100.216",
+      "description": "Command-and-control host observed in outbound beaconing",
+      "severity": "Critical",
+      "source": "Internal detection",
+      "created_at": "2026-10-20T13:35:31.701341+00:00"
+    },
+    {
+      "id": 2,
+      "threat_type": "Domain",
+      "threat_value": "run-1792503330941.malicious-update.test",
+      "description": "Phishing domain impersonating the update portal",
+      "severity": "Critical",
+      "source": "Confirmed by analyst review",
+      "created_at": "2026-10-20T13:35:31.718560+00:00"
+    }
+  ],
+  "user_profiles": [
+    {
+      "user_id": 1,
+      "email": "admin@example.test",
+      "department": "Security Lab",
+      "created_at": "2026-10-20T13:35:00.033007+00:00",
+      "last_login_at": "2026-10-20T13:38:33.360327+00:00"
+    },
+    {
+      "user_id": 2,
+      "email": "analyst@example.test",
+      "department": "Security Lab",
+      "created_at": "2026-10-20T13:35:00.033868+00:00",
+      "last_login_at": "2026-10-20T13:35:33.322211+00:00"
+    },
+    {
+      "user_id": 3,
+      "email": "employee@example.test",
+      "department": "Security Lab",
+      "created_at": "2026-10-20T13:35:00.033876+00:00",
+      "last_login_at": "2026-10-20T13:35:33.466004+00:00"
+    },
+    {
+      "user_id": 4,
+      "email": "auditor@example.test",
+      "department": "Security Lab",
+      "created_at": "2026-10-20T13:35:00.033873+00:00",
+      "last_login_at": "2026-10-20T13:35:33.608538+00:00"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": 2,
+      "title": "Workstation review",
+      "description": "Scanner detected an exposed service requiring review.",
+      "cve_identifier": "CVE-2026-23456",
+      "cvss_score": 5.5,
+      "severity": "Medium",
+      "asset_id": 2,
+      "discovery_source": "Lab scanner",
+      "status": "Open",
+      "created_at": "2026-10-20T13:35:33.782033+00:00",
+      "resolution_date": null
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Demo Admin",
+      "username": "admin",
+      "role": "admin",
+      "account_status": "Active"
+    },
+    {
+      "id": 2,
+      "full_name": "Demo Analyst",
+      "username": "analyst",
+      "role": "analyst",
+      "account_status": "Active"
+    },
+    {
+      "id": 3,
+      "full_name": "Demo Employee",
+      "username": "employee",
+      "role": "employee",
+      "account_status": "Active"
+    },
+    {
+      "id": 4,
+      "full_name": "Demo Auditor",
+      "username": "auditor",
+      "role": "auditor",
+      "account_status": "Active"
+    },
+    {
+      "id": 5,
+      "full_name": "Deleted account",
+      "username": "deleted.28f30b017b8ced12ffd7776cf81dded7",
+      "role": "employee",
+      "account_status": "Inactive"
+    }
+  ]
+}

@@ -1,0 +1,626 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Service 8: Notification and Alert Management",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/Joseph-Awaida/health": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Health",
+        "operationId": "health_Joseph_Awaida_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Joseph-Awaida/notifications": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Create notification",
+        "description": "Administrator or authenticated administrator service session creates a user alert. Optional Idempotency-Key prevents duplicate delivery; payload mismatch returns 409.",
+        "operationId": "create_Joseph_Awaida_notifications_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "idempotency-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationRecord"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Joseph-Awaida/notifications/user/{user_id}": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Retrieve user notifications",
+        "description": "Analysts and employees may access only their own notifications. Administrators and auditors may read across users. Existing recipients with no alerts return an empty array.",
+        "operationId": "by_user_Joseph_Awaida_notifications_user__user_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "User Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationRecord"
+                  },
+                  "title": "Response By User Joseph Awaida Notifications User  User Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Joseph-Awaida/notifications/search": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Search notifications",
+        "description": "Filter by user, type, severity and read status. Analysts are restricted to their own records; employees cannot search.",
+        "operationId": "search_Joseph_Awaida_notifications_search_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User Id"
+            }
+          },
+          {
+            "name": "notification_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "Incident Assignment",
+                    "Security Alert",
+                    "System Notification",
+                    "Threat Alert",
+                    "Vulnerability Alert"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Notification Type"
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "Low",
+                    "Medium",
+                    "High",
+                    "Critical"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Severity"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "Unread",
+                    "Read"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationRecord"
+                  },
+                  "title": "Response Search Joseph Awaida Notifications Search Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Joseph-Awaida/notifications/{id}": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Retrieve notification",
+        "description": "Returns a notification after role and ownership checks, or 404 for an invalid identifier.",
+        "operationId": "retrieve_Joseph_Awaida_notifications__id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationRecord"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Delete notification",
+        "description": "Administrator only. Idempotency receipts remain so retries do not recreate deleted alerts.",
+        "operationId": "delete_Joseph_Awaida_notifications__id__delete",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Joseph-Awaida/notifications/{id}/read": {
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Mark notification read",
+        "description": "Administrator or owning analyst/employee marks read. Repeated calls preserve the first read timestamp. Auditors cannot mutate.",
+        "operationId": "mark_read_Joseph_Awaida_notifications__id__read_put",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationRecord"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Message": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "Message"
+      },
+      "NotificationCreate": {
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "User Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Message"
+          },
+          "notification_type": {
+            "type": "string",
+            "enum": [
+              "Incident Assignment",
+              "Security Alert",
+              "System Notification",
+              "Threat Alert",
+              "Vulnerability Alert"
+            ],
+            "title": "Notification Type"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "title": "Severity"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user_id",
+          "title",
+          "message",
+          "notification_type",
+          "severity"
+        ],
+        "title": "NotificationCreate"
+      },
+      "NotificationRecord": {
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "User Id"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Message"
+          },
+          "notification_type": {
+            "type": "string",
+            "enum": [
+              "Incident Assignment",
+              "Security Alert",
+              "System Notification",
+              "Threat Alert",
+              "Vulnerability Alert"
+            ],
+            "title": "Notification Type"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "title": "Severity"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Unread",
+              "Read"
+            ],
+            "title": "Status"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "read_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Read Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user_id",
+          "title",
+          "message",
+          "notification_type",
+          "severity",
+          "id",
+          "status",
+          "created_at",
+          "read_date"
+        ],
+        "title": "NotificationRecord"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

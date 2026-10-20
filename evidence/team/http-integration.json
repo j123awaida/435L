@@ -1,0 +1,165 @@
+{
+  "captured_at": "2026-10-20T13:38:33.642181+00:00",
+  "source": "Actual HTTP calls to all nine independent local service processes",
+  "validation_port_base": 18000,
+  "passed": true,
+  "reports": {
+    "summary": {
+      "users": 4,
+      "assets": 3,
+      "open_incidents": 0,
+      "critical_threats": 2,
+      "sources": [
+        {
+          "name": "assets",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18002/Hassan-Nasrallah/assets"
+        },
+        {
+          "name": "incidents",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents"
+        },
+        {
+          "name": "threats",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats"
+        },
+        {
+          "name": "users",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18000/Hassan-Nasrallah/users"
+        }
+      ]
+    },
+    "incidents": {
+      "total_incidents": 1,
+      "incidents_by_severity": {
+        "High": 1
+      },
+      "incidents_by_status": {
+        "Closed": 1
+      },
+      "sources": [
+        {
+          "name": "incidents",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18003/Hassan-Nasrallah/incidents"
+        }
+      ]
+    },
+    "assets": {
+      "total_assets": 3,
+      "critical_assets": 0,
+      "assets_by_type": {
+        "Server": 2,
+        "Workstation": 1
+      },
+      "sources": [
+        {
+          "name": "assets",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18002/Hassan-Nasrallah/assets"
+        }
+      ]
+    },
+    "threats": {
+      "total_threats": 2,
+      "threats_by_severity": {
+        "Critical": 2
+      },
+      "threats_by_type": {
+        "Domain": 1,
+        "IP Address": 1
+      },
+      "recent_threats": [
+        {
+          "id": 2,
+          "threat_type": "Domain",
+          "threat_value": "run-1792503330941.malicious-update.test",
+          "description": "Phishing domain impersonating the update portal",
+          "severity": "Critical",
+          "source": "Confirmed by analyst review",
+          "created_at": "2026-10-20T13:35:31.718560+00:00"
+        },
+        {
+          "id": 1,
+          "threat_type": "IP Address",
+          "threat_value": "198.51.100.216",
+          "description": "Command-and-control host observed in outbound beaconing",
+          "severity": "Critical",
+          "source": "Internal detection",
+          "created_at": "2026-10-20T13:35:31.701341+00:00"
+        }
+      ],
+      "sources": [
+        {
+          "name": "threats",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18004/Mohammad-Nasrallah/threats"
+        }
+      ]
+    },
+    "vulnerabilities": {
+      "total_vulnerabilities": 1,
+      "vulnerabilities_by_severity": {
+        "Medium": 1
+      },
+      "vulnerabilities_by_status": {
+        "Open": 1
+      },
+      "critical_vulnerabilities": 0,
+      "sources": [
+        {
+          "name": "vulnerabilities",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18007/Joseph-Awaida/vulnerabilities"
+        }
+      ]
+    },
+    "activity": {
+      "total_activities": 92,
+      "login_attempts": 19,
+      "failed_login_attempts": 4,
+      "most_performed_actions": [
+        {
+          "action": "Data modification",
+          "count": 47
+        },
+        {
+          "action": "Permission denied",
+          "count": 23
+        },
+        {
+          "action": "Login",
+          "count": 15
+        },
+        {
+          "action": "Login failed",
+          "count": 4
+        },
+        {
+          "action": "Incident assigned",
+          "count": 2
+        },
+        {
+          "action": "Registration",
+          "count": 1
+        }
+      ],
+      "sources": [
+        {
+          "name": "logs",
+          "origin": "api",
+          "detail": "http://127.0.0.1:18005/Mohammad-Nasrallah/logs"
+        }
+      ]
+    }
+  },
+  "audit_ingestion": {
+    "first_status": 201,
+    "replay_status": 200,
+    "same_log_id": 94
+  },
+  "foreign_keys_valid": true
+}

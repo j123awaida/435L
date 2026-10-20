@@ -1,0 +1,15 @@
+ee4cb4a | MohamadNasrallah | 2026-10-20T15:26:22+03:00 | Document Services 4-6 with integration contract and evidence checklist
+15f7536 | MohamadNasrallah | 2026-10-20T15:26:22+03:00 | Add runner, seed, Postman collection and OpenAPI exports for Services 4-6
+01b6bf0 | MohamadNasrallah | 2026-10-20T15:26:22+03:00 | Add Services 4-6 test suite verifying reports against database records
+1523ee4 | MohamadNasrallah | 2026-10-20T15:26:05+03:00 | Add Service 6 security reports with cross-service data collection
+a04b368 | MohamadNasrallah | 2026-10-20T15:26:05+03:00 | Add Service 5 security audit logging with idempotent ingestion
+be84ea6 | MohamadNasrallah | 2026-10-20T15:26:05+03:00 | Add Service 4 threat intelligence with per-type indicator validation
+9d81439 | hasan | 2026-10-20T13:11:33+03:00 | Add service runners, Postman collection and verified integration handoff
+352484c | hasan | 2026-10-20T13:11:32+03:00 | Implement scoped incident lifecycle and assignment notifications
+ca5d377 | hasan | 2026-10-20T13:11:30+03:00 | Implement asset management with validation and immutable history
+3cf87b8 | hasan | 2026-10-20T13:11:29+03:00 | Implement Hassan Nasrallah user identity and shared service schema
+3b6fa37 | Joseph Awaida | 2026-10-18T13:06:50+03:00 | Add genuine Postman and database screenshots with completed contribution reports
+7f7b1ab | Joseph Awaida | 2026-10-18T12:55:07+03:00 | Complete services 7-9 with reliable HTTP alert delivery, audit tracking and reproducible validation
+f92aed3 | Joseph Awaida | 2026-10-18T12:44:14+03:00 | Document APIs and add Postman collection, report, diagrams and verified execution evidence
+8092aca | Joseph Awaida | 2026-10-18T12:43:09+03:00 | Test role permissions, workflows, ownership and real HTTP evidence capture
+b78e4e9 | Joseph Awaida | 2026-10-18T12:42:49+03:00 | Implement services 7-9 with authentication and persistent workflow tracking

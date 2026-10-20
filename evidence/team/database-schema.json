@@ -1,0 +1,1365 @@
+[
+  {
+    "name": "action_history",
+    "sql": "CREATE TABLE action_history (\n id INTEGER PRIMARY KEY, action_id INTEGER NOT NULL, playbook_id INTEGER NOT NULL,\n actor_id INTEGER NOT NULL REFERENCES users(id), old_status TEXT, new_status TEXT NOT NULL,\n assigned_user_id INTEGER REFERENCES users(id), recorded_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "action_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "playbook_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "actor_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "old_status",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "new_status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "assigned_user_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 7,
+        "name": "recorded_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "assigned_user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      },
+      {
+        "id": 1,
+        "seq": 0,
+        "table": "users",
+        "from": "actor_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "actions",
+    "sql": "CREATE TABLE actions (\n id INTEGER PRIMARY KEY, playbook_id INTEGER NOT NULL REFERENCES playbooks(id) ON DELETE CASCADE,\n description TEXT NOT NULL, step_number INTEGER NOT NULL CHECK(step_number>0),\n status TEXT NOT NULL DEFAULT 'Pending' CHECK(status IN ('Pending','In Progress','Completed')),\n assigned_user_id INTEGER REFERENCES users(id), completion_date TEXT, UNIQUE(playbook_id,step_number)\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "playbook_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "step_number",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Pending'",
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "assigned_user_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "completion_date",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "assigned_user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      },
+      {
+        "id": 1,
+        "seq": 0,
+        "table": "playbooks",
+        "from": "playbook_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "asset_history",
+    "sql": "CREATE TABLE asset_history (\n id INTEGER PRIMARY KEY, asset_id INTEGER NOT NULL, actor_id INTEGER NOT NULL,\n action TEXT NOT NULL, snapshot_json TEXT NOT NULL, created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "asset_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "actor_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "action",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "snapshot_json",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": []
+  },
+  {
+    "name": "asset_profiles",
+    "sql": "CREATE TABLE asset_profiles (\n asset_id INTEGER PRIMARY KEY REFERENCES assets(id) ON DELETE CASCADE,\n asset_type TEXT NOT NULL CHECK(asset_type IN ('Server','Workstation','Database','Application','Network Device','Cloud Resource')),\n ip_address TEXT NOT NULL, operating_system TEXT, department TEXT NOT NULL, location TEXT NOT NULL,\n criticality TEXT NOT NULL CHECK(criticality IN ('Low','Medium','High','Critical')),\n status TEXT NOT NULL CHECK(status IN ('Active','Inactive','Under Maintenance')),\n created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "asset_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "asset_type",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "ip_address",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "operating_system",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "department",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "location",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "criticality",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 7,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 8,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "assets",
+        "from": "asset_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "assets",
+    "sql": "CREATE TABLE assets (\n id INTEGER PRIMARY KEY, name TEXT NOT NULL, owner_id INTEGER NOT NULL REFERENCES users(id)\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "name",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "owner_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "owner_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "audit_logs",
+    "sql": "CREATE TABLE audit_logs (\n id INTEGER PRIMARY KEY, user_id INTEGER REFERENCES users(id), action TEXT NOT NULL,\n description TEXT NOT NULL, severity TEXT NOT NULL, related_service TEXT NOT NULL, created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "user_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "action",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "related_service",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "deleted_users",
+    "sql": "CREATE TABLE deleted_users (\n user_id INTEGER PRIMARY KEY REFERENCES users(id), deleted_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "user_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "deleted_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "incidents",
+    "sql": "CREATE TABLE incidents (\n id INTEGER PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL, category TEXT NOT NULL,\n severity TEXT NOT NULL CHECK(severity IN ('Low','Medium','High','Critical')),\n reporter_id INTEGER NOT NULL REFERENCES users(id), asset_id INTEGER NOT NULL REFERENCES assets(id),\n assigned_analyst_id INTEGER REFERENCES users(id),\n status TEXT NOT NULL DEFAULT 'Open' CHECK(status IN ('Open','Under Investigation','Mitigated','Resolved','Closed')),\n created_at TEXT NOT NULL, resolution_date TEXT\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "title",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "category",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "reporter_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "asset_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 7,
+        "name": "assigned_analyst_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 8,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Open'",
+        "pk": 0
+      },
+      {
+        "cid": 9,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 10,
+        "name": "resolution_date",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "assigned_analyst_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      },
+      {
+        "id": 1,
+        "seq": 0,
+        "table": "assets",
+        "from": "asset_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      },
+      {
+        "id": 2,
+        "seq": 0,
+        "table": "users",
+        "from": "reporter_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "investigation_notes",
+    "sql": "CREATE TABLE investigation_notes (\n id INTEGER PRIMARY KEY, incident_id INTEGER NOT NULL REFERENCES incidents(id),\n analyst_id INTEGER NOT NULL REFERENCES users(id), content TEXT NOT NULL, created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "incident_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "analyst_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "content",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "analyst_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      },
+      {
+        "id": 1,
+        "seq": 0,
+        "table": "incidents",
+        "from": "incident_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "log_receipts",
+    "sql": "CREATE TABLE log_receipts (\n idempotency_key TEXT PRIMARY KEY,\n log_id INTEGER NOT NULL REFERENCES audit_logs(id),\n payload_hash TEXT NOT NULL,\n created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "idempotency_key",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "log_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "payload_hash",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "audit_logs",
+        "from": "log_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "log_tombstones",
+    "sql": "CREATE TABLE log_tombstones (\n id INTEGER PRIMARY KEY AUTOINCREMENT,\n log_id INTEGER NOT NULL,\n deleted_by INTEGER NOT NULL REFERENCES users(id),\n action TEXT NOT NULL,\n recorded_at TEXT NOT NULL,\n deleted_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "log_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "deleted_by",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "action",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "recorded_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "deleted_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "deleted_by",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "notification_outbox",
+    "sql": "CREATE TABLE notification_outbox (\n event_id TEXT PRIMARY KEY, payload_json TEXT NOT NULL,\n status TEXT NOT NULL DEFAULT 'Pending' CHECK(status IN ('Pending','Delivered')),\n attempts INTEGER NOT NULL DEFAULT 0, last_error TEXT, created_at TEXT NOT NULL, delivered_at TEXT\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "event_id",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "payload_json",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Pending'",
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "attempts",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": "0",
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "last_error",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "delivered_at",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": []
+  },
+  {
+    "name": "notification_receipts",
+    "sql": "CREATE TABLE notification_receipts (\n event_id TEXT PRIMARY KEY, payload_hash TEXT NOT NULL, response_json TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "event_id",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "payload_hash",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "response_json",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": []
+  },
+  {
+    "name": "notifications",
+    "sql": "CREATE TABLE notifications (\n id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id), title TEXT NOT NULL,\n message TEXT NOT NULL, notification_type TEXT NOT NULL CHECK(notification_type IN ('Incident Assignment','Security Alert','System Notification','Threat Alert','Vulnerability Alert')),\n severity TEXT NOT NULL CHECK(severity IN ('Low','Medium','High','Critical')),\n status TEXT NOT NULL DEFAULT 'Unread' CHECK(status IN ('Unread','Read')), created_at TEXT NOT NULL, read_date TEXT\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "user_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "title",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "message",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "notification_type",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Unread'",
+        "pk": 0
+      },
+      {
+        "cid": 7,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 8,
+        "name": "read_date",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "playbooks",
+    "sql": "CREATE TABLE playbooks (\n id INTEGER PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL, incident_category TEXT NOT NULL,\n severity TEXT NOT NULL CHECK(severity IN ('Low','Medium','High','Critical')),\n created_by INTEGER NOT NULL REFERENCES users(id), created_at TEXT NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "name",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "incident_category",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "created_by",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "created_by",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "sessions",
+    "sql": "CREATE TABLE sessions (\n token_hash TEXT PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id), expires_at REAL NOT NULL\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "token_hash",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "user_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "expires_at",
+        "type": "REAL",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "threats",
+    "sql": "CREATE TABLE threats (\n id INTEGER PRIMARY KEY,\n threat_type TEXT NOT NULL CHECK(threat_type IN ('IP Address','Domain','File Hash','Malware Signature','Other')),\n threat_value TEXT NOT NULL,\n description TEXT NOT NULL,\n severity TEXT NOT NULL CHECK(severity IN ('Low','Medium','High','Critical')),\n source TEXT NOT NULL,\n created_at TEXT NOT NULL,\n UNIQUE(threat_type, threat_value)\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "threat_type",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "threat_value",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "source",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": []
+  },
+  {
+    "name": "user_profiles",
+    "sql": "CREATE TABLE user_profiles (\n user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,\n email TEXT NOT NULL UNIQUE COLLATE NOCASE, department TEXT NOT NULL,\n created_at TEXT NOT NULL, last_login_at TEXT\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "user_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "email",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "department",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "last_login_at",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "users",
+        "from": "user_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "CASCADE",
+        "match": "NONE"
+      }
+    ]
+  },
+  {
+    "name": "users",
+    "sql": "CREATE TABLE users (\n id INTEGER PRIMARY KEY, full_name TEXT NOT NULL, username TEXT NOT NULL UNIQUE,\n password_hash TEXT NOT NULL, role TEXT NOT NULL CHECK(role IN ('admin','analyst','employee','auditor')),\n account_status TEXT NOT NULL DEFAULT 'Active' CHECK(account_status IN ('Active','Inactive','Suspended'))\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "full_name",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "username",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "password_hash",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "role",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "account_status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Active'",
+        "pk": 0
+      }
+    ],
+    "foreign_keys": []
+  },
+  {
+    "name": "vulnerabilities",
+    "sql": "CREATE TABLE vulnerabilities (\n id INTEGER PRIMARY KEY, title TEXT NOT NULL, description TEXT NOT NULL, cve_identifier TEXT NOT NULL,\n cvss_score REAL NOT NULL CHECK(cvss_score BETWEEN 0 AND 10),\n severity TEXT NOT NULL CHECK(severity IN ('Low','Medium','High','Critical')),\n asset_id INTEGER NOT NULL REFERENCES assets(id), discovery_source TEXT NOT NULL,\n status TEXT NOT NULL DEFAULT 'Open' CHECK(status IN ('Open','Under Investigation','In Progress','Resolved','Closed')),\n created_at TEXT NOT NULL, resolution_date TEXT\n)",
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1
+      },
+      {
+        "cid": 1,
+        "name": "title",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 2,
+        "name": "description",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 3,
+        "name": "cve_identifier",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 4,
+        "name": "cvss_score",
+        "type": "REAL",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 5,
+        "name": "severity",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 6,
+        "name": "asset_id",
+        "type": "INTEGER",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 7,
+        "name": "discovery_source",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 8,
+        "name": "status",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": "'Open'",
+        "pk": 0
+      },
+      {
+        "cid": 9,
+        "name": "created_at",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0
+      },
+      {
+        "cid": 10,
+        "name": "resolution_date",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0
+      }
+    ],
+    "foreign_keys": [
+      {
+        "id": 0,
+        "seq": 0,
+        "table": "assets",
+        "from": "asset_id",
+        "to": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION",
+        "match": "NONE"
+      }
+    ]
+  }
+]

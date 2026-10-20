@@ -1,0 +1,1388 @@
+[
+  {
+    "file": "evidence/team/screenshots/postman-01-hassan-nasrallah-login-admin-response.png",
+    "caption": "Hassan Nasrallah — Login admin: actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:35.176Z",
+    "operation": "Hassan Nasrallah — Login admin",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "1 — Authenticate the four roles"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-01-hassan-nasrallah-login-admin-request.png",
+    "caption": "Hassan Nasrallah — Login admin: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:35.703Z",
+    "operation": "Hassan Nasrallah — Login admin",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1 — Authenticate the four roles"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-02-hassan-nasrallah-reject-wrong-password-response.png",
+    "caption": "Hassan Nasrallah — Reject wrong password: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:36.681Z",
+    "operation": "Hassan Nasrallah — Reject wrong password",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1 — Authenticate the four roles"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-02-hassan-nasrallah-reject-wrong-password-request.png",
+    "caption": "Hassan Nasrallah — Reject wrong password: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:37.239Z",
+    "operation": "Hassan Nasrallah — Reject wrong password",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1 — Authenticate the four roles"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-03-hassan-nasrallah-verify-session-response.png",
+    "caption": "Hassan Nasrallah — Verify session: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:38.199Z",
+    "operation": "Hassan Nasrallah — Verify session",
+    "view": "Response",
+    "method": "GET",
+    "folder": "1 — Authenticate the four roles"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-04-hassan-nasrallah-register-employee-response.png",
+    "caption": "Hassan Nasrallah — Register employee: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:39.183Z",
+    "operation": "Hassan Nasrallah — Register employee",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-04-hassan-nasrallah-register-employee-request.png",
+    "caption": "Hassan Nasrallah — Register employee: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:39.738Z",
+    "operation": "Hassan Nasrallah — Register employee",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-05-hassan-nasrallah-reject-duplicate-username-response.png",
+    "caption": "Hassan Nasrallah — Reject duplicate username: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:40.705Z",
+    "operation": "Hassan Nasrallah — Reject duplicate username",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-05-hassan-nasrallah-reject-duplicate-username-request.png",
+    "caption": "Hassan Nasrallah — Reject duplicate username: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:41.234Z",
+    "operation": "Hassan Nasrallah — Reject duplicate username",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-06-hassan-nasrallah-reject-privileged-public-registration-response.png",
+    "caption": "Hassan Nasrallah — Reject privileged public registration: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:42.256Z",
+    "operation": "Hassan Nasrallah — Reject privileged public registration",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-06-hassan-nasrallah-reject-privileged-public-registration-request.png",
+    "caption": "Hassan Nasrallah — Reject privileged public registration: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:42.767Z",
+    "operation": "Hassan Nasrallah — Reject privileged public registration",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-07-hassan-nasrallah-reject-invalid-email-response.png",
+    "caption": "Hassan Nasrallah — Reject invalid email: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:43.764Z",
+    "operation": "Hassan Nasrallah — Reject invalid email",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-07-hassan-nasrallah-reject-invalid-email-request.png",
+    "caption": "Hassan Nasrallah — Reject invalid email: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:44.321Z",
+    "operation": "Hassan Nasrallah — Reject invalid email",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-08-hassan-nasrallah-update-own-profile-response.png",
+    "caption": "Hassan Nasrallah — Update own profile: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:45.333Z",
+    "operation": "Hassan Nasrallah — Update own profile",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-08-hassan-nasrallah-update-own-profile-request.png",
+    "caption": "Hassan Nasrallah — Update own profile: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:45.848Z",
+    "operation": "Hassan Nasrallah — Update own profile",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-09-hassan-nasrallah-list-users-as-auditor-response.png",
+    "caption": "Hassan Nasrallah — List users as auditor: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:46.844Z",
+    "operation": "Hassan Nasrallah — List users as auditor",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-10-hassan-nasrallah-retrieve-own-username-response.png",
+    "caption": "Hassan Nasrallah — Retrieve own username: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:47.861Z",
+    "operation": "Hassan Nasrallah — Retrieve own username",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-11-hassan-nasrallah-missing-username-response.png",
+    "caption": "Hassan Nasrallah — Missing username: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:48.879Z",
+    "operation": "Hassan Nasrallah — Missing username",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-12-hassan-nasrallah-view-roles-and-permissions-response.png",
+    "caption": "Hassan Nasrallah — View roles and permissions: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:49.871Z",
+    "operation": "Hassan Nasrallah — View roles and permissions",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-13-hassan-nasrallah-assign-analyst-role-response.png",
+    "caption": "Hassan Nasrallah — Assign analyst role: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:50.853Z",
+    "operation": "Hassan Nasrallah — Assign analyst role",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-13-hassan-nasrallah-assign-analyst-role-request.png",
+    "caption": "Hassan Nasrallah — Assign analyst role: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:51.404Z",
+    "operation": "Hassan Nasrallah — Assign analyst role",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-14-hassan-nasrallah-remove-analyst-role-response.png",
+    "caption": "Hassan Nasrallah — Remove analyst role: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:52.447Z",
+    "operation": "Hassan Nasrallah — Remove analyst role",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-15-hassan-nasrallah-suspend-account-response.png",
+    "caption": "Hassan Nasrallah — Suspend account: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:53.429Z",
+    "operation": "Hassan Nasrallah — Suspend account",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-15-hassan-nasrallah-suspend-account-request.png",
+    "caption": "Hassan Nasrallah — Suspend account: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:53.989Z",
+    "operation": "Hassan Nasrallah — Suspend account",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-16-hassan-nasrallah-delete-account-response.png",
+    "caption": "Hassan Nasrallah — Delete account: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:54.998Z",
+    "operation": "Hassan Nasrallah — Delete account",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "2 — Users and identity management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-17-hassan-nasrallah-create-incident-asset-response.png",
+    "caption": "Hassan Nasrallah — Create incident asset: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:55.963Z",
+    "operation": "Hassan Nasrallah — Create incident asset",
+    "view": "Response",
+    "method": "POST",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-17-hassan-nasrallah-create-incident-asset-request.png",
+    "caption": "Hassan Nasrallah — Create incident asset: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:56.523Z",
+    "operation": "Hassan Nasrallah — Create incident asset",
+    "view": "Request",
+    "method": "POST",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-18-hassan-nasrallah-reject-invalid-ip-response.png",
+    "caption": "Hassan Nasrallah — Reject invalid IP: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:57.540Z",
+    "operation": "Hassan Nasrallah — Reject invalid IP",
+    "view": "Response",
+    "method": "POST",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-18-hassan-nasrallah-reject-invalid-ip-request.png",
+    "caption": "Hassan Nasrallah — Reject invalid IP: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:58.049Z",
+    "operation": "Hassan Nasrallah — Reject invalid IP",
+    "view": "Request",
+    "method": "POST",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-19-hassan-nasrallah-update-asset-response.png",
+    "caption": "Hassan Nasrallah — Update asset: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:59.017Z",
+    "operation": "Hassan Nasrallah — Update asset",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-19-hassan-nasrallah-update-asset-request.png",
+    "caption": "Hassan Nasrallah — Update asset: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:46:59.568Z",
+    "operation": "Hassan Nasrallah — Update asset",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-20-hassan-nasrallah-list-assets-response.png",
+    "caption": "Hassan Nasrallah — List assets: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:00.550Z",
+    "operation": "Hassan Nasrallah — List assets",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-21-hassan-nasrallah-retrieve-asset-response.png",
+    "caption": "Hassan Nasrallah — Retrieve asset: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:01.552Z",
+    "operation": "Hassan Nasrallah — Retrieve asset",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-22-hassan-nasrallah-missing-asset-response.png",
+    "caption": "Hassan Nasrallah — Missing asset: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:02.513Z",
+    "operation": "Hassan Nasrallah — Missing asset",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-23-hassan-nasrallah-search-name-server-response.png",
+    "caption": "Hassan Nasrallah — Search name=Server: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:03.511Z",
+    "operation": "Hassan Nasrallah — Search name=Server",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-24-hassan-nasrallah-view-asset-history-response.png",
+    "caption": "Hassan Nasrallah — View asset history: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:04.525Z",
+    "operation": "Hassan Nasrallah — View asset history",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-25-hassan-nasrallah-reject-employee-asset-access-response.png",
+    "caption": "Hassan Nasrallah — Reject employee asset access: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:05.507Z",
+    "operation": "Hassan Nasrallah — Reject employee asset access",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-26-hassan-nasrallah-delete-unused-asset-response.png",
+    "caption": "Hassan Nasrallah — Delete unused asset: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:06.503Z",
+    "operation": "Hassan Nasrallah — Delete unused asset",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "3 — Asset management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-27-hassan-nasrallah-report-incident-response.png",
+    "caption": "Hassan Nasrallah — Report incident: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:07.486Z",
+    "operation": "Hassan Nasrallah — Report incident",
+    "view": "Response",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-27-hassan-nasrallah-report-incident-request.png",
+    "caption": "Hassan Nasrallah — Report incident: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:08.008Z",
+    "operation": "Hassan Nasrallah — Report incident",
+    "view": "Request",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-28-hassan-nasrallah-reject-invalid-severity-response.png",
+    "caption": "Hassan Nasrallah — Reject invalid severity: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:09.079Z",
+    "operation": "Hassan Nasrallah — Reject invalid severity",
+    "view": "Response",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-28-hassan-nasrallah-reject-invalid-severity-request.png",
+    "caption": "Hassan Nasrallah — Reject invalid severity: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:09.610Z",
+    "operation": "Hassan Nasrallah — Reject invalid severity",
+    "view": "Request",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-29-hassan-nasrallah-list-all-incidents-response.png",
+    "caption": "Hassan Nasrallah — List all incidents: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:10.591Z",
+    "operation": "Hassan Nasrallah — List all incidents",
+    "view": "Response",
+    "method": "GET",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-30-hassan-nasrallah-track-submitted-incident-response.png",
+    "caption": "Hassan Nasrallah — Track submitted incident: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:11.568Z",
+    "operation": "Hassan Nasrallah — Track submitted incident",
+    "view": "Response",
+    "method": "GET",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-31-hassan-nasrallah-missing-incident-response.png",
+    "caption": "Hassan Nasrallah — Missing incident: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:12.523Z",
+    "operation": "Hassan Nasrallah — Missing incident",
+    "view": "Response",
+    "method": "GET",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-32-hassan-nasrallah-reject-unassigned-analyst-access-response.png",
+    "caption": "Hassan Nasrallah — Reject unassigned analyst access: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:13.501Z",
+    "operation": "Hassan Nasrallah — Reject unassigned analyst access",
+    "view": "Response",
+    "method": "GET",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-33-hassan-nasrallah-assign-incident-response.png",
+    "caption": "Hassan Nasrallah — Assign incident: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:14.497Z",
+    "operation": "Hassan Nasrallah — Assign incident",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-33-hassan-nasrallah-assign-incident-request.png",
+    "caption": "Hassan Nasrallah — Assign incident: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:15.054Z",
+    "operation": "Hassan Nasrallah — Assign incident",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-34-hassan-nasrallah-reject-skipped-lifecycle-response.png",
+    "caption": "Hassan Nasrallah — Reject skipped lifecycle: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:16.034Z",
+    "operation": "Hassan Nasrallah — Reject skipped lifecycle",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-34-hassan-nasrallah-reject-skipped-lifecycle-request.png",
+    "caption": "Hassan Nasrallah — Reject skipped lifecycle: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:16.567Z",
+    "operation": "Hassan Nasrallah — Reject skipped lifecycle",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-35-hassan-nasrallah-add-investigation-note-response.png",
+    "caption": "Hassan Nasrallah — Add investigation note: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:17.599Z",
+    "operation": "Hassan Nasrallah — Add investigation note",
+    "view": "Response",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-35-hassan-nasrallah-add-investigation-note-request.png",
+    "caption": "Hassan Nasrallah — Add investigation note: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:18.138Z",
+    "operation": "Hassan Nasrallah — Add investigation note",
+    "view": "Request",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-36-hassan-nasrallah-advance-to-under-investigation-response.png",
+    "caption": "Hassan Nasrallah — Advance to Under Investigation: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:19.139Z",
+    "operation": "Hassan Nasrallah — Advance to Under Investigation",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-36-hassan-nasrallah-advance-to-under-investigation-request.png",
+    "caption": "Hassan Nasrallah — Advance to Under Investigation: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:19.686Z",
+    "operation": "Hassan Nasrallah — Advance to Under Investigation",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-37-hassan-nasrallah-preserve-asset-referenced-by-incident-response.png",
+    "caption": "Hassan Nasrallah — Preserve asset referenced by incident: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:20.648Z",
+    "operation": "Hassan Nasrallah — Preserve asset referenced by incident",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-38-hassan-nasrallah-logout-administrator-response.png",
+    "caption": "Hassan Nasrallah — Logout administrator: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:21.616Z",
+    "operation": "Hassan Nasrallah — Logout administrator",
+    "view": "Response",
+    "method": "POST",
+    "folder": "4 — Incident lifecycle and ownership"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-39-mohammad-nasrallah-login-with-an-incorrect-password-rejected-response.png",
+    "caption": "Mohammad Nasrallah — Login with an incorrect password (rejected): actual POST result and HTTP status (response body omitted to protect the authentication token).",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:22.704Z",
+    "operation": "Mohammad Nasrallah — Login with an incorrect password (rejected)",
+    "view": "Headers",
+    "method": "POST",
+    "folder": "0. Authentication (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-39-mohammad-nasrallah-login-with-an-incorrect-password-rejected-request.png",
+    "caption": "Mohammad Nasrallah — Login with an incorrect password (rejected): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:23.250Z",
+    "operation": "Mohammad Nasrallah — Login with an incorrect password (rejected)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "0. Authentication (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-40-mohammad-nasrallah-add-threat-indicator-ip-address-indicator-response.png",
+    "caption": "Mohammad Nasrallah — Add threat indicator — IP address indicator: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:24.293Z",
+    "operation": "Mohammad Nasrallah — Add threat indicator — IP address indicator",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-40-mohammad-nasrallah-add-threat-indicator-ip-address-indicator-request.png",
+    "caption": "Mohammad Nasrallah — Add threat indicator — IP address indicator: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:24.803Z",
+    "operation": "Mohammad Nasrallah — Add threat indicator — IP address indicator",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-41-mohammad-nasrallah-add-duplicate-indicator-rejected-response.png",
+    "caption": "Mohammad Nasrallah — Add duplicate indicator (rejected): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:25.769Z",
+    "operation": "Mohammad Nasrallah — Add duplicate indicator (rejected)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-41-mohammad-nasrallah-add-duplicate-indicator-rejected-request.png",
+    "caption": "Mohammad Nasrallah — Add duplicate indicator (rejected): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:26.294Z",
+    "operation": "Mohammad Nasrallah — Add duplicate indicator (rejected)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-42-mohammad-nasrallah-add-indicator-with-an-invalid-ip-rejected-response.png",
+    "caption": "Mohammad Nasrallah — Add indicator with an invalid IP (rejected): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:27.262Z",
+    "operation": "Mohammad Nasrallah — Add indicator with an invalid IP (rejected)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-42-mohammad-nasrallah-add-indicator-with-an-invalid-ip-rejected-request.png",
+    "caption": "Mohammad Nasrallah — Add indicator with an invalid IP (rejected): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:27.784Z",
+    "operation": "Mohammad Nasrallah — Add indicator with an invalid IP (rejected)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-43-mohammad-nasrallah-add-indicator-as-analyst-forbidden-response.png",
+    "caption": "Mohammad Nasrallah — Add indicator as analyst (forbidden): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:28.778Z",
+    "operation": "Mohammad Nasrallah — Add indicator as analyst (forbidden)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-43-mohammad-nasrallah-add-indicator-as-analyst-forbidden-request.png",
+    "caption": "Mohammad Nasrallah — Add indicator as analyst (forbidden): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:29.340Z",
+    "operation": "Mohammad Nasrallah — Add indicator as analyst (forbidden)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-44-mohammad-nasrallah-add-indicator-without-a-token-unauthenticated-response.png",
+    "caption": "Mohammad Nasrallah — Add indicator without a token (unauthenticated): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:30.308Z",
+    "operation": "Mohammad Nasrallah — Add indicator without a token (unauthenticated)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-44-mohammad-nasrallah-add-indicator-without-a-token-unauthenticated-request.png",
+    "caption": "Mohammad Nasrallah — Add indicator without a token (unauthenticated): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:30.853Z",
+    "operation": "Mohammad Nasrallah — Add indicator without a token (unauthenticated)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-45-mohammad-nasrallah-retrieve-all-indicators-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve all indicators: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:31.857Z",
+    "operation": "Mohammad Nasrallah — Retrieve all indicators",
+    "view": "Response",
+    "method": "GET",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-46-mohammad-nasrallah-retrieve-a-specific-indicator-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve a specific indicator: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:32.868Z",
+    "operation": "Mohammad Nasrallah — Retrieve a specific indicator",
+    "view": "Response",
+    "method": "GET",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-47-mohammad-nasrallah-retrieve-a-non-existing-indicator-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve a non-existing indicator: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:33.863Z",
+    "operation": "Mohammad Nasrallah — Retrieve a non-existing indicator",
+    "view": "Response",
+    "method": "GET",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-48-mohammad-nasrallah-search-by-threat-type-response.png",
+    "caption": "Mohammad Nasrallah — Search by threat type: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:34.817Z",
+    "operation": "Mohammad Nasrallah — Search by threat type",
+    "view": "Response",
+    "method": "GET",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-49-mohammad-nasrallah-update-indicator-severity-and-source-response.png",
+    "caption": "Mohammad Nasrallah — Update indicator severity and source: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:35.776Z",
+    "operation": "Mohammad Nasrallah — Update indicator severity and source",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-49-mohammad-nasrallah-update-indicator-severity-and-source-request.png",
+    "caption": "Mohammad Nasrallah — Update indicator severity and source: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:36.292Z",
+    "operation": "Mohammad Nasrallah — Update indicator severity and source",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-50-mohammad-nasrallah-delete-indicator-as-administrator-response.png",
+    "caption": "Mohammad Nasrallah — Delete indicator as administrator: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:37.306Z",
+    "operation": "Mohammad Nasrallah — Delete indicator as administrator",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "1. Service 4 — Threat Intelligence (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-51-mohammad-nasrallah-create-log-record-response.png",
+    "caption": "Mohammad Nasrallah — Create log record: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:38.269Z",
+    "operation": "Mohammad Nasrallah — Create log record",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-51-mohammad-nasrallah-create-log-record-request.png",
+    "caption": "Mohammad Nasrallah — Create log record: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:38.822Z",
+    "operation": "Mohammad Nasrallah — Create log record",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-52-mohammad-nasrallah-reuse-the-key-with-a-different-payload-rejected-response.png",
+    "caption": "Mohammad Nasrallah — Reuse the key with a different payload (rejected): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:39.785Z",
+    "operation": "Mohammad Nasrallah — Reuse the key with a different payload (rejected)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-52-mohammad-nasrallah-reuse-the-key-with-a-different-payload-rejected-request.png",
+    "caption": "Mohammad Nasrallah — Reuse the key with a different payload (rejected): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:40.338Z",
+    "operation": "Mohammad Nasrallah — Reuse the key with a different payload (rejected)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-53-mohammad-nasrallah-create-log-with-an-invalid-severity-rejected-response.png",
+    "caption": "Mohammad Nasrallah — Create log with an invalid severity (rejected): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:41.287Z",
+    "operation": "Mohammad Nasrallah — Create log with an invalid severity (rejected)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-53-mohammad-nasrallah-create-log-with-an-invalid-severity-rejected-request.png",
+    "caption": "Mohammad Nasrallah — Create log with an invalid severity (rejected): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:41.845Z",
+    "operation": "Mohammad Nasrallah — Create log with an invalid severity (rejected)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-54-mohammad-nasrallah-create-log-as-analyst-forbidden-response.png",
+    "caption": "Mohammad Nasrallah — Create log as analyst (forbidden): actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:42.838Z",
+    "operation": "Mohammad Nasrallah — Create log as analyst (forbidden)",
+    "view": "Response",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-54-mohammad-nasrallah-create-log-as-analyst-forbidden-request.png",
+    "caption": "Mohammad Nasrallah — Create log as analyst (forbidden): actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:43.387Z",
+    "operation": "Mohammad Nasrallah — Create log as analyst (forbidden)",
+    "view": "Request",
+    "method": "POST",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-55-mohammad-nasrallah-retrieve-all-logs-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve all logs: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:44.411Z",
+    "operation": "Mohammad Nasrallah — Retrieve all logs",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-56-mohammad-nasrallah-retrieve-a-specific-log-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve a specific log: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:45.421Z",
+    "operation": "Mohammad Nasrallah — Retrieve a specific log",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-57-mohammad-nasrallah-retrieve-an-invalid-log-id-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve an invalid log id: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:46.370Z",
+    "operation": "Mohammad Nasrallah — Retrieve an invalid log id",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-58-mohammad-nasrallah-search-logs-by-severity-response.png",
+    "caption": "Mohammad Nasrallah — Search logs by severity: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:47.360Z",
+    "operation": "Mohammad Nasrallah — Search logs by severity",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-59-mohammad-nasrallah-retrieve-logs-by-user-response.png",
+    "caption": "Mohammad Nasrallah — Retrieve logs by user: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:48.330Z",
+    "operation": "Mohammad Nasrallah — Retrieve logs by user",
+    "view": "Response",
+    "method": "GET",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-60-mohammad-nasrallah-delete-log-as-administrator-response.png",
+    "caption": "Mohammad Nasrallah — Delete log as administrator: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:49.311Z",
+    "operation": "Mohammad Nasrallah — Delete log as administrator",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "2. Service 5 — Security Audit Logging (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-61-mohammad-nasrallah-generate-security-summary-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate security summary report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:50.321Z",
+    "operation": "Mohammad Nasrallah — Generate security summary report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-62-mohammad-nasrallah-generate-incident-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate incident report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:51.323Z",
+    "operation": "Mohammad Nasrallah — Generate incident report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-63-mohammad-nasrallah-generate-asset-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate asset report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:52.310Z",
+    "operation": "Mohammad Nasrallah — Generate asset report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-64-mohammad-nasrallah-generate-threat-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate threat report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:53.342Z",
+    "operation": "Mohammad Nasrallah — Generate threat report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-65-mohammad-nasrallah-generate-vulnerability-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate vulnerability report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:54.415Z",
+    "operation": "Mohammad Nasrallah — Generate vulnerability report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-66-mohammad-nasrallah-generate-activity-report-response.png",
+    "caption": "Mohammad Nasrallah — Generate activity report: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:55.426Z",
+    "operation": "Mohammad Nasrallah — Generate activity report",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-67-mohammad-nasrallah-generate-summary-report-as-analyst-forbidden-response.png",
+    "caption": "Mohammad Nasrallah — Generate summary report as analyst (forbidden): actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:56.389Z",
+    "operation": "Mohammad Nasrallah — Generate summary report as analyst (forbidden)",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-68-mohammad-nasrallah-generate-summary-report-without-a-token-response.png",
+    "caption": "Mohammad Nasrallah — Generate summary report without a token: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:57.346Z",
+    "operation": "Mohammad Nasrallah — Generate summary report without a token",
+    "view": "Response",
+    "method": "GET",
+    "folder": "3. Service 6 — Security Reports (Mohammad Nasrallah)"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-69-joseph-awaida-reject-incorrect-password-response.png",
+    "caption": "Joseph Awaida — Reject incorrect password: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:58.332Z",
+    "operation": "Joseph Awaida — Reject incorrect password",
+    "view": "Response",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-69-joseph-awaida-reject-incorrect-password-request.png",
+    "caption": "Joseph Awaida — Reject incorrect password: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:58.864Z",
+    "operation": "Joseph Awaida — Reject incorrect password",
+    "view": "Request",
+    "method": "POST",
+    "folder": "01 Authentication"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-70-joseph-awaida-create-critical-vulnerability-response.png",
+    "caption": "Joseph Awaida — Create critical vulnerability: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:47:59.893Z",
+    "operation": "Joseph Awaida — Create critical vulnerability",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-70-joseph-awaida-create-critical-vulnerability-request.png",
+    "caption": "Joseph Awaida — Create critical vulnerability: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:00.440Z",
+    "operation": "Joseph Awaida — Create critical vulnerability",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-71-joseph-awaida-retrieve-vulnerabilities-response.png",
+    "caption": "Joseph Awaida — Retrieve vulnerabilities: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:01.412Z",
+    "operation": "Joseph Awaida — Retrieve vulnerabilities",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-72-joseph-awaida-retrieve-vulnerability-response.png",
+    "caption": "Joseph Awaida — Retrieve vulnerability: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:02.547Z",
+    "operation": "Joseph Awaida — Retrieve vulnerability",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-73-joseph-awaida-missing-vulnerability-response.png",
+    "caption": "Joseph Awaida — Missing vulnerability: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:03.518Z",
+    "operation": "Joseph Awaida — Missing vulnerability",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-74-joseph-awaida-search-severity-critical-response.png",
+    "caption": "Joseph Awaida — Search severity=Critical: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:04.489Z",
+    "operation": "Joseph Awaida — Search severity=Critical",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-75-joseph-awaida-reject-cvss-above-ten-response.png",
+    "caption": "Joseph Awaida — Reject CVSS above ten: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:05.454Z",
+    "operation": "Joseph Awaida — Reject CVSS above ten",
+    "view": "Response",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-75-joseph-awaida-reject-cvss-above-ten-request.png",
+    "caption": "Joseph Awaida — Reject CVSS above ten: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:06.007Z",
+    "operation": "Joseph Awaida — Reject CVSS above ten",
+    "view": "Request",
+    "method": "POST",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-76-joseph-awaida-reject-employee-access-response.png",
+    "caption": "Joseph Awaida — Reject employee access: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:07.046Z",
+    "operation": "Joseph Awaida — Reject employee access",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-77-joseph-awaida-reject-missing-token-response.png",
+    "caption": "Joseph Awaida — Reject missing token: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:08.041Z",
+    "operation": "Joseph Awaida — Reject missing token",
+    "view": "Response",
+    "method": "GET",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-78-joseph-awaida-reject-lifecycle-skip-response.png",
+    "caption": "Joseph Awaida — Reject lifecycle skip: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:08.990Z",
+    "operation": "Joseph Awaida — Reject lifecycle skip",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-78-joseph-awaida-reject-lifecycle-skip-request.png",
+    "caption": "Joseph Awaida — Reject lifecycle skip: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:09.532Z",
+    "operation": "Joseph Awaida — Reject lifecycle skip",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-79-joseph-awaida-advance-vulnerability-to-under-investigation-response.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Under Investigation: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:10.541Z",
+    "operation": "Joseph Awaida — Advance vulnerability to Under Investigation",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-79-joseph-awaida-advance-vulnerability-to-under-investigation-request.png",
+    "caption": "Joseph Awaida — Advance vulnerability to Under Investigation: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:11.067Z",
+    "operation": "Joseph Awaida — Advance vulnerability to Under Investigation",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-80-joseph-awaida-delete-vulnerability-response.png",
+    "caption": "Joseph Awaida — Delete vulnerability: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:12.023Z",
+    "operation": "Joseph Awaida — Delete vulnerability",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "02 Vulnerability management"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-81-joseph-awaida-create-employee-alert-response.png",
+    "caption": "Joseph Awaida — Create employee alert: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:13.024Z",
+    "operation": "Joseph Awaida — Create employee alert",
+    "view": "Response",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-81-joseph-awaida-create-employee-alert-request.png",
+    "caption": "Joseph Awaida — Create employee alert: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:13.539Z",
+    "operation": "Joseph Awaida — Create employee alert",
+    "view": "Request",
+    "method": "POST",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-82-joseph-awaida-retrieve-own-notifications-response.png",
+    "caption": "Joseph Awaida — Retrieve own notifications: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:14.520Z",
+    "operation": "Joseph Awaida — Retrieve own notifications",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-83-joseph-awaida-retrieve-specific-notification-response.png",
+    "caption": "Joseph Awaida — Retrieve specific notification: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:15.520Z",
+    "operation": "Joseph Awaida — Retrieve specific notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-84-joseph-awaida-reject-another-user-notification-response.png",
+    "caption": "Joseph Awaida — Reject another user notification: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:16.490Z",
+    "operation": "Joseph Awaida — Reject another user notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-85-joseph-awaida-missing-notification-response.png",
+    "caption": "Joseph Awaida — Missing notification: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:17.468Z",
+    "operation": "Joseph Awaida — Missing notification",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-86-joseph-awaida-search-user-id-3-response.png",
+    "caption": "Joseph Awaida — Search user_id=3: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:18.406Z",
+    "operation": "Joseph Awaida — Search user_id=3",
+    "view": "Response",
+    "method": "GET",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-87-joseph-awaida-mark-own-notification-read-response.png",
+    "caption": "Joseph Awaida — Mark own notification read: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:19.369Z",
+    "operation": "Joseph Awaida — Mark own notification read",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-88-joseph-awaida-delete-notification-response.png",
+    "caption": "Joseph Awaida — Delete notification: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:20.335Z",
+    "operation": "Joseph Awaida — Delete notification",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "03 Notifications"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-89-joseph-awaida-create-playbook-response.png",
+    "caption": "Joseph Awaida — Create playbook: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:21.322Z",
+    "operation": "Joseph Awaida — Create playbook",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-89-joseph-awaida-create-playbook-request.png",
+    "caption": "Joseph Awaida — Create playbook: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:21.862Z",
+    "operation": "Joseph Awaida — Create playbook",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-90-joseph-awaida-list-playbooks-response.png",
+    "caption": "Joseph Awaida — List playbooks: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:22.894Z",
+    "operation": "Joseph Awaida — List playbooks",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-91-joseph-awaida-retrieve-playbook-response.png",
+    "caption": "Joseph Awaida — Retrieve playbook: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:23.886Z",
+    "operation": "Joseph Awaida — Retrieve playbook",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-92-joseph-awaida-missing-playbook-response.png",
+    "caption": "Joseph Awaida — Missing playbook: actual GET result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:24.851Z",
+    "operation": "Joseph Awaida — Missing playbook",
+    "view": "Response",
+    "method": "GET",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-93-joseph-awaida-add-response-step-1-response.png",
+    "caption": "Joseph Awaida — Add response step 1: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:25.832Z",
+    "operation": "Joseph Awaida — Add response step 1",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-93-joseph-awaida-add-response-step-1-request.png",
+    "caption": "Joseph Awaida — Add response step 1: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:26.389Z",
+    "operation": "Joseph Awaida — Add response step 1",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-94-joseph-awaida-reject-duplicate-step-response.png",
+    "caption": "Joseph Awaida — Reject duplicate step: actual POST result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:27.354Z",
+    "operation": "Joseph Awaida — Reject duplicate step",
+    "view": "Response",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-94-joseph-awaida-reject-duplicate-step-request.png",
+    "caption": "Joseph Awaida — Reject duplicate step: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:27.940Z",
+    "operation": "Joseph Awaida — Reject duplicate step",
+    "view": "Request",
+    "method": "POST",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-95-joseph-awaida-reject-out-of-order-action-response.png",
+    "caption": "Joseph Awaida — Reject out of order action: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:28.924Z",
+    "operation": "Joseph Awaida — Reject out of order action",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-95-joseph-awaida-reject-out-of-order-action-request.png",
+    "caption": "Joseph Awaida — Reject out of order action: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:29.474Z",
+    "operation": "Joseph Awaida — Reject out of order action",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-96-joseph-awaida-step-1-in-progress-response.png",
+    "caption": "Joseph Awaida — Step 1 In Progress: actual PUT result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:30.524Z",
+    "operation": "Joseph Awaida — Step 1 In Progress",
+    "view": "Response",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-96-joseph-awaida-step-1-in-progress-request.png",
+    "caption": "Joseph Awaida — Step 1 In Progress: actual request body shown in the Postman runner.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:31.041Z",
+    "operation": "Joseph Awaida — Step 1 In Progress",
+    "view": "Request",
+    "method": "PUT",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-97-joseph-awaida-reject-analyst-deleting-playbook-response.png",
+    "caption": "Joseph Awaida — Reject analyst deleting playbook: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:32.052Z",
+    "operation": "Joseph Awaida — Reject analyst deleting playbook",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-98-joseph-awaida-delete-playbook-response.png",
+    "caption": "Joseph Awaida — Delete playbook: actual DELETE result and HTTP status.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:33.000Z",
+    "operation": "Joseph Awaida — Delete playbook",
+    "view": "Response",
+    "method": "DELETE",
+    "folder": "04 Playbooks and ordered actions"
+  },
+  {
+    "file": "evidence/team/screenshots/postman-run-summary.png",
+    "caption": "Hassan Nasrallah, Mohammad Nasrallah, Joseph Awaida — Actual desktop run: 184 requests, 239 assertions passed, zero errors.",
+    "source": "Actual merged-team Postman desktop runner, unedited; operated by Joseph Awaida",
+    "captured_at": "2026-10-20T13:48:33.348Z"
+  }
+]

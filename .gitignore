@@ -8,3 +8,8 @@ data/
 
 *.zip
 .DS_Store
+
+# Large final submission artifacts are included in the generated team ZIP.
+/docs/team/*.docx
+/docs/team/*.pdf
+/evidence/team/screenshots/*.png

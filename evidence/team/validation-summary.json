@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-20T13:38:33.664270+00:00",
+  "pytest": {
+    "tests": 82,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "newman": {
+    "requests": {
+      "total": 184,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 239,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "http_integration_passed": true,
+  "report_sources_all_http": true,
+  "foreign_keys_valid": true
+}

@@ -1,0 +1,762 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Service 6: Security Reports",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/Mohammad-Nasrallah/health": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Health",
+        "operationId": "health_Mohammad_Nasrallah_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/summary": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate security summary report",
+        "description": "Overall platform status: user, asset, open incident and critical threat totals.",
+        "operationId": "summary_Mohammad_Nasrallah_reports_summary_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummaryReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/incidents": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate incident report",
+        "description": "Incident statistics: total records and distribution by severity and lifecycle status.",
+        "operationId": "incidents_Mohammad_Nasrallah_reports_incidents_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncidentReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/assets": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate asset report",
+        "description": "Asset statistics: total records, count of critical assets and distribution by asset type.",
+        "operationId": "assets_Mohammad_Nasrallah_reports_assets_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/threats": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate threat report",
+        "description": "Threat intelligence statistics: totals, distribution by severity and type, and the most recently added indicators.",
+        "operationId": "threats_Mohammad_Nasrallah_reports_threats_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/vulnerabilities": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate vulnerability report",
+        "description": "Vulnerability statistics: totals, distribution by severity and status, and the count of critical vulnerabilities.",
+        "operationId": "vulnerabilities_Mohammad_Nasrallah_reports_vulnerabilities_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VulnerabilityReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Mohammad-Nasrallah/reports/activity": {
+      "get": {
+        "tags": [
+          "Security Reports"
+        ],
+        "summary": "Generate activity report",
+        "description": "Security activity statistics derived from audit records: total activities, total and failed login attempts, and the most frequently performed actions.",
+        "operationId": "activity_Mohammad_Nasrallah_reports_activity_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityReport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActivityReport": {
+        "properties": {
+          "total_activities": {
+            "type": "integer",
+            "title": "Total Activities"
+          },
+          "login_attempts": {
+            "type": "integer",
+            "title": "Login Attempts"
+          },
+          "failed_login_attempts": {
+            "type": "integer",
+            "title": "Failed Login Attempts"
+          },
+          "most_performed_actions": {
+            "items": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Most Performed Actions"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_activities",
+          "login_attempts",
+          "failed_login_attempts",
+          "most_performed_actions",
+          "sources"
+        ],
+        "title": "ActivityReport"
+      },
+      "AssetReport": {
+        "properties": {
+          "total_assets": {
+            "type": "integer",
+            "title": "Total Assets"
+          },
+          "critical_assets": {
+            "type": "integer",
+            "title": "Critical Assets"
+          },
+          "assets_by_type": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Assets By Type"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_assets",
+          "critical_assets",
+          "assets_by_type",
+          "sources"
+        ],
+        "title": "AssetReport"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "IncidentReport": {
+        "properties": {
+          "total_incidents": {
+            "type": "integer",
+            "title": "Total Incidents"
+          },
+          "incidents_by_severity": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Incidents By Severity"
+          },
+          "incidents_by_status": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Incidents By Status"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_incidents",
+          "incidents_by_severity",
+          "incidents_by_status",
+          "sources"
+        ],
+        "title": "IncidentReport"
+      },
+      "SourceStatus": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "api",
+              "database"
+            ],
+            "title": "Origin"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "origin"
+        ],
+        "title": "SourceStatus",
+        "description": "Records whether each report figure came from a teammate's API or the shared database."
+      },
+      "SummaryReport": {
+        "properties": {
+          "users": {
+            "type": "integer",
+            "title": "Users"
+          },
+          "assets": {
+            "type": "integer",
+            "title": "Assets"
+          },
+          "open_incidents": {
+            "type": "integer",
+            "title": "Open Incidents"
+          },
+          "critical_threats": {
+            "type": "integer",
+            "title": "Critical Threats"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "users",
+          "assets",
+          "open_incidents",
+          "critical_threats",
+          "sources"
+        ],
+        "title": "SummaryReport"
+      },
+      "ThreatRecord": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "threat_type": {
+            "type": "string",
+            "enum": [
+              "IP Address",
+              "Domain",
+              "File Hash",
+              "Malware Signature",
+              "Other"
+            ],
+            "title": "Threat Type"
+          },
+          "threat_value": {
+            "type": "string",
+            "title": "Threat Value"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ],
+            "title": "Severity"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "threat_type",
+          "threat_value",
+          "description",
+          "severity",
+          "source",
+          "created_at"
+        ],
+        "title": "ThreatRecord"
+      },
+      "ThreatReport": {
+        "properties": {
+          "total_threats": {
+            "type": "integer",
+            "title": "Total Threats"
+          },
+          "threats_by_severity": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Threats By Severity"
+          },
+          "threats_by_type": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Threats By Type"
+          },
+          "recent_threats": {
+            "items": {
+              "$ref": "#/components/schemas/ThreatRecord"
+            },
+            "type": "array",
+            "title": "Recent Threats"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_threats",
+          "threats_by_severity",
+          "threats_by_type",
+          "recent_threats",
+          "sources"
+        ],
+        "title": "ThreatReport"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VulnerabilityReport": {
+        "properties": {
+          "total_vulnerabilities": {
+            "type": "integer",
+            "title": "Total Vulnerabilities"
+          },
+          "vulnerabilities_by_severity": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Vulnerabilities By Severity"
+          },
+          "vulnerabilities_by_status": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Vulnerabilities By Status"
+          },
+          "critical_vulnerabilities": {
+            "type": "integer",
+            "title": "Critical Vulnerabilities"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceStatus"
+            },
+            "type": "array",
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_vulnerabilities",
+          "vulnerabilities_by_severity",
+          "vulnerabilities_by_status",
+          "critical_vulnerabilities",
+          "sources"
+        ],
+        "title": "VulnerabilityReport"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
