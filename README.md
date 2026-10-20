@@ -1,4 +1,21 @@
-# Security Incident Detection and Response — Joseph Awaida
+# Security Incident Detection and Response
+
+## Hassan Nasrallah — Sprint I, Services 1–3
+
+Users/identity, assets, and incidents are implemented on Hassan's contribution branch. See [Hassan's setup, API reference and team handoff](docs/HASSAN-SPRINT1.md).
+
+```powershell
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements-lock.txt
+.venv/Scripts/python.exe -m scripts.seed_hassan
+.venv/Scripts/python.exe -m scripts.run_hassan --with-joseph
+```
+
+Hassan's APIs use `/Hassan-Nasrallah`: identity on port **8000**, assets on **8002**, incidents on **8003**. Each process has `/docs`. The optional `--with-joseph` starts Services 7–9 and the notification delivery worker. The original `scripts.run` below remains available for Joseph's standalone contribution; the two runners both use port 8000, so run one at a time.
+
+Import `postman/Hassan-Services-1-2-3.postman_collection.json` and `postman/Hassan-Local.postman_environment.json`. Set local role passwords from the ignored `data/demo-credentials.json` and run the folders in order. All team services accept the opaque bearer tokens issued by Hassan's identity service.
+
+## Joseph Awaida — Sprint I, Services 7–9
 
 Sprint I contribution: Service 7 (Vulnerabilities), Service 8 (Notifications), Service 9 (Playbooks and response actions). Python, FastAPI, SQLite. Backend only.
 

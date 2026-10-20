@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-10-20T10:11:13.296140+00:00",
+  "student": "Hassan Nasrallah",
+  "pytest": {
+    "tests": 40,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "newman": {
+    "requests": {
+      "total": 62,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 63,
+      "failed": 0
+    }
+  },
+  "http_integration_passed": true,
+  "commands": [
+    "python -m pytest -q --junitxml=data/hassan-pytest-results.xml",
+    "npx --yes newman run postman/Hassan-Services-1-2-3.postman_collection.json -e data/hassan-newman-local.postman_environment.json --reporters cli,json --reporter-json-export data/hassan-newman-result.json",
+    "python -m scripts.verify_hassan_http"
+  ],
+  "note": "Actual local execution results. Raw Newman results contain secrets and stay in ignored data/. These results do not replace required Postman desktop screenshots."
+}

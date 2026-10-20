@@ -1,0 +1,2078 @@
+{
+  "info": {
+    "name": "Hassan Nasrallah \u2014 Services 1\u20133",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Run folders in order after scripts.seed_hassan and scripts.run_hassan. Requests execute real APIs and retain demonstration incidents/assets. See docs/HASSAN-SPRINT1.md."
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (pm.info.requestName === \"Login admin\") pm.environment.set(\"run_id\", Date.now().toString());"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "1 \u2014 Authenticate the four roles",
+      "item": [
+        {
+          "name": "Login admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Login admin. Expected HTTP 200. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"{{admin_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) pm.environment.set(\"admin_token\", pm.response.json()[\"access_token\"]);",
+                  "if (pm.response.code === 200) pm.environment.set(\"admin_id\", pm.response.json()[\"user_id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login analyst",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Login analyst. Expected HTTP 200. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"analyst\",\n  \"password\": \"{{analyst_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) pm.environment.set(\"analyst_token\", pm.response.json()[\"access_token\"]);",
+                  "if (pm.response.code === 200) pm.environment.set(\"analyst_id\", pm.response.json()[\"user_id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Login employee. Expected HTTP 200. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"employee\",\n  \"password\": \"{{employee_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) pm.environment.set(\"employee_token\", pm.response.json()[\"access_token\"]);",
+                  "if (pm.response.code === 200) pm.environment.set(\"employee_id\", pm.response.json()[\"user_id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login auditor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Login auditor. Expected HTTP 200. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"auditor\",\n  \"password\": \"{{auditor_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) pm.environment.set(\"auditor_token\", pm.response.json()[\"access_token\"]);",
+                  "if (pm.response.code === 200) pm.environment.set(\"auditor_id\", pm.response.json()[\"user_id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject wrong password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Reject wrong password. Expected HTTP 401. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"wrong\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Verify session",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/session",
+            "description": "Hassan Nasrallah \u2014 Verify session. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2 \u2014 Users and identity management",
+      "item": [
+        {
+          "name": "Register employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/register",
+            "description": "Hassan Nasrallah \u2014 Register employee. Expected HTTP 201. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Postman Demo Employee\",\n  \"username\": \"employee_{{run_id}}\",\n  \"email\": \"employee_{{run_id}}@example.test\",\n  \"password\": \"{{demo_password}}\",\n  \"department\": \"IT\",\n  \"role\": \"employee\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) pm.environment.set(\"new_user_id\", pm.response.json()[\"id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject duplicate username",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/register",
+            "description": "Hassan Nasrallah \u2014 Reject duplicate username. Expected HTTP 409. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Postman Demo Employee\",\n  \"username\": \"employee_{{run_id}}\",\n  \"email\": \"employee_{{run_id}}@example.test\",\n  \"password\": \"{{demo_password}}\",\n  \"department\": \"IT\",\n  \"role\": \"employee\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject privileged public registration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/register",
+            "description": "Hassan Nasrallah \u2014 Reject privileged public registration. Expected HTTP 403. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Postman Demo Employee\",\n  \"username\": \"employee_{{run_id}}\",\n  \"email\": \"employee_{{run_id}}@example.test\",\n  \"password\": \"{{demo_password}}\",\n  \"department\": \"IT\",\n  \"role\": \"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject invalid email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/register",
+            "description": "Hassan Nasrallah \u2014 Reject invalid email. Expected HTTP 422. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Postman Demo Employee\",\n  \"username\": \"employee_{{run_id}}\",\n  \"email\": \"bad\",\n  \"password\": \"{{demo_password}}\",\n  \"department\": \"IT\",\n  \"role\": \"employee\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login newly registered employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Login newly registered employee. Expected HTTP 200. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"employee_{{run_id}}\",\n  \"password\": \"{{demo_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "if (pm.response.code === 200) pm.environment.set(\"new_token\", pm.response.json()[\"access_token\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update own profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{new_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}",
+            "description": "Hassan Nasrallah \u2014 Update own profile. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Updated Employee\",\n  \"department\": \"Finance\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List users as auditor",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auditor_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users",
+            "description": "Hassan Nasrallah \u2014 List users as auditor. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve own username",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{new_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/employee_{{run_id}}",
+            "description": "Hassan Nasrallah \u2014 Retrieve own username. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Missing username",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/does-not-exist-{{run_id}}",
+            "description": "Hassan Nasrallah \u2014 Missing username. Expected HTTP 404. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject analyst user management",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users",
+            "description": "Hassan Nasrallah \u2014 Reject analyst user management. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject unauthorized user deletion",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}",
+            "description": "Hassan Nasrallah \u2014 Reject unauthorized user deletion. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "View roles and permissions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auditor_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}/roles",
+            "description": "Hassan Nasrallah \u2014 View roles and permissions. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Assign analyst role",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}/role",
+            "description": "Hassan Nasrallah \u2014 Assign analyst role. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"analyst\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Role change revokes old session",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{new_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/session",
+            "description": "Hassan Nasrallah \u2014 Role change revokes old session. Expected HTTP 401. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Remove analyst role",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}/role",
+            "description": "Hassan Nasrallah \u2014 Remove analyst role. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Suspend account",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}/account-status",
+            "description": "Hassan Nasrallah \u2014 Suspend account. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_status\": \"Suspended\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject suspended login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/login",
+            "description": "Hassan Nasrallah \u2014 Reject suspended login. Expected HTTP 401. Public endpoint. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"employee_{{run_id}}\",\n  \"password\": \"{{demo_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/{{new_user_id}}",
+            "description": "Hassan Nasrallah \u2014 Delete account. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Deleted account is absent",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/employee_{{run_id}}",
+            "description": "Hassan Nasrallah \u2014 Deleted account is absent. Expected HTTP 404. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3 \u2014 Asset management",
+      "item": [
+        {
+          "name": "Create incident asset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets",
+            "description": "Hassan Nasrallah \u2014 Create incident asset. Expected HTTP 201. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Server {{run_id}}\",\n  \"asset_type\": \"Server\",\n  \"ip_address\": \"192.0.2.50\",\n  \"department\": \"IT\",\n  \"owner_id\": {{employee_id}},\n  \"location\": \"Lab\",\n  \"criticality\": \"Critical\",\n  \"status\": \"Active\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) pm.environment.set(\"asset_id\", pm.response.json()[\"id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create temporary workstation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets",
+            "description": "Hassan Nasrallah \u2014 Create temporary workstation. Expected HTTP 201. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Temporary {{run_id}}\",\n  \"asset_type\": \"Workstation\",\n  \"ip_address\": \"2001:db8::1\",\n  \"department\": \"IT\",\n  \"owner_id\": {{employee_id}},\n  \"location\": \"Lab\",\n  \"criticality\": \"Low\",\n  \"status\": \"Active\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) pm.environment.set(\"temporary_asset_id\", pm.response.json()[\"id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject invalid IP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets",
+            "description": "Hassan Nasrallah \u2014 Reject invalid IP. Expected HTTP 422. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Server {{run_id}}\",\n  \"asset_type\": \"Server\",\n  \"ip_address\": \"999.0.0.1\",\n  \"department\": \"IT\",\n  \"owner_id\": {{employee_id}},\n  \"location\": \"Lab\",\n  \"criticality\": \"Critical\",\n  \"status\": \"Active\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update asset",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Update asset. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Under Maintenance\",\n  \"criticality\": \"High\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List assets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auditor_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets",
+            "description": "Hassan Nasrallah \u2014 List assets. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve asset",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Retrieve asset. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Missing asset",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/2147483647",
+            "description": "Hassan Nasrallah \u2014 Missing asset. Expected HTTP 404. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search name=Server",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/search?name=Server",
+            "description": "Hassan Nasrallah \u2014 Search name=Server. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search asset_type=Server",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/search?asset_type=Server",
+            "description": "Hassan Nasrallah \u2014 Search asset_type=Server. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search ip_address=192.0.2.50",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/search?ip_address=192.0.2.50",
+            "description": "Hassan Nasrallah \u2014 Search ip_address=192.0.2.50. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search department=IT&criticality=High",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/search?department=IT&criticality=High",
+            "description": "Hassan Nasrallah \u2014 Search department=IT&criticality=High. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "View asset history",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auditor_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{asset_id}}/history",
+            "description": "Hassan Nasrallah \u2014 View asset history. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject employee asset access",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets",
+            "description": "Hassan Nasrallah \u2014 Reject employee asset access. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject analyst asset deletion",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{temporary_asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Reject analyst asset deletion. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete unused asset",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{temporary_asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Delete unused asset. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4 \u2014 Incident lifecycle and ownership",
+      "item": [
+        {
+          "name": "Report incident",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents",
+            "description": "Hassan Nasrallah \u2014 Report incident. Expected HTTP 201. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Suspicious login {{run_id}}\",\n  \"description\": \"Review access logs\",\n  \"category\": \"Unauthorized access\",\n  \"severity\": \"High\",\n  \"reporter_id\": {{employee_id}},\n  \"asset_id\": {{asset_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));",
+                  "if (pm.response.code === 201) pm.environment.set(\"incident_id\", pm.response.json()[\"id\"]);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject invalid severity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents",
+            "description": "Hassan Nasrallah \u2014 Reject invalid severity. Expected HTTP 422. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Suspicious login {{run_id}}\",\n  \"description\": \"Review access logs\",\n  \"category\": \"Unauthorized access\",\n  \"severity\": \"Extreme\",\n  \"reporter_id\": {{employee_id}},\n  \"asset_id\": {{asset_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List all incidents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auditor_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents",
+            "description": "Hassan Nasrallah \u2014 List all incidents. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Track submitted incident",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}",
+            "description": "Hassan Nasrallah \u2014 Track submitted incident. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Missing incident",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/2147483647",
+            "description": "Hassan Nasrallah \u2014 Missing incident. Expected HTTP 404. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject unassigned analyst access",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}",
+            "description": "Hassan Nasrallah \u2014 Reject unassigned analyst access. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject employee assignment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{employee_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/assign",
+            "description": "Hassan Nasrallah \u2014 Reject employee assignment. Expected HTTP 403. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"analyst_id\": {{analyst_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 403\", () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject non-analyst assignee",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/assign",
+            "description": "Hassan Nasrallah \u2014 Reject non-analyst assignee. Expected HTTP 422. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"analyst_id\": {{employee_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 422\", () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Assign incident",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/assign",
+            "description": "Hassan Nasrallah \u2014 Assign incident. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"analyst_id\": {{analyst_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List assigned incidents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents",
+            "description": "Hassan Nasrallah \u2014 List assigned incidents. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retrieve related asset as analyst",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Retrieve related asset as analyst. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject skipped lifecycle",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Reject skipped lifecycle. Expected HTTP 409. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Closed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add investigation note",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/notes",
+            "description": "Hassan Nasrallah \u2014 Add investigation note. Expected HTTP 201. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Reviewed authentication logs; isolated affected host.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", () => pm.response.to.have.status(201));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Read investigation notes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}",
+            "description": "Hassan Nasrallah \u2014 Read investigation notes. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Investigation note persisted\", () => pm.expect(pm.response.json().investigation_notes.length).to.be.above(0));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Advance to Under Investigation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Advance to Under Investigation. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Under Investigation\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Advance to Mitigated",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Advance to Mitigated. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Mitigated\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Advance to Resolved",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Advance to Resolved. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Resolved\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Advance to Closed",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Advance to Closed. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Closed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject backward transition",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{analyst_token}}"
+              }
+            ],
+            "url": "{{incidents_url}}/Hassan-Nasrallah/incidents/{{incident_id}}/status",
+            "description": "Hassan Nasrallah \u2014 Reject backward transition. Expected HTTP 409. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Open\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Preserve asset referenced by incident",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{assets_url}}/Hassan-Nasrallah/assets/{{asset_id}}",
+            "description": "Hassan Nasrallah \u2014 Preserve asset referenced by incident. Expected HTTP 409. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 409\", () => pm.response.to.have.status(409));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logout administrator",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/logout",
+            "description": "Hassan Nasrallah \u2014 Logout administrator. Expected HTTP 200. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reject revoked token",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "url": "{{identity_url}}/Hassan-Nasrallah/users/session",
+            "description": "Hassan Nasrallah \u2014 Reject revoked token. Expected HTTP 401. Authenticate using the named role token. Run folders in order against the local development database. Full request/response schemas and errors are documented in docs/hassan/*.openapi.json and /docs on each service."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

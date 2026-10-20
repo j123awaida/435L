@@ -1,0 +1,52 @@
+{
+  "captured_at": "2026-10-20T10:07:43.803888+00:00",
+  "student": "Hassan Nasrallah",
+  "source": "Real HTTP calls to independently running local services",
+  "passed": true,
+  "checks": [
+    "Real HTTP asset creation, employee report and administrator assignment",
+    "Real Service 3 \u2192 Service 8 HTTP notification delivery and idempotent retry",
+    "Service 1 bearer token accepted by unmodified Service 7",
+    "Durable delivered event and valid database foreign keys"
+  ],
+  "asset": {
+    "id": 5,
+    "name": "HTTP integration host",
+    "owner_id": 3,
+    "asset_type": "Server",
+    "ip_address": "192.0.2.77",
+    "operating_system": null,
+    "department": "IT",
+    "location": "Lab",
+    "criticality": "High",
+    "status": "Active",
+    "created_at": "2026-10-20T10:07:43.186717+00:00"
+  },
+  "incident": {
+    "title": "HTTP assignment integration",
+    "description": "Verify actual incident assignment alert delivery",
+    "category": "Unauthorized access",
+    "severity": "High",
+    "reporter_id": 3,
+    "asset_id": 5,
+    "id": 2,
+    "assigned_analyst_id": 2,
+    "status": "Open",
+    "created_at": "2026-10-20T10:07:43.220402+00:00",
+    "resolution_date": null
+  },
+  "notification": {
+    "user_id": 2,
+    "title": "Incident assigned: HTTP assignment integration",
+    "message": "Investigate incident 2: Verify actual incident assignment alert delivery",
+    "notification_type": "Incident Assignment",
+    "severity": "High",
+    "id": 2,
+    "status": "Unread",
+    "created_at": "2026-10-20T10:07:43.687870+00:00",
+    "read_date": null
+  },
+  "duplicate_status": 201,
+  "duplicate_notification_id": 2,
+  "outbox_status": "Delivered"
+}
