@@ -24,3 +24,4 @@ def initialize():
     with connect() as db:
         db.executescript(Path(__file__).with_name('schema.sql').read_text())
         db.executescript(Path(__file__).with_name('sprint123_schema.sql').read_text())
+        db.executescript(Path(__file__).with_name('sprint456_schema.sql').read_text())
