@@ -15,6 +15,24 @@ Hassan's APIs use `/Hassan-Nasrallah`: identity on port **8000**, assets on **80
 
 Import `postman/Hassan-Services-1-2-3.postman_collection.json` and `postman/Hassan-Local.postman_environment.json`. Set local role passwords from the ignored `data/demo-credentials.json` and run the folders in order. All team services accept the opaque bearer tokens issued by Hassan's identity service.
 
+## Mohammad Nasrallah — Sprint I, Services 4–6
+
+Threat intelligence, security audit logging and security reports are implemented on Mohammad's contribution branch, which builds on Hassan's. See [Mohammad's setup, API reference and team handoff](docs/MOHAMMAD-SPRINT1.md).
+
+```powershell
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements-lock.txt
+.venv/Scripts/python.exe -m scripts.seed_hassan
+.venv/Scripts/python.exe -m scripts.seed_mohammad
+.venv/Scripts/python.exe -m scripts.run_mohammad --with-team
+```
+
+Mohammad's APIs use `/Mohammad-Nasrallah`: threats on port **8004**, audit logs on **8005**, reports on **8006**. Each process has `/docs`. The optional `--with-team` also starts Hassan's Services 1–3 and Joseph's Services 7–9, which Service 6 collects from over HTTP; without it, Service 6 falls back to reading the shared database and says so in each report's `sources` block. All three runners use overlapping ports, so run one at a time.
+
+Import `postman/Mohammad-Services-4-5-6.postman_collection.json` and `postman/Mohammad-Local.postman_environment.json`, set the role passwords from the ignored `data/demo-credentials.json`, and run the folders in order. Authentication uses Hassan's Service 1 on port 8000.
+
+Service 5 exposes an idempotent audit log ingestion endpoint for teammate services: see [the Service 5 integration contract](docs/MOHAMMAD-SERVICE5-INTEGRATION.md).
+
 ## Joseph Awaida — Sprint I, Services 7–9
 
 Sprint I contribution: Service 7 (Vulnerabilities), Service 8 (Notifications), Service 9 (Playbooks and response actions). Python, FastAPI, SQLite. Backend only.
