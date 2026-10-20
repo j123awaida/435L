@@ -13,7 +13,7 @@ from .models import Login
 
 PREFIX = '/Joseph-Awaida'
 
-def create_app(title):
+def create_app(title, prefix=PREFIX):
     @asynccontextmanager
     async def lifespan(app):
         initialize()
@@ -36,7 +36,7 @@ def create_app(title):
     @app.exception_handler(sqlite3.IntegrityError)
     async def integrity_error(request, exc):
         return JSONResponse(status_code=409, content={'status':'error','message':'Database constraint conflict'})
-    @app.get(PREFIX + '/health', tags=['Operations'])
+    @app.get(prefix + '/health', tags=['Operations'])
     def health():
         return {'status':'ok','service':title}
     return app
